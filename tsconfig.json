@@ -10,10 +10,16 @@
       "es2017"
     ],
     "noEmit": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true
   },
   "exclude": [
     "node_modules"
