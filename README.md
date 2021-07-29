@@ -4,10 +4,10 @@ Shopping list app containing all the users common purchases.
 
 To initialise project type
 
-```npm i
-
+```
+npm i
 ```
 
-```npm run start
-
+```
+npm run start
 ```
