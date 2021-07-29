@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {	
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": true
+		},
+		"typescript.tsdk": "node_modules\\typescript\\lib",
+		"files.exclude": {
+			"packages/ui/.cache":true,
+			"packages/ui/.next":true,
+			"packages/ui/public":true,
+			"packages/infra/build":true,
+			"packages/infra/cdk.out":true,
+			"**/.git": true, 
+			"**/.DS_Store": true, 
+			"**/node_modules": true,
+			"**/dist":true,
+			"node_modules": true
+		}
+	}
+}
