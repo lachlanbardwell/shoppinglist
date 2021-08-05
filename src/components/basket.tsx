@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, MouseEvent, ChangeEvent, useState } from 'react';
 import { Box, Button, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { products } from './items';
@@ -21,13 +21,14 @@ export const AddToBasket = () => {
           return [...basket, newItem];
         })
       : console.error('no item selected');
+
     console.log(basket);
   };
 
-  const removeItem = ({ target }: any) => {
-    console.log(target.innerHTML);
-    basket.includes(target.innerHTML)
-      ? setBasket(basket.filter((prev) => prev !== target.innerHTML))
+  const removeItem = ({ currentTarget }: MouseEvent<HTMLButtonElement>) => {
+    console.log(currentTarget.value);
+    basket.includes(currentTarget.value)
+      ? setBasket(basket.filter((prev) => prev !== currentTarget.value))
       : console.error('no such item exists');
     console.log(basket);
   };
@@ -36,8 +37,10 @@ export const AddToBasket = () => {
     <Box>
       <div>
         <Autocomplete
-          onChange={({ target }: any) => setNewItem(target.innerHTML)}
-          value={newItem}
+          onChange={(event, value) => {
+            console.log(value);
+            value && setNewItem(value);
+          }}
           renderInput={(params) => (
             <TextField
               {...params}
@@ -46,7 +49,16 @@ export const AddToBasket = () => {
               value={basket}
             ></TextField>
           )}
-          options={[...products.produce.items, ...products.deli.items]}
+          options={[
+            ...products.produce.items,
+            ...products.deli.items,
+            ...products.perishables.items,
+            ...products.meat.items,
+            ...products.grocery.items,
+            ...products.bathroom.items,
+            ...products.cleaning.items,
+            ...products.freezer.items,
+          ]}
         ></Autocomplete>
 
         <ul>
@@ -57,7 +69,7 @@ export const AddToBasket = () => {
         <br />
         {newItem.length !== 0
           ? basket.map((prev) => (
-              <Button value={prev} onClick={removeItem} key={prev}>
+              <Button value={prev} key={prev} onClick={removeItem}>
                 {prev}
               </Button>
             ))

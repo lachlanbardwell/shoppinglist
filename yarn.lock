@@ -1958,10 +1958,10 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@*":
-  "integrity" "sha512-ZHLmWMJ9jJ9PTiT58juykZpL7KjwJywFN3Rr2pTSkyQfydf/rk22yS7W8p5DaVUMQ2BQC7oYiU3FjbTM/mYrOA=="
-  "resolved" "https://registry.npmjs.org/@types/jest/-/jest-26.0.23.tgz"
-  "version" "26.0.23"
+"@types/jest@*", "@types/jest@^26.0.24":
+  "integrity" "sha512-E/X5Vib8BWqZNRlDxj9vYXhsDwPYbPINqKF9BsnSoon4RQ0D9moEuLD8txgyypFLH7J4+Lho9Nr/c8H0Fi+17w=="
+  "resolved" "https://registry.npmjs.org/@types/jest/-/jest-26.0.24.tgz"
+  "version" "26.0.24"
   dependencies:
     "jest-diff" "^26.0.0"
     "pretty-format" "^26.0.0"
@@ -1981,10 +1981,10 @@
   "resolved" "https://registry.npmjs.org/@types/minimatch/-/minimatch-3.0.3.tgz"
   "version" "3.0.3"
 
-"@types/node@*":
-  "integrity" "sha512-bnoqK579sAYrQbp73wwglccjJ4sfRdKU7WNEZ5FW4K2U6Kc0/eZ5kvXG0JKsEKFB50zrFmfFt52/cvBbZa7eXg=="
-  "resolved" "https://registry.npmjs.org/@types/node/-/node-13.9.2.tgz"
-  "version" "13.9.2"
+"@types/node@*", "@types/node@^16.4.10":
+  "integrity" "sha512-TmVHsm43br64js9BqHWqiDZA+xMtbUpI1MBIA0EyiBmoV9pcEYFOSdj5fr6enZNfh4fChh+AGOLIzGwJnkshyQ=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-16.4.10.tgz"
+  "version" "16.4.10"
 
 "@types/normalize-package-data@^2.4.0":
   "integrity" "sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA=="
@@ -2025,10 +2025,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.8.6 || ^17.0.0":
-  "integrity" "sha512-D/G3PiuqTfE3IMNjLn/DCp6umjVCSvtZTPdtAFy5+Ved6CsdRvivfKeCzw79W4AatShtU4nGqgvOv5Gro534vQ=="
-  "resolved" "https://registry.npmjs.org/@types/react/-/react-17.0.13.tgz"
-  "version" "17.0.13"
+"@types/react@*", "@types/react@^16.8.6 || ^17.0.0", "@types/react@^17.0.15":
+  "integrity" "sha512-uTKHDK9STXFHLaKv6IMnwp52fm0hwU+N89w/p9grdUqcFA6WuqDyPhaWopbNyE1k/VhgzmHl8pu1L4wITtmlLw=="
+  "resolved" "https://registry.npmjs.org/@types/react/-/react-17.0.15.tgz"
+  "version" "17.0.15"
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
