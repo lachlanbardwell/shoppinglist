@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export const RecieveInCart = () => {
-    const [cart, setCart] = useState([]);
-    
-
-}
+export const Cart: React.FC = () => {
+  return (
+    <div>
+      <h1>In your cart:</h1>
+    </div>
+  );
+};

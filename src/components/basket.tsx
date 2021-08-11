@@ -2,16 +2,18 @@ import React, { useEffect, MouseEvent, ChangeEvent, useState } from 'react';
 import { Box, Button, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { products } from './items';
+import { Cart } from './cart';
+import { Retailer } from './retailer';
 
 export const AddToBasket = () => {
   const [basket, setBasket] = useState<string[]>([]);
   const [newItem, setNewItem] = useState<string>('');
 
-  // useEffect(() => {
-  //   basket.length === 0
-  //     ? alert('CONSUME CAPITALIST GOODS')
-  //     : console.log('it begins...');
-  // }, [basket]);
+  useEffect(() => {
+    setTimeout(() => {
+      console.log('updating basket...');
+    }, 500);
+  }, [basket]);
 
   const addItem = () => {
     basket.includes(newItem)
@@ -22,23 +24,27 @@ export const AddToBasket = () => {
         })
       : console.error('no item selected');
 
-    console.log(basket);
+    // console.log(basket);
   };
 
   const removeItem = ({ currentTarget }: MouseEvent<HTMLButtonElement>) => {
-    console.log(currentTarget.value);
+    // console.log(currentTarget.value);
     basket.includes(currentTarget.value)
       ? setBasket(basket.filter((prev) => prev !== currentTarget.value))
       : console.error('no such item exists');
-    console.log(basket);
+    // console.log(basket);
   };
 
   return (
     <Box>
       <div>
+        <h2> Choice of retailer: </h2>
+
+        <Retailer />
+        <br />
         <Autocomplete
           onChange={(event, value) => {
-            console.log(value);
+            // console.log(value);
             value && setNewItem(value);
           }}
           renderInput={(params) => (
@@ -65,13 +71,17 @@ export const AddToBasket = () => {
           <Button onClick={addItem}>Add to basket</Button>
         </ul>
 
-        <h2>Basket contents:</h2>
+        <Cart />
+
         <br />
         {newItem.length !== 0
           ? basket.map((prev) => (
-              <Button value={prev} key={prev} onClick={removeItem}>
+              <h3 key={prev}>
                 {prev}
-              </Button>
+                <Button value={prev} key={prev} onClick={removeItem}>
+                  x
+                </Button>
+              </h3>
             ))
           : console.log('basket is empty')}
       </div>
