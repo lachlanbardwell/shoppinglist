@@ -8,9 +8,9 @@ export const Retailer = () => {
   const [store, setStore] = useState<string[]>(initialStoreState);
 
   useEffect(() => {
-    if (store.length === 1) {
-      document.title = `Shopping List from ${store}`;
-    }
+    store.length === 1
+      ? (document.title = `Shopping List from ${store}`)
+      : (document.title = 'Shopping List');
   }, [store]);
 
   const Indicator = () => {
