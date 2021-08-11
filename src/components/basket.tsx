@@ -38,8 +38,6 @@ export const AddToBasket = () => {
   return (
     <Box>
       <div>
-        <h2> Choice of retailer: </h2>
-
         <Retailer />
         <br />
         <Autocomplete

@@ -28,17 +28,20 @@ export const Retailer = () => {
   };
 
   return (
-    <Grid>
-      {store.map((prev, index) => {
-        return (
-          <ButtonGroup color="primary" key={prev} orientation="vertical">
-            <Button key={prev} value={prev} onClick={selectStore}>
-              {prev}
-            </Button>
-          </ButtonGroup>
-        );
-      })}
-      {store.length === 1 ? <Indicator /> : <br />}
-    </Grid>
+    <div>
+      {store.length > 1 ? <h2>Shopping from:</h2> : <br />}
+      <Grid>
+        {store.map((prev) => {
+          return (
+            <ButtonGroup color="primary" key={prev} orientation="vertical">
+              <Button key={prev} value={prev} onClick={selectStore}>
+                {store.length === 1 ? 'Re-select' : prev}
+              </Button>
+            </ButtonGroup>
+          );
+        })}
+        {store.length === 1 ? <Indicator /> : <br />}
+      </Grid>
+    </div>
   );
 };
