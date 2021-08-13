@@ -64,14 +64,13 @@ export const AddToBasket = () => {
             ...products.freezer.items,
           ]}
         ></Autocomplete>
-
-        <ul>
-          <Button onClick={addItem}>Add to basket</Button>
-        </ul>
+        <br />
+        <Button className="addButton" onClick={addItem}>
+          Add to basket
+        </Button>
 
         <Cart />
 
-        <br />
         {newItem.length !== 0
           ? basket.map((prev) => (
               <h3 key={prev}>

@@ -22,3 +22,28 @@
 .App-link {
   color: #61dafb;
 }
+
+.addButton {
+  background-color: #161668;
+}
+
+#retailerButtons > .retailerBtn {
+  background-color: #214621d3;
+  color: white;
+}
+
+.cartHeading {
+  font-size: 30px;
+  color: #111130;
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+.storeImage {
+  border-radius: 10px;
+}
+
+.storeImage:hover {
+  transition: 500ms;
+  opacity: 0.85;
+}

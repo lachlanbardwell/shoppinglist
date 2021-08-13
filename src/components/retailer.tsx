@@ -14,7 +14,7 @@ export const Retailer = () => {
   }, [store]);
 
   const Indicator = () => {
-    return <p>{`Make your selection from ${store}!`}</p>;
+    return <p>{`Now shopping at ${store}`}</p>;
   };
 
   const selectStore = ({
@@ -30,11 +30,24 @@ export const Retailer = () => {
   return (
     <div>
       {store.length > 1 ? <h2>Shopping from:</h2> : <br />}
+
       <Grid>
         {store.map((prev) => {
           return (
-            <ButtonGroup color="primary" key={prev} orientation="vertical">
-              <Button key={prev} value={prev} onClick={selectStore}>
+            <ButtonGroup
+              id="retailerButtons"
+              color="primary"
+              key={prev}
+              orientation="vertical"
+            >
+              <Button
+                className="retailerBtn"
+                variant="contained"
+                color="primary"
+                key={prev}
+                value={prev}
+                onClick={selectStore}
+              >
                 {store.length === 1 ? 'Re-select' : prev}
               </Button>
             </ButtonGroup>
@@ -42,6 +55,12 @@ export const Retailer = () => {
         })}
         {store.length === 1 ? <Indicator /> : <br />}
       </Grid>
+      {store.length === 1 ? (
+        <img
+          className="storeImage"
+          src={`https://logo.clearbit.com/${store}.com.au`}
+        ></img>
+      ) : null}
     </div>
   );
 };
