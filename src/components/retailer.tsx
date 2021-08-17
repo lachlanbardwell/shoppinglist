@@ -3,7 +3,7 @@ import { Button, ButtonGroup, Grid } from '@material-ui/core';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-export const Retailer = () => {
+export const Retailer: React.FC = () => {
   const initialStoreState = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
   const [store, setStore] = useState<string[]>(initialStoreState);
 
@@ -60,6 +60,12 @@ export const Retailer = () => {
           className="storeImage"
           src={`https://logo.clearbit.com/${store}.com.au`}
         ></img>
+      ) : null}
+      <br />
+      {store.length === 1 ? (
+        <a className="logo" href="https://clearbit.com">
+          Logos provided by Clearbit
+        </a>
       ) : null}
     </div>
   );

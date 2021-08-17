@@ -1,18 +1,21 @@
-import React, { useEffect, MouseEvent, ChangeEvent, useState } from 'react';
+import React, { useEffect, MouseEvent, useState, useRef } from 'react';
 import { Box, Button, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { products } from './items';
 import { Cart } from './cart';
 import { Retailer } from './retailer';
 
-export const AddToBasket = () => {
+export const AddToBasket: React.FC = () => {
   const [basket, setBasket] = useState<string[]>([]);
   const [newItem, setNewItem] = useState<string>('');
+  const initialRender = useRef<boolean>(true);
 
   useEffect(() => {
     setTimeout(() => {
-      console.log('updating basket...');
-    }, 500);
+      initialRender.current
+        ? (initialRender.current = false)
+        : console.log('updating basket...');
+    }, 100);
   }, [basket]);
 
   const addItem = () => {
@@ -23,16 +26,12 @@ export const AddToBasket = () => {
           return [...basket, newItem];
         })
       : console.error('no item selected');
-
-    // console.log(basket);
   };
 
   const removeItem = ({ currentTarget }: MouseEvent<HTMLButtonElement>) => {
-    // console.log(currentTarget.value);
     basket.includes(currentTarget.value)
       ? setBasket(basket.filter((prev) => prev !== currentTarget.value))
       : console.error('no such item exists');
-    // console.log(basket);
   };
 
   return (
@@ -42,7 +41,6 @@ export const AddToBasket = () => {
         <br />
         <Autocomplete
           onChange={(event, value) => {
-            // console.log(value);
             value && setNewItem(value);
           }}
           renderInput={(params) => (

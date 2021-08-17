@@ -35,8 +35,19 @@
 .cartHeading {
   font-size: 30px;
   color: #111130;
-  text-decoration: underline;
+
   opacity: 0.9;
+}
+
+.logo {
+  text-decoration: none;
+  color: black;
+  font-size: 12;
+}
+
+.logo:hover {
+  transition: 300ms;
+  font-size: 1.05em;
 }
 
 .storeImage {
