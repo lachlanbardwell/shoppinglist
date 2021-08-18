@@ -50,6 +50,11 @@
   font-size: 1.05em;
 }
 
+.priceHeader {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .storeImage {
   border-radius: 10px;
 }
