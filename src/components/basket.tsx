@@ -4,9 +4,11 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import { products } from './items';
 import { Cart } from './cart';
 import { Retailer } from './retailer';
+import axios from 'axios';
 
 export const AddToBasket: React.FC = () => {
   const [basket, setBasket] = useState<string[]>([]);
+  const [items, setItems] = useState<any>([]);
   const [newItem, setNewItem] = useState<string>('');
   const initialRender = useRef<boolean>(true);
 
@@ -16,6 +18,21 @@ export const AddToBasket: React.FC = () => {
         ? (initialRender.current = false)
         : console.log('updating basket...');
     }, 100);
+  }, [basket]);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001/items')
+      .then((res) => {
+        let wwArray = res.data[0].woolWorths.produce;
+        let wwOptions = wwArray.map((prev: string[]) => Object.values(prev)[0]);
+        setItems(() => {
+          return [...wwOptions];
+        });
+      })
+      .catch((error) => console.error(error));
+
+    console.log(items);
   }, [basket]);
 
   const addItem = () => {
@@ -51,16 +68,7 @@ export const AddToBasket: React.FC = () => {
               value={basket}
             ></TextField>
           )}
-          options={[
-            ...products.produce.items,
-            ...products.deli.items,
-            ...products.perishables.items,
-            ...products.meat.items,
-            ...products.grocery.items,
-            ...products.bathroom.items,
-            ...products.cleaning.items,
-            ...products.freezer.items,
-          ]}
+          options={items.length < 1 ? ['loading...'] : [...items]}
         ></Autocomplete>
         <br />
         <Button className="addButton" onClick={addItem}>
