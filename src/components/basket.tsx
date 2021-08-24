@@ -10,7 +10,7 @@ export const AddToBasket: React.FC = () => {
   const [basket, setBasket] = useState<string[]>([]);
   const [newItem, setNewItem] = useState<string>('');
   const [items, setItems] = useState<string[] | null>(null);
-  const [price, setPrice] = useState<number>(0);
+  const [price, setPrice] = useState<number[]>([]);
   const initialRender = useRef<boolean>(true);
 
   useEffect(() => {
@@ -29,6 +29,12 @@ export const AddToBasket: React.FC = () => {
       .get('http://localhost:3001/items')
       .then((res) => {
         let wwArray = res.data[0].woolWorths.produce;
+
+        if (newItem) {
+          let itemData = wwArray.find((prev: any) => prev.id === newItem);
+
+          setPrice(() => [...price, itemData.price]);
+        }
         let wwSecondArray = wwArray.map((prev: string[]) =>
           Object.values(prev),
         );
@@ -41,11 +47,11 @@ export const AddToBasket: React.FC = () => {
         let wwPrices = wwSecondArray.filter((prev: any) =>
           prev.includes(newItem),
         );
-        newItem
-          ? setPrice(() => {
-              return wwPrices[0][3];
-            })
-          : console.log('current price is 0');
+        // newItem
+        //   ? setPrice(() => {
+        //       return wwPrices[0][3];
+        //     })
+        //   : console.log('current price is 0');
       })
       .catch((error) => {
         setItems([]);
@@ -63,6 +69,7 @@ export const AddToBasket: React.FC = () => {
     } else {
       console.log('no item selected');
     }
+    console.log(basket);
     console.log(newItem);
     console.log(price);
   };
@@ -103,10 +110,10 @@ export const AddToBasket: React.FC = () => {
         <Cart></Cart>
         <Price price={price} />
         {newItem.length !== 0
-          ? basket.map((prev) => (
-              <h3 key={prev}>
+          ? basket.map((prev, index) => (
+              <h3 key={index}>
                 {prev}
-                <Button value={prev} key={prev} onClick={removeItem}>
+                <Button value={prev} key={index} onClick={removeItem}>
                   x
                 </Button>
               </h3>

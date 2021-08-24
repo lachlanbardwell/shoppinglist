@@ -1,23 +1,27 @@
-import React, { useEffect, useRef, useReducer } from 'react';
+import React, { useMemo } from 'react';
 
 interface TypePrice {
-  price: number;
-  // totalPrice: number;
+  price: number[];
 }
 
-export const Price: React.FC<TypePrice> = ({ price }) => {
-  let priceArray: number[] = [];
-
-  useEffect(() => {
-    priceArray.push(price);
-    console.log(priceArray);
-    let totalPrice = priceArray.reduce((a: number, b: number) => a + b);
-    console.log(totalPrice);
-  }, [price]);
+//Alternatively pass {price}. Just demoing props
+export const Price: React.FC<TypePrice> = (props) => {
+  const totalPrice = useMemo(() => {
+    if (props.price.length > 1) {
+      let newPrice = props.price
+        .reduce((a: number, b: number) => a + b)
+        .toFixed(2);
+      return newPrice;
+    } else if (props.price.length === 1) {
+      return props.price;
+    } else {
+      return 0;
+    }
+  }, [props.price]);
 
   return (
     <div>
-      <h1 className="priceHeader">{`Total Price: $${price}`}</h1>
+      <h2 className="priceHeader">{`Total Price: $${totalPrice}`}</h2>
     </div>
   );
 };
