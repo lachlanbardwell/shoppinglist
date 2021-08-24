@@ -44,9 +44,6 @@ export const AddToBasket: React.FC = () => {
         setItems(() => {
           return [...wwOptions];
         });
-        let wwPrices = wwSecondArray.filter((prev: any) =>
-          prev.includes(newItem),
-        );
         // newItem
         //   ? setPrice(() => {
         //       return wwPrices[0][3];

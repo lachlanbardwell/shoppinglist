@@ -21,7 +21,9 @@ export const Price: React.FC<TypePrice> = (props) => {
 
   return (
     <div>
-      <h2 className="priceHeader">{`Total Price: $${totalPrice}`}</h2>
+      <h2 className="priceHeader">
+        {`Total Price: $${totalPrice}`}Way 2 expensive
+      </h2>
     </div>
   );
 };
