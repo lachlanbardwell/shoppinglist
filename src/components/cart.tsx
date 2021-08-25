@@ -1,9 +1,15 @@
 import React from 'react';
 
-export const Cart: React.FC = () => {
+interface cartStore {
+  store: string[];
+}
+
+export const Cart: React.FC<cartStore> = ({ store }) => {
   return (
     <div>
-      <h1 className="cartHeading">In your cart:</h1>
+      <h1 className="cartHeading">
+        {store.length === 1 ? `${store} cart items:` : null}
+      </h1>
     </div>
   );
 };

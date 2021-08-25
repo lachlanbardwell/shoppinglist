@@ -5,6 +5,7 @@ import { Cart } from './cart';
 import { Retailer } from './retailer';
 import axios from 'axios';
 import { Price } from './price';
+import { DisplayError } from './display-error';
 
 export const AddToBasket: React.FC = () => {
   const [basket, setBasket] = useState<string[]>([]);
@@ -12,6 +13,9 @@ export const AddToBasket: React.FC = () => {
   const [items, setItems] = useState<string[] | null>(null);
   const [price, setPrice] = useState<number[]>([]);
   const initialRender = useRef<boolean>(true);
+  const initialStoreState = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
+  const [store, setStore] = useState<string[]>(initialStoreState);
+  const [listError, setListError] = useState<boolean>(false);
 
   useEffect(() => {
     // if (items == null) {
@@ -32,7 +36,6 @@ export const AddToBasket: React.FC = () => {
 
         if (newItem) {
           let itemData = wwArray.find((prev: any) => prev.id === newItem);
-
           setPrice(() => [...price, itemData.price]);
         }
         let wwSecondArray = wwArray.map((prev: string[]) =>
@@ -44,11 +47,6 @@ export const AddToBasket: React.FC = () => {
         setItems(() => {
           return [...wwOptions];
         });
-        // newItem
-        //   ? setPrice(() => {
-        //       return wwPrices[0][3];
-        //     })
-        //   : console.log('current price is 0');
       })
       .catch((error) => {
         setItems([]);
@@ -58,36 +56,50 @@ export const AddToBasket: React.FC = () => {
 
   const addItem = () => {
     if (newItem.length > 0) {
-      basket.includes(newItem)
-        ? console.error('duplicate detected')
-        : setBasket((basket) => {
-            return [...basket, newItem];
-          });
+      if (basket.includes(newItem)) {
+        setListError(true);
+      } else {
+        setBasket((basket) => {
+          return [...basket, newItem];
+        });
+        setListError(false);
+      }
     } else {
       console.log('no item selected');
     }
     console.log(basket);
     console.log(newItem);
-    console.log(price);
   };
 
   const removeItem = ({ currentTarget }: MouseEvent<HTMLButtonElement>) => {
-    basket.includes(currentTarget.value)
-      ? setBasket(basket.filter((prev) => prev !== currentTarget.value))
-      : console.error('no such item exists');
+    if (basket.includes(currentTarget.value)) {
+      setBasket(basket.filter((prev) => prev !== currentTarget.value));
+      setListError(false);
+    } else {
+      console.error('no such item exists');
+    }
+  };
+
+  const selectStore = ({
+    currentTarget,
+  }: React.MouseEvent<HTMLButtonElement>) => {
+    if (store.length > 1) {
+      setStore(store.filter((prev) => prev === currentTarget.value));
+    } else {
+      setStore(initialStoreState);
+    }
   };
 
   return (
     <Box>
       <div>
-        <Retailer />
+        <Retailer store={store} selectStore={selectStore} />
         <br />
         <Autocomplete
           onChange={(event, value: string | null) => {
             value && value !== 'loading...'
               ? setNewItem(value)
               : setNewItem('');
-            console.log(newItem);
           }}
           renderInput={(params) => (
             <TextField
@@ -103,8 +115,8 @@ export const AddToBasket: React.FC = () => {
         <Button className="addButton" onClick={addItem}>
           Add to basket
         </Button>
-
-        <Cart></Cart>
+        {listError === true ? <DisplayError /> : null}
+        <Cart store={store}></Cart>
         <Price price={price} />
         {newItem.length !== 0
           ? basket.map((prev, index) => (

@@ -4,6 +4,12 @@ interface TypePrice {
   price: number[];
 }
 
+const priceStyles: React.CSSProperties = {
+  color: 'darkblue',
+  // background: '#e9e9e9',
+  display: 'flex',
+};
+
 //Alternatively pass {price}. Just demoing props
 export const Price: React.FC<TypePrice> = (props) => {
   const totalPrice = useMemo(() => {
@@ -21,9 +27,10 @@ export const Price: React.FC<TypePrice> = (props) => {
 
   return (
     <div>
-      <h2 className="priceHeader">
-        {`Total Price: $${totalPrice}`}Way 2 expensive
-      </h2>
+      <h2
+        className="priceHeader"
+        style={priceStyles}
+      >{`Total Price: $${totalPrice}`}</h2>
     </div>
   );
 };

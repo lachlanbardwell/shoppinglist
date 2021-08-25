@@ -1,38 +1,29 @@
 import React from 'react';
 import { Button, ButtonGroup, Grid } from '@material-ui/core';
-import { useState } from 'react';
 import { useEffect } from 'react';
 
-export const Retailer: React.FC = () => {
-  const initialStoreState = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
-  const [store, setStore] = useState<string[]>(initialStoreState);
+interface retailerStore {
+  store: string[];
+  selectStore: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
+export const Retailer: React.FC<retailerStore> = (props) => {
   useEffect(() => {
-    store.length === 1
-      ? (document.title = `Shopping List from ${store}`)
+    props.store.length === 1
+      ? (document.title = `Shopping List from ${props.store}`)
       : (document.title = 'Shopping List');
-  }, [store]);
+  }, [props.store]);
 
   const Indicator = () => {
-    return <p>{`Now shopping at ${store}`}</p>;
-  };
-
-  const selectStore = ({
-    currentTarget,
-  }: React.MouseEvent<HTMLButtonElement>) => {
-    if (store.length > 1) {
-      setStore(() => store.filter((prev) => prev === currentTarget.value));
-    } else {
-      setStore(initialStoreState);
-    }
+    return <p>{`Now shopping at ${props.store}`}</p>;
   };
 
   return (
     <div>
-      {store.length > 1 ? <h2>Shopping from:</h2> : <br />}
+      {props.store.length > 1 ? <h2>Shopping from:</h2> : <br />}
 
       <Grid>
-        {store.map((prev) => {
+        {props.store.map((prev) => {
           return (
             <ButtonGroup
               id="retailerButtons"
@@ -46,23 +37,23 @@ export const Retailer: React.FC = () => {
                 color="primary"
                 key={prev}
                 value={prev}
-                onClick={selectStore}
+                onClick={props.selectStore}
               >
-                {store.length === 1 ? 'Re-select' : prev}
+                {props.store.length === 1 ? 'Re-select' : prev}
               </Button>
             </ButtonGroup>
           );
         })}
-        {store.length === 1 ? <Indicator /> : <br />}
+        {props.store.length === 1 ? <Indicator /> : <br />}
       </Grid>
-      {store.length === 1 ? (
+      {props.store.length === 1 ? (
         <img
           className="storeImage"
-          src={`https://logo.clearbit.com/${store}.com.au`}
+          src={`https://logo.clearbit.com/${props.store}.com.au`}
         ></img>
       ) : null}
       <br />
-      {store.length === 1 ? (
+      {props.store.length === 1 ? (
         <a className="logo" href="https://clearbit.com">
           Logos provided by Clearbit
         </a>
