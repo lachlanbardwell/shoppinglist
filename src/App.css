@@ -39,7 +39,7 @@
   opacity: 0.9;
 }
 
-.listError {
+.errorStyles {
   font-family: 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
   color: red;
 }

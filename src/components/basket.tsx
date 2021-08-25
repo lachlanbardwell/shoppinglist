@@ -6,16 +6,18 @@ import { Retailer } from './retailer';
 import axios from 'axios';
 import { Price } from './price';
 import { DisplayError } from './display-error';
+import { IProduct } from '../models';
 
 export const AddToBasket: React.FC = () => {
   const [basket, setBasket] = useState<string[]>([]);
   const [newItem, setNewItem] = useState<string>('');
   const [items, setItems] = useState<string[] | null>(null);
-  const [price, setPrice] = useState<number[]>([]);
+  const [productPayload, setProductPayload] = useState<IProduct[]>([]);
   const initialRender = useRef<boolean>(true);
   const initialStoreState = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
   const [store, setStore] = useState<string[]>(initialStoreState);
   const [listError, setListError] = useState<boolean>(false);
+  const [formError, setFormError] = useState<boolean>(false);
 
   useEffect(() => {
     // if (items == null) {
@@ -30,13 +32,13 @@ export const AddToBasket: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/items')
+      .get(`http://${global.window.location.hostname}:3001/items`)
       .then((res) => {
         let wwArray = res.data[0].woolWorths.produce;
 
         if (newItem) {
           let itemData = wwArray.find((prev: any) => prev.id === newItem);
-          setPrice(() => [...price, itemData.price]);
+          setProductPayload(() => [...productPayload, itemData]);
         }
         let wwSecondArray = wwArray.map((prev: string[]) =>
           Object.values(prev),
@@ -59,22 +61,32 @@ export const AddToBasket: React.FC = () => {
       if (basket.includes(newItem)) {
         setListError(true);
       } else {
+        setFormError(false);
         setBasket((basket) => {
           return [...basket, newItem];
         });
         setListError(false);
       }
     } else {
-      console.log('no item selected');
+      setFormError(true);
     }
-    console.log(basket);
-    console.log(newItem);
   };
 
-  const removeItem = ({ currentTarget }: MouseEvent<HTMLButtonElement>) => {
+  const removeItem = ({ currentTarget }: any) => {
     if (basket.includes(currentTarget.value)) {
-      setBasket(basket.filter((prev) => prev !== currentTarget.value));
+      // basket.filter((prev) => prev !== currentTarget.value);
+      setNewItem('');
+      setFormError(false);
+      setBasket((prev) => prev.filter((item) => item !== currentTarget.value));
       setListError(false);
+      setProductPayload((prev) => {
+        const result = prev.filter((product) => {
+          console.log(product, currentTarget.value);
+          return product.id !== currentTarget.value;
+        });
+        console.log('the results is', result);
+        return result;
+      });
     } else {
       console.error('no such item exists');
     }
@@ -115,19 +127,19 @@ export const AddToBasket: React.FC = () => {
         <Button className="addButton" onClick={addItem}>
           Add to basket
         </Button>
-        {listError === true ? <DisplayError /> : null}
+        <DisplayError listError={listError} formError={formError} />
         <Cart store={store}></Cart>
-        <Price price={price} />
-        {newItem.length !== 0
-          ? basket.map((prev, index) => (
+        <Price productPayload={productPayload} />
+        {productPayload.length === 0
+          ? console.log('basket is empty')
+          : productPayload.map((prev, index) => (
               <h3 key={index}>
-                {prev}
-                <Button value={prev} key={index} onClick={removeItem}>
+                {prev.id}
+                <Button value={prev.id} key={index} onClick={removeItem}>
                   x
                 </Button>
               </h3>
-            ))
-          : console.log('basket is empty')}
+            ))}
       </div>
     </Box>
   );
