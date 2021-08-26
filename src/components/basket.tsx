@@ -16,7 +16,7 @@ export const AddToBasket: React.FC = () => {
   const [items, setItems] = useState<string[] | null>(null);
   const [productPayload, setProductPayload] = useState<IProduct[]>([]);
   const initialRender = useRef<boolean>(true);
-  const initialStoreState = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
+  const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
   const [store, setStore] = useState<string[]>(initialStoreState);
   const [listError, setListError] = useState<boolean>(false);
   const [formError, setFormError] = useState<boolean>(false);
@@ -111,34 +111,32 @@ export const AddToBasket: React.FC = () => {
       <div>
         <Retailer store={store} selectStore={selectStore} />
         <br />
-        {store.length === 1 ? (
-          <>
-            <Autocomplete
-              onChange={(event, value: string | null) => {
-                value && value !== 'loading...'
-                  ? setNewItem(value)
-                  : setNewItem('');
-              }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  variant="filled"
-                  label="What do you want to buy?"
-                  value={basket}
-                ></TextField>
-              )}
-              options={items == null ? ['loading...'] : [...items]}
-            ></Autocomplete>
 
-            <br />
-            <Button className="addButton" onClick={addItem}>
-              Add to basket
-            </Button>
-            <DisplayError listError={listError} formError={formError} />
-            <Cart store={store}></Cart>
-            <Price productPayload={productPayload} />
-          </>
-        ) : null}
+        <Autocomplete
+          onChange={(event, value: string | null) => {
+            value && value !== 'loading...'
+              ? setNewItem(value)
+              : setNewItem('');
+          }}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              variant="filled"
+              label="What do you want to buy?"
+              value={basket}
+            ></TextField>
+          )}
+          options={items == null ? ['loading...'] : [...items]}
+        ></Autocomplete>
+
+        <br />
+        <Button className="addButton" onClick={addItem}>
+          Add to basket
+        </Button>
+        <DisplayError listError={listError} formError={formError} />
+        <Cart store={store}></Cart>
+        <Price productPayload={productPayload} />
+
         {productPayload.length === 0
           ? null
           : productPayload.map((prev, index) => (
