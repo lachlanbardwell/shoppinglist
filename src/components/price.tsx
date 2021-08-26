@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { IProduct } from '../models';
 
 interface TypePrice {
@@ -7,21 +7,18 @@ interface TypePrice {
 
 const priceStyles: React.CSSProperties = {
   color: 'darkblue',
-  // background: '#e9e9e9',
   display: 'flex',
 };
 
 //Alternatively pass {price}. Just demoing props
 export const Price: React.FC<TypePrice> = (props) => {
   const totalPrice = () => {
-    if (props.productPayload.length > 1) {
+    if (props.productPayload.length >= 1) {
       let newPrice = props.productPayload
         .reduce((total: number, next: IProduct) => total + next.price, 0)
         .toFixed(2);
       return newPrice;
-    } else if (props.productPayload.length === 1) {
-      return props.productPayload[0].price;
-    } else if (props.productPayload.length === 0) {
+    } else {
       return 0;
     }
   };

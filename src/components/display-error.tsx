@@ -11,8 +11,8 @@ export const DisplayError: React.FC<ErrorDisplay> = ({
 }) => {
   return (
     <h3 className="errorStyles">
-      {listError === true ? `You may only select one of each item.` : null}{' '}
-      {formError === true ? `No item selected.` : null}
+      {!listError ? '' : `You may only select one of each item.`}{' '}
+      {!formError ? '' : `No item selected.`}
     </h3>
   );
 };

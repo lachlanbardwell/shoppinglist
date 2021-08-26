@@ -7,6 +7,8 @@ import axios from 'axios';
 import { Price } from './price';
 import { DisplayError } from './display-error';
 import { IProduct } from '../models';
+// import configData from '../config.js';
+// configData.SERVER_URL
 
 export const AddToBasket: React.FC = () => {
   const [basket, setBasket] = useState<string[]>([]);
@@ -32,13 +34,15 @@ export const AddToBasket: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get(`http://${global.window.location.hostname}:3001/items`)
+      .get('http://localhost:3001/items')
       .then((res) => {
         let wwArray = res.data[0].woolWorths.produce;
 
         if (newItem) {
           let itemData = wwArray.find((prev: any) => prev.id === newItem);
-          setProductPayload(() => [...productPayload, itemData]);
+          !itemData
+            ? console.error('item not found in data fetch')
+            : setProductPayload(() => [...productPayload, itemData]);
         }
         let wwSecondArray = wwArray.map((prev: string[]) =>
           Object.values(prev),
@@ -72,9 +76,10 @@ export const AddToBasket: React.FC = () => {
     }
   };
 
-  const removeItem = ({ currentTarget }: any) => {
+  const removeItem = ({
+    currentTarget,
+  }: React.MouseEvent<HTMLButtonElement>) => {
     if (basket.includes(currentTarget.value)) {
-      // basket.filter((prev) => prev !== currentTarget.value);
       setNewItem('');
       setFormError(false);
       setBasket((prev) => prev.filter((item) => item !== currentTarget.value));
@@ -84,7 +89,6 @@ export const AddToBasket: React.FC = () => {
           console.log(product, currentTarget.value);
           return product.id !== currentTarget.value;
         });
-        console.log('the results is', result);
         return result;
       });
     } else {
@@ -107,35 +111,40 @@ export const AddToBasket: React.FC = () => {
       <div>
         <Retailer store={store} selectStore={selectStore} />
         <br />
-        <Autocomplete
-          onChange={(event, value: string | null) => {
-            value && value !== 'loading...'
-              ? setNewItem(value)
-              : setNewItem('');
-          }}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              variant="filled"
-              label="What do you want to buy?"
-              value={basket}
-            ></TextField>
-          )}
-          options={items == null ? ['loading...'] : [...items]}
-        ></Autocomplete>
-        <br />
-        <Button className="addButton" onClick={addItem}>
-          Add to basket
-        </Button>
-        <DisplayError listError={listError} formError={formError} />
-        <Cart store={store}></Cart>
-        <Price productPayload={productPayload} />
+        {store.length === 1 ? (
+          <>
+            <Autocomplete
+              onChange={(event, value: string | null) => {
+                value && value !== 'loading...'
+                  ? setNewItem(value)
+                  : setNewItem('');
+              }}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  variant="filled"
+                  label="What do you want to buy?"
+                  value={basket}
+                ></TextField>
+              )}
+              options={items == null ? ['loading...'] : [...items]}
+            ></Autocomplete>
+
+            <br />
+            <Button className="addButton" onClick={addItem}>
+              Add to basket
+            </Button>
+            <DisplayError listError={listError} formError={formError} />
+            <Cart store={store}></Cart>
+            <Price productPayload={productPayload} />
+          </>
+        ) : null}
         {productPayload.length === 0
-          ? console.log('basket is empty')
+          ? null
           : productPayload.map((prev, index) => (
-              <h3 key={index}>
+              <h3 key={prev.id}>
                 {prev.id}
-                <Button value={prev.id} key={index} onClick={removeItem}>
+                <Button value={prev.id} key={prev.id} onClick={removeItem}>
                   x
                 </Button>
               </h3>
