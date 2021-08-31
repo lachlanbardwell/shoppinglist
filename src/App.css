@@ -39,11 +39,6 @@
   opacity: 0.9;
 }
 
-.errorStyles {
-  font-family: 'Roboto', 'Helvetica', 'Arial', 'sans-serif';
-  color: red;
-}
-
 .logo {
   text-decoration: none;
   color: black;

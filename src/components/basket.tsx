@@ -20,6 +20,7 @@ export const AddToBasket: React.FC = () => {
   const [store, setStore] = useState<string[]>(initialStoreState);
   const [listError, setListError] = useState<boolean>(false);
   const [formError, setFormError] = useState<boolean>(false);
+  const [fetchError, setFetchError] = useState<boolean>(false);
 
   useEffect(() => {
     // if (items == null) {
@@ -33,8 +34,16 @@ export const AddToBasket: React.FC = () => {
   }, [basket]);
 
   useEffect(() => {
+    if (store.length !== 1) {
+      if (items == null) {
+        return;
+      }
+      setFetchError(true);
+      return;
+    }
+    setFetchError(false);
     axios
-      .get('http://localhost:3001/items')
+      .get(`http://localhost:3001/items`)
       .then((res) => {
         let wwArray = res.data[0].woolWorths.produce;
 
@@ -48,8 +57,12 @@ export const AddToBasket: React.FC = () => {
           Object.values(prev),
         );
         let wwOptions = wwSecondArray.map(
-          (prev: any) => Object.values(prev)[0],
+          (prev: IProduct) => Object.values(prev)[0],
         );
+        // .sort((itemOne: IProduct, itemTwo: IProduct) => {
+        //   console.log(itemOne, itemTwo);
+        //   return itemOne.id.localeCompare(itemTwo.id);
+        // });
         setItems(() => {
           return [...wwOptions];
         });
@@ -58,10 +71,15 @@ export const AddToBasket: React.FC = () => {
         setItems([]);
         console.error(error);
       });
-  }, [basket]);
+  }, [basket, store]);
 
   const addItem = () => {
+    if (store.length !== 1) {
+      setFetchError(true);
+      return;
+    }
     if (newItem.length > 0) {
+      setFetchError(false);
       if (basket.includes(newItem)) {
         setListError(true);
       } else {
@@ -103,6 +121,8 @@ export const AddToBasket: React.FC = () => {
       setStore(store.filter((prev) => prev === currentTarget.value));
     } else {
       setStore(initialStoreState);
+      setFormError(false);
+      setListError(false);
     }
   };
 
@@ -114,7 +134,7 @@ export const AddToBasket: React.FC = () => {
 
         <Autocomplete
           onChange={(event, value: string | null) => {
-            value && value !== 'loading...'
+            value && value !== 'searching for items..'
               ? setNewItem(value)
               : setNewItem('');
           }}
@@ -126,14 +146,18 @@ export const AddToBasket: React.FC = () => {
               value={basket}
             ></TextField>
           )}
-          options={items == null ? ['loading...'] : [...items]}
+          options={items == null ? ['searching for items..'] : [...items]}
         ></Autocomplete>
 
         <br />
         <Button className="addButton" onClick={addItem}>
           Add to basket
         </Button>
-        <DisplayError listError={listError} formError={formError} />
+        <DisplayError
+          listError={listError}
+          formError={formError}
+          fetchError={fetchError}
+        />
         <Cart store={store}></Cart>
         <Price productPayload={productPayload} />
 
