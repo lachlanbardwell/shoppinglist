@@ -17,7 +17,10 @@ export const DisplayError: React.FC<ErrorDisplay> = ({
       {!listError ? (
         ''
       ) : (
-        <Alert severity="error">You may only select one of each item.</Alert>
+        <Alert severity="error">
+          Due to current lockdown restrictions, you may only purchase one of
+          each item.
+        </Alert>
       )}
       {!formError ? '' : <Alert severity="error">No item selected.</Alert>}
       {!fetchError ? '' : <Alert severity="info">Select a store above.</Alert>}
