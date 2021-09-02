@@ -16,7 +16,7 @@ export const AddToBasket: React.FC = () => {
   const [items, setItems] = useState<string[] | null>(null);
   const [productPayload, setProductPayload] = useState<IProduct[]>([]);
   const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
-  const [store, setStore] = useState<string[]>(initialStoreState);
+  const [store, setStore] = useState<any>(initialStoreState);
   const [listError, setListError] = useState<boolean>(false);
   const [formError, setFormError] = useState<boolean>(false);
   const [fetchError, setFetchError] = useState<boolean>(false);
@@ -27,13 +27,34 @@ export const AddToBasket: React.FC = () => {
       return;
     }
     axios
-      .get('http://localhost:3001/items')
+      //Type any[] as reduce is not supported
+      .get<any[]>('http://localhost:3001/items')
       .then(
         (res) => {
           let yep = res.data;
           console.log(yep);
-          console.log(yep[0]);
-          console.log(yep[0]['Woolworths']);
+          const newObject = yep.reduce(
+            //Shorthand return
+            (acc: any, retail: any) => ({
+              ...acc,
+              ...retail,
+            }),
+            {},
+          );
+          console.log(newObject);
+          console.log(newObject[store]);
+
+          // const newNewObject = Object.values(newObject);
+          // console.log(newNewObject);
+          // const threeObject: any = newNewObject.reduce(
+          //   (acc: any, department: any) => {
+          //     return { ...acc, ...department };
+          //   },
+          //   {},
+          // );
+          // console.log(threeObject);
+          // const selectedDepartment = Object.keys(threeObject);
+          // console.log(selectedDepartment);
         },
         (reject) => console.error(reject),
       )
@@ -136,7 +157,7 @@ export const AddToBasket: React.FC = () => {
     currentTarget,
   }: React.MouseEvent<HTMLButtonElement>) => {
     if (store.length > 1) {
-      setStore(store.filter((prev) => prev === currentTarget.value));
+      setStore(store.filter((prev: any) => prev === currentTarget.value));
       setProductPayload([]);
     } else {
       setStore(initialStoreState);
@@ -199,9 +220,9 @@ export const AddToBasket: React.FC = () => {
           {productPayload.length === 0
             ? null
             : productPayload.map((prev, index) => (
-                <h3 key={prev.id}>
+                <h3 key={index}>
                   {prev.id}
-                  <Button value={prev.id} key={prev.id} onClick={removeItem}>
+                  <Button value={prev.id} key={index} onClick={removeItem}>
                     x
                   </Button>
                 </h3>
@@ -216,6 +237,8 @@ export const AddToBasket: React.FC = () => {
               setProductPayload([]);
               setNewItem('');
               setValue('');
+              setFormError(false);
+              setListError(false);
             }}
           >
             Clear basket
