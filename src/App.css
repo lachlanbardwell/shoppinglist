@@ -23,18 +23,20 @@
   color: #61dafb;
 }
 
-.addButton {
-  background-color: #161668;
-}
-
 #retailerButtons > .retailerBtn {
   background-color: #214621d3;
   color: white;
 }
 
+.basketOutput {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f3f3f8;
+}
+
 .cartHeading {
   font-size: 30px;
-  color: #111130;
+  color: #0e0e42;
 
   opacity: 0.9;
 }

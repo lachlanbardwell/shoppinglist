@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 interface retailerStore {
   store: string[];
-  selectStore: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onChange: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const Retailer: React.FC<retailerStore> = (props) => {
@@ -37,7 +37,7 @@ export const Retailer: React.FC<retailerStore> = (props) => {
                 color="primary"
                 key={prev}
                 value={prev}
-                onClick={props.selectStore}
+                onClick={props.onChange}
               >
                 {props.store.length === 1 ? 'Re-select' : prev}
               </Button>

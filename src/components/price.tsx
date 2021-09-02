@@ -6,7 +6,7 @@ interface TypePrice {
 }
 
 const priceStyles: React.CSSProperties = {
-  color: 'darkblue',
+  color: '#0e0e42',
   display: 'flex',
 };
 

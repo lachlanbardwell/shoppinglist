@@ -1,4 +1,4 @@
-import React, { useEffect, MouseEvent, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Button, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Cart } from './cart';
@@ -15,23 +15,37 @@ export const AddToBasket: React.FC = () => {
   const [newItem, setNewItem] = useState<string>('');
   const [items, setItems] = useState<string[] | null>(null);
   const [productPayload, setProductPayload] = useState<IProduct[]>([]);
-  const initialRender = useRef<boolean>(true);
   const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
   const [store, setStore] = useState<string[]>(initialStoreState);
   const [listError, setListError] = useState<boolean>(false);
   const [formError, setFormError] = useState<boolean>(false);
   const [fetchError, setFetchError] = useState<boolean>(false);
+  const [value, setValue] = useState<string>('');
 
   useEffect(() => {
-    // if (items == null) {
-    //   return;
-    // }
-    setTimeout(() => {
-      initialRender.current
-        ? (initialRender.current = false)
-        : console.log('updating basket...');
-    }, 100);
-  }, [basket]);
+    if (store.length !== 1) {
+      return;
+    }
+    axios
+      .get('http://localhost:3001/items')
+      .then(
+        (res) => {
+          console.log(res.data);
+        },
+        (reject) => console.error(reject),
+      )
+      .catch((error) => console.error(error));
+  }, [store]);
+
+  useEffect(() => {
+    if (store.length > 1) {
+      setNewItem('');
+      setProductPayload([]);
+      setBasket([]);
+      setItems(null);
+      setValue('');
+    }
+  }, [store]);
 
   useEffect(() => {
     if (store.length !== 1) {
@@ -76,6 +90,7 @@ export const AddToBasket: React.FC = () => {
   const addItem = () => {
     if (store.length !== 1) {
       setFetchError(true);
+      setNewItem('');
       return;
     }
     if (newItem.length > 0) {
@@ -102,9 +117,9 @@ export const AddToBasket: React.FC = () => {
       setFormError(false);
       setBasket((prev) => prev.filter((item) => item !== currentTarget.value));
       setListError(false);
+      setValue('');
       setProductPayload((prev) => {
         const result = prev.filter((product) => {
-          console.log(product, currentTarget.value);
           return product.id !== currentTarget.value;
         });
         return result;
@@ -119,6 +134,7 @@ export const AddToBasket: React.FC = () => {
   }: React.MouseEvent<HTMLButtonElement>) => {
     if (store.length > 1) {
       setStore(store.filter((prev) => prev === currentTarget.value));
+      setProductPayload([]);
     } else {
       setStore(initialStoreState);
       setFormError(false);
@@ -126,18 +142,33 @@ export const AddToBasket: React.FC = () => {
     }
   };
 
+  const buttonStyles = {
+    color: 'white',
+    backgroundColor: '#282c34',
+  };
+
   return (
     <Box>
       <div>
-        <Retailer store={store} selectStore={selectStore} />
+        <Retailer store={store} onChange={selectStore} />
         <br />
 
         <Autocomplete
           onChange={(event, value: string | null) => {
-            value && value !== 'searching for items..'
+            value && value !== 'loading...'
               ? setNewItem(value)
               : setNewItem('');
           }}
+          onInputChange={(e, input) => {
+            if (store.length > 1) {
+              setValue('');
+            } else {
+              setValue(input);
+            }
+          }}
+          getOptionSelected={(option, value) =>
+            option === value || value === ''
+          }
           renderInput={(params) => (
             <TextField
               {...params}
@@ -146,11 +177,12 @@ export const AddToBasket: React.FC = () => {
               value={basket}
             ></TextField>
           )}
-          options={items == null ? ['searching for items..'] : [...items]}
+          options={items == null ? ['loading...'] : [...items]}
+          value={value}
         ></Autocomplete>
 
         <br />
-        <Button className="addButton" onClick={addItem}>
+        <Button style={buttonStyles} onClick={addItem}>
           Add to basket
         </Button>
         <DisplayError
@@ -160,17 +192,32 @@ export const AddToBasket: React.FC = () => {
         />
         <Cart store={store}></Cart>
         <Price productPayload={productPayload} />
-
-        {productPayload.length === 0
-          ? null
-          : productPayload.map((prev, index) => (
-              <h3 key={prev.id}>
-                {prev.id}
-                <Button value={prev.id} key={prev.id} onClick={removeItem}>
-                  x
-                </Button>
-              </h3>
-            ))}
+        <div className="basketOutput">
+          {productPayload.length === 0
+            ? null
+            : productPayload.map((prev, index) => (
+                <h3 key={prev.id}>
+                  {prev.id}
+                  <Button value={prev.id} key={prev.id} onClick={removeItem}>
+                    x
+                  </Button>
+                </h3>
+              ))}
+        </div>
+        <br />
+        {productPayload.length === 0 ? null : (
+          <Button
+            style={buttonStyles}
+            onClick={() => {
+              setBasket(['']);
+              setProductPayload([]);
+              setNewItem('');
+              setValue('');
+            }}
+          >
+            Clear basket
+          </Button>
+        )}
       </div>
     </Box>
   );
