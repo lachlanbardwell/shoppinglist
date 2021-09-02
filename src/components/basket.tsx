@@ -83,18 +83,26 @@ export const AddToBasket: React.FC = () => {
     axios
       .get(`http://localhost:3001/items`)
       .then((res) => {
-        let wwArray = res.data[0].Woolworths.produce;
-
+        const newData = res.data;
+        const newObject = newData.reduce(
+          //Shorthand return
+          (acc: any, retail: any) => ({
+            ...acc,
+            ...retail,
+          }),
+          {},
+        );
+        let storeArray = newObject[store].produce;
         if (newItem) {
-          let itemData = wwArray.find((prev: any) => prev.id === newItem);
+          let itemData = storeArray.find((prev: any) => prev.id === newItem);
           !itemData
             ? console.error('item not found in data fetch')
             : setProductPayload(() => [...productPayload, itemData]);
         }
-        let wwSecondArray = wwArray.map((prev: string[]) =>
+        let produceArray = storeArray.map((prev: string[]) =>
           Object.values(prev),
         );
-        let wwOptions = wwSecondArray.map(
+        let itemOptions = produceArray.map(
           (prev: IProduct) => Object.values(prev)[0],
         );
         // .sort((itemOne: IProduct, itemTwo: IProduct) => {
@@ -102,7 +110,7 @@ export const AddToBasket: React.FC = () => {
         //   return itemOne.id.localeCompare(itemTwo.id);
         // });
         setItems(() => {
-          return [...wwOptions];
+          return [...itemOptions];
         });
       })
       .catch((error) => {
