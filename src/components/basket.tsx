@@ -30,7 +30,10 @@ export const AddToBasket: React.FC = () => {
       .get('http://localhost:3001/items')
       .then(
         (res) => {
-          console.log(res.data);
+          let yep = res.data;
+          console.log(yep);
+          console.log(yep[0]);
+          console.log(yep[0]['Woolworths']);
         },
         (reject) => console.error(reject),
       )
@@ -59,7 +62,7 @@ export const AddToBasket: React.FC = () => {
     axios
       .get(`http://localhost:3001/items`)
       .then((res) => {
-        let wwArray = res.data[0].woolWorths.produce;
+        let wwArray = res.data[0].Woolworths.produce;
 
         if (newItem) {
           let itemData = wwArray.find((prev: any) => prev.id === newItem);
