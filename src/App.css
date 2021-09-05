@@ -52,6 +52,10 @@
   font-size: 1.05em;
 }
 
+.paperClass {
+  display: block;
+}
+
 .priceHeader {
   display: flex;
 }

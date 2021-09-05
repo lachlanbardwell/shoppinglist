@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Button, TextField } from '@material-ui/core';
+import { Box, Button, TextField, Paper } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Cart } from './cart';
 import { Retailer } from './retailer';
@@ -110,7 +110,7 @@ export const AddToBasket: React.FC = () => {
         let storeArray: any;
 
         if (!depart) {
-          console.error('no depart');
+          console.error('no department');
         }
 
         if (newItem) {
@@ -212,9 +212,16 @@ export const AddToBasket: React.FC = () => {
         <Retailer store={store} onChange={selectStore} />
         <br />
         {store.length === 1 ? (
-          <Button style={buttonStyles} onClick={changeDepart}>
-            Change Department
-          </Button>
+          <>
+            <Paper className="paperClass">
+              <h2 className="cartHeading">
+                Department : {depart.toUpperCase()}
+              </h2>
+            </Paper>
+            <Button style={buttonStyles} onClick={changeDepart}>
+              Change Department
+            </Button>
+          </>
         ) : null}
         <br />
         <Autocomplete
