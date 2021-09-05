@@ -3,13 +3,14 @@ import { Button, ButtonGroup, Grid } from '@material-ui/core';
 import { useEffect } from 'react';
 
 interface retailerStore {
-  store: string[];
-  onChange: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  store: string;
+  storeList: string[];
+  setStore: (nextStore: string) => void;
 }
 
 export const Retailer: React.FC<retailerStore> = (props) => {
   useEffect(() => {
-    props.store.length === 1
+    props.store
       ? (document.title = `Shopping List from ${props.store}`)
       : (document.title = 'Shopping List');
   }, [props.store]);
@@ -20,40 +21,46 @@ export const Retailer: React.FC<retailerStore> = (props) => {
 
   return (
     <div>
-      {props.store.length > 1 ? <h2>Shopping from:</h2> : <br />}
+      {props.storeList ? <h2>Shopping from:</h2> : <br />}
 
       <Grid>
-        {props.store.map((prev) => {
-          return (
-            <ButtonGroup
-              id="retailerButtons"
+        <ButtonGroup id="retailerButtons" color="primary">
+          {props.store ? (
+            <Button
+              className="retailerBtn"
+              variant="contained"
               color="primary"
-              key={prev}
-              orientation="vertical"
+              onClick={() => props.setStore('')}
             >
-              <Button
-                className="retailerBtn"
-                variant="contained"
-                color="primary"
-                key={prev}
-                value={prev}
-                onClick={props.onChange}
-              >
-                {props.store.length === 1 ? 'Re-select' : prev}
-              </Button>
-            </ButtonGroup>
-          );
-        })}
-        {props.store.length === 1 ? <Indicator /> : <br />}
+              Re-select
+            </Button>
+          ) : (
+            props.storeList.map((next) => {
+              return (
+                <Button
+                  className="retailerBtn"
+                  variant="contained"
+                  color="primary"
+                  key={next}
+                  value={next}
+                  onClick={() => props.setStore(next)}
+                >
+                  {next}
+                </Button>
+              );
+            })
+          )}
+        </ButtonGroup>
+        {props.store ? <Indicator /> : <br />}
       </Grid>
-      {props.store.length === 1 ? (
+      {props.store ? (
         <img
           className="storeImage"
           src={`https://logo.clearbit.com/${props.store}.com.au`}
         ></img>
       ) : null}
       <br />
-      {props.store.length === 1 ? (
+      {props.store ? (
         <a className="logo" href="https://clearbit.com">
           Logos provided by Clearbit
         </a>

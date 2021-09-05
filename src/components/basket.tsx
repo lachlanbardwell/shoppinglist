@@ -1,199 +1,76 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Button, TextField, Paper } from '@material-ui/core';
+import {
+  Box,
+  Button,
+  TextField,
+  Paper,
+  CircularProgress,
+} from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Cart } from './cart';
 import { Retailer } from './retailer';
-import axios from 'axios';
 import { Price } from './price';
 import { DisplayError } from './display-error';
 import { IProduct } from '../models';
-// import configData from '../config.js';
-// configData.SERVER_URL
+import * as storeApi from '../api/store-api';
+import * as mockStoreApi from '../api/mocks/mock-store-api';
+
+const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
 
 export const AddToBasket: React.FC = () => {
-  const [basket, setBasket] = useState<string[]>([]);
-  const [newItem, setNewItem] = useState<string>('');
-  const [items, setItems] = useState<string[] | null>(null);
-  const [productPayload, setProductPayload] = useState<IProduct[]>([]);
-  const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
-  const [store, setStore] = useState<string[] | any>(initialStoreState);
-  const [listError, setListError] = useState<boolean>(false);
-  const [formError, setFormError] = useState<boolean>(false);
-  const [fetchError, setFetchError] = useState<boolean>(false);
-  const [value, setValue] = useState<string>('');
+  const [availableProducts, setAvailableProducts] = useState<any[]>([]);
+  const [basket, setBasket] = useState<IProduct[]>([]);
   const [depart, setDepart] = useState<string>('produce');
+  const [fetchError, setFetchError] = useState<boolean>(false);
+  const [formError, setFormError] = useState<boolean>(false);
+  const [isLoading, setisLoading] = useState<boolean>(false);
+  const [items, setItems] = useState<string[] | null>(null);
+  const [listError, setListError] = useState<boolean>(false);
+  const [newItem, setNewItem] = useState<string>('');
+  const [store, setStore] = useState<string>('');
+  const [value, setValue] = useState<string>('');
 
-  useEffect(() => {
-    if (store.length !== 1) {
-      return;
-    }
-    axios
-      .get<any[]>('http://localhost:3001/items')
-      .then(
-        (res) => {
-          let yep = res.data;
-          console.log(yep);
-          const newObject = yep.reduce(
-            (acc: any, retail: any) => ({
-              ...acc,
-              ...retail,
-            }),
-            {},
-          );
-          console.log(newObject);
-          console.log(newObject[store]);
-
-          let yada = newObject[store];
-
-          for (const yoko in yada) {
-            if (yoko === 'produce') {
-              console.log(newObject[store].produce);
-            }
-            if (yoko === 'deli') {
-              console.log(newObject[store].deli);
-            }
-          }
-
-          // const newNewObject = Object.values(newObject);
-          // console.log(newNewObject);
-          // const threeObject: any = newNewObject.reduce(
-          //   (acc: any, department: any) => {
-          //     return { ...acc, ...department };
-          //   },
-          //   {},
-          // );
-          // console.log(threeObject);
-          // const selectedDepartment = Object.keys(threeObject);
-          // console.log(selectedDepartment);
-        },
-        (reject) => console.error(reject),
-      )
-      .catch((error) => console.error(error));
-  }, [store]);
-
-  useEffect(() => {
-    if (store.length > 1) {
-      setNewItem('');
-      setProductPayload([]);
-      setBasket([]);
-      setItems(null);
-      setValue('');
-    }
-  }, [store]);
-
-  useEffect(() => {
-    if (store.length !== 1) {
-      if (items == null) {
-        return;
+  //TODO : Remove use of mocks after backend is sorted
+  // First attempt backend api call, otherwise call from mock api
+  const getItems = async (service: typeof storeApi, isMock?: boolean) => {
+    setisLoading(true);
+    try {
+      console.log(`Attempting to call ${isMock ? 'mock' : 'actual'} api`);
+      const result = await service.getItems(store, depart);
+      console.log(`Called ${isMock ? 'mock' : 'actual'} api`);
+      setAvailableProducts(result);
+      setItems(result.map((prev: IProduct) => Object.values(prev)[0]));
+      setisLoading(false);
+    } catch (error) {
+      console.log(`Failed to call ${isMock ? 'mock' : 'actual'} api`);
+      if (!isMock) {
+        getItems(mockStoreApi, true);
+      } else {
+        setisLoading(false);
       }
-      setFetchError(true);
+      console.error('api call failed');
+    }
+  };
+
+  console.log(availableProducts);
+
+  useEffect(() => {
+    if (!store || !depart) {
       return;
     }
-    setFetchError(false);
-    axios
-      //Type any[] as reduce is not supported
-      .get<any[]>(`http://localhost:3001/items`)
-      .then((res) => {
-        const newData = res.data;
-        //Reduce array of objects
-        const newObject = newData.reduce(
-          //Shorthand return
-          (acc: any, retail: any) => ({
-            ...acc,
-            ...retail,
-          }),
-          {},
-        );
 
-        let retailArray = newObject[store];
-        // How to use AS keyword
-        let storeArray: any;
-
-        if (!depart) {
-          console.error('no department');
-        }
-
-        if (newItem) {
-          let itemData = retailArray[depart].find(
-            (prev: any) => prev.id === newItem,
-          );
-          !itemData
-            ? console.error('item not found in data fetch')
-            : setProductPayload(() => [...productPayload, itemData]);
-        }
-        let produceArray = retailArray[depart].map((prev: string[]) =>
-          Object.values(prev),
-        );
-        let itemOptions = produceArray.map(
-          (prev: IProduct) => Object.values(prev)[0],
-        );
-        // .sort((itemOne: IProduct, itemTwo: IProduct) => {
-        //   console.log(itemOne, itemTwo);
-        //   return itemOne.id.localeCompare(itemTwo.id);
-        // });
-        setItems(() => {
-          return [...itemOptions];
-        });
-      })
-      .catch((error) => {
-        setItems([]);
-        console.error(error);
-      });
-  }, [basket, store, depart]);
+    getItems(storeApi);
+  }, [store, depart]);
 
   const addItem = () => {
-    if (store.length !== 1) {
-      setFetchError(true);
-      setNewItem('');
-      return;
-    }
-    if (newItem.length > 0) {
-      setFetchError(false);
-      if (basket.includes(newItem)) {
-        setListError(true);
-      } else {
-        setFormError(false);
-        setBasket((basket) => {
-          return [...basket, newItem];
-        });
-        setListError(false);
-      }
-    } else {
-      setFormError(true);
-    }
+    handleItemSelection(newItem);
+    setNewItem('');
   };
 
-  const removeItem = ({
-    currentTarget,
-  }: React.MouseEvent<HTMLButtonElement>) => {
-    if (basket.includes(currentTarget.value)) {
-      setNewItem('');
-      setFormError(false);
-      setBasket((prev) => prev.filter((item) => item !== currentTarget.value));
-      setListError(false);
-      setValue('');
-      setProductPayload((prev) => {
-        const result = prev.filter((product) => {
-          return product.id !== currentTarget.value;
-        });
-        return result;
-      });
-    } else {
-      console.error('no such item exists');
-    }
-  };
-
-  const selectStore = ({
-    currentTarget,
-  }: React.MouseEvent<HTMLButtonElement>) => {
-    if (store.length > 1) {
-      setStore(store.filter((prev: any) => prev === currentTarget.value));
-      setProductPayload([]);
-    } else {
-      setStore(initialStoreState);
-      setFormError(false);
-      setListError(false);
-    }
+  const removeItem = (itemToRemove: string) => {
+    setBasket((prevState) =>
+      prevState.filter((prevItem) => prevItem.id !== itemToRemove),
+    );
   };
 
   const changeDepart: () => void = () => {
@@ -206,10 +83,23 @@ export const AddToBasket: React.FC = () => {
     display: 'flex',
   };
 
+  const handleItemSelection = (nextItem: string) => {
+    const selection = availableProducts.find((next) => next.id === nextItem);
+    if (!selection) {
+      console.error('could not find next item', nextItem);
+      return;
+    }
+    setBasket((prev) => [...prev, selection]);
+  };
+
   return (
     <Box>
       <div>
-        <Retailer store={store} onChange={selectStore} />
+        <Retailer
+          storeList={initialStoreState}
+          store={store}
+          setStore={setStore}
+        />
         <br />
         {store.length === 1 ? (
           <>
@@ -226,9 +116,11 @@ export const AddToBasket: React.FC = () => {
         <br />
         <Autocomplete
           onChange={(event, value: string | null) => {
-            value && value !== 'loading...'
-              ? setNewItem(value)
-              : setNewItem('');
+            if (value && value !== 'Loading...') {
+              setNewItem(value);
+            } else {
+              setNewItem('');
+            }
           }}
           onInputChange={(e, input) => {
             if (store.length > 1) {
@@ -243,12 +135,18 @@ export const AddToBasket: React.FC = () => {
           renderInput={(params) => (
             <TextField
               {...params}
+              disabled={isLoading}
+              InputProps={{
+                endAdornment: (
+                  <>{isLoading && <CircularProgress size={20} />}</>
+                ),
+              }}
               variant="filled"
-              label="What do you want to buy?"
-              value={basket}
+              label={isLoading ? 'Loading...' : 'What do you want to buy?'}
+              value={value}
             ></TextField>
           )}
-          options={items == null ? ['loading...'] : [...items]}
+          options={items == null || isLoading ? ['Loading...'] : [...items]}
           value={value}
         ></Autocomplete>
         <br />
@@ -261,26 +159,29 @@ export const AddToBasket: React.FC = () => {
           fetchError={fetchError}
         />
         <Cart store={store}></Cart>
-        <Price productPayload={productPayload} />
+        <Price productPayload={basket} />
         <div className="basketOutput">
-          {productPayload.length === 0
+          {basket.length === 0
             ? null
-            : productPayload.map((prev, index) => (
+            : basket.map((next, index) => (
                 <h3 key={index}>
-                  {prev.id}
-                  <Button value={prev.id} key={index} onClick={removeItem}>
+                  {next.id}
+                  <Button
+                    value={next.id}
+                    key={index}
+                    onClick={() => removeItem(next.id)}
+                  >
                     x
                   </Button>
                 </h3>
               ))}
         </div>
         <br />
-        {productPayload.length === 0 ? null : (
+        {basket.length === 0 ? null : (
           <Button
             style={buttonStyles}
             onClick={() => {
-              setBasket(['']);
-              setProductPayload([]);
+              setBasket([]);
               setNewItem('');
               setValue('');
               setFormError(false);
