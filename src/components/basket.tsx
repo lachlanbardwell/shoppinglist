@@ -14,8 +14,15 @@ import { DisplayError } from './display-error';
 import { IProduct } from '../models';
 import * as storeApi from '../api/store-api';
 import * as mockStoreApi from '../api/mocks/mock-store-api';
+import { makeStyles } from '@material-ui/styles';
 
 const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
+const useStyles = makeStyles(() => ({
+  circularProgress: {
+    marginTop: -20,
+    marginRight: -40,
+  },
+}));
 
 export const AddToBasket: React.FC = () => {
   const [availableProducts, setAvailableProducts] = useState<any[]>([]);
@@ -29,6 +36,7 @@ export const AddToBasket: React.FC = () => {
   const [newItem, setNewItem] = useState<string>('');
   const [store, setStore] = useState<string>('');
   const [value, setValue] = useState<string>('');
+  const classes = useStyles();
 
   //TODO : Remove use of mocks after backend is sorted
   // First attempt backend api call, otherwise call from mock api
@@ -38,8 +46,9 @@ export const AddToBasket: React.FC = () => {
       console.log(`Attempting to call ${isMock ? 'mock' : 'actual'} api`);
       const result = await service.getItems(store, depart);
       console.log(`Called ${isMock ? 'mock' : 'actual'} api`);
+      console.log('result list', result);
       setAvailableProducts(result);
-      setItems(result.map((prev: IProduct) => Object.values(prev)[0]));
+      setItems(result.map((prev: IProduct) => prev.id));
       setisLoading(false);
     } catch (error) {
       console.log(`Failed to call ${isMock ? 'mock' : 'actual'} api`);
@@ -115,6 +124,8 @@ export const AddToBasket: React.FC = () => {
         ) : null}
         <br />
         <Autocomplete
+          autoComplete
+          openOnFocus
           onChange={(event, value: string | null) => {
             if (value && value !== 'Loading...') {
               setNewItem(value);
@@ -132,20 +143,32 @@ export const AddToBasket: React.FC = () => {
           getOptionSelected={(option, value) =>
             option === value || value === ''
           }
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              disabled={isLoading}
-              InputProps={{
-                endAdornment: (
-                  <>{isLoading && <CircularProgress size={20} />}</>
-                ),
-              }}
-              variant="filled"
-              label={isLoading ? 'Loading...' : 'What do you want to buy?'}
-              value={value}
-            ></TextField>
-          )}
+          renderInput={(params) => {
+            return (
+              <TextField
+                {...params}
+                disabled={isLoading}
+                InputProps={{
+                  ...params.InputProps,
+                  endAdornment: (
+                    <>
+                      {isLoading ? (
+                        <CircularProgress
+                          classes={{ root: classes.circularProgress }}
+                          size={20}
+                        />
+                      ) : (
+                        params.InputProps.endAdornment
+                      )}
+                    </>
+                  ),
+                }}
+                variant="filled"
+                label={isLoading ? 'Loading...' : 'What do you want to buy?'}
+                value={basket}
+              ></TextField>
+            );
+          }}
           options={items == null || isLoading ? ['Loading...'] : [...items]}
           value={value}
         ></Autocomplete>
