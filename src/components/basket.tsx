@@ -16,25 +16,24 @@ export const AddToBasket: React.FC = () => {
   const [items, setItems] = useState<string[] | null>(null);
   const [productPayload, setProductPayload] = useState<IProduct[]>([]);
   const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
-  const [store, setStore] = useState<any>(initialStoreState);
+  const [store, setStore] = useState<string[] | any>(initialStoreState);
   const [listError, setListError] = useState<boolean>(false);
   const [formError, setFormError] = useState<boolean>(false);
   const [fetchError, setFetchError] = useState<boolean>(false);
   const [value, setValue] = useState<string>('');
+  const [depart, setDepart] = useState<string>('produce');
 
   useEffect(() => {
     if (store.length !== 1) {
       return;
     }
     axios
-      //Type any[] as reduce is not supported
       .get<any[]>('http://localhost:3001/items')
       .then(
         (res) => {
           let yep = res.data;
           console.log(yep);
           const newObject = yep.reduce(
-            //Shorthand return
             (acc: any, retail: any) => ({
               ...acc,
               ...retail,
@@ -43,6 +42,17 @@ export const AddToBasket: React.FC = () => {
           );
           console.log(newObject);
           console.log(newObject[store]);
+
+          let yada = newObject[store];
+
+          for (const yoko in yada) {
+            if (yoko === 'produce') {
+              console.log(newObject[store].produce);
+            }
+            if (yoko === 'deli') {
+              console.log(newObject[store].deli);
+            }
+          }
 
           // const newNewObject = Object.values(newObject);
           // console.log(newNewObject);
@@ -81,9 +91,11 @@ export const AddToBasket: React.FC = () => {
     }
     setFetchError(false);
     axios
-      .get(`http://localhost:3001/items`)
+      //Type any[] as reduce is not supported
+      .get<any[]>(`http://localhost:3001/items`)
       .then((res) => {
         const newData = res.data;
+        //Reduce array of objects
         const newObject = newData.reduce(
           //Shorthand return
           (acc: any, retail: any) => ({
@@ -92,14 +104,24 @@ export const AddToBasket: React.FC = () => {
           }),
           {},
         );
-        let storeArray = newObject[store].produce;
+
+        let retailArray = newObject[store];
+        // How to use AS keyword
+        let storeArray: any;
+
+        if (!depart) {
+          console.error('no depart');
+        }
+
         if (newItem) {
-          let itemData = storeArray.find((prev: any) => prev.id === newItem);
+          let itemData = retailArray[depart].find(
+            (prev: any) => prev.id === newItem,
+          );
           !itemData
             ? console.error('item not found in data fetch')
             : setProductPayload(() => [...productPayload, itemData]);
         }
-        let produceArray = storeArray.map((prev: string[]) =>
+        let produceArray = retailArray[depart].map((prev: string[]) =>
           Object.values(prev),
         );
         let itemOptions = produceArray.map(
@@ -117,7 +139,7 @@ export const AddToBasket: React.FC = () => {
         setItems([]);
         console.error(error);
       });
-  }, [basket, store]);
+  }, [basket, store, depart]);
 
   const addItem = () => {
     if (store.length !== 1) {
@@ -174,9 +196,14 @@ export const AddToBasket: React.FC = () => {
     }
   };
 
+  const changeDepart: () => void = () => {
+    depart === 'produce' ? setDepart('deli') : setDepart('produce');
+  };
+
   const buttonStyles = {
     color: 'white',
     backgroundColor: '#282c34',
+    display: 'flex',
   };
 
   return (
@@ -184,7 +211,12 @@ export const AddToBasket: React.FC = () => {
       <div>
         <Retailer store={store} onChange={selectStore} />
         <br />
-
+        {store.length === 1 ? (
+          <Button style={buttonStyles} onClick={changeDepart}>
+            Change Department
+          </Button>
+        ) : null}
+        <br />
         <Autocomplete
           onChange={(event, value: string | null) => {
             value && value !== 'loading...'
@@ -212,7 +244,6 @@ export const AddToBasket: React.FC = () => {
           options={items == null ? ['loading...'] : [...items]}
           value={value}
         ></Autocomplete>
-
         <br />
         <Button style={buttonStyles} onClick={addItem}>
           Add to basket
