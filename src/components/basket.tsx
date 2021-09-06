@@ -67,7 +67,8 @@ export const AddToBasket: React.FC = () => {
     if (!store || !depart) {
       return;
     }
-
+    setDuplicateError(false);
+    setNoItemError(false);
     getItems(storeApi);
   }, [store, depart]);
 
@@ -91,6 +92,7 @@ export const AddToBasket: React.FC = () => {
     }
     if (basket.find((next) => next.id === newItem)) {
       setDuplicateError(true);
+      setNewItem('');
       return;
     }
     if (!newItem) {
