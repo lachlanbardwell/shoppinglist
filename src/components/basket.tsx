@@ -28,11 +28,11 @@ export const AddToBasket: React.FC = () => {
   const [availableProducts, setAvailableProducts] = useState<any[]>([]);
   const [basket, setBasket] = useState<IProduct[]>([]);
   const [depart, setDepart] = useState<string>('produce');
-  const [fetchError, setFetchError] = useState<boolean>(false);
-  const [formError, setFormError] = useState<boolean>(false);
+  const [storeError, setStoreError] = useState<boolean>(false);
+  const [noItemError, setNoItemError] = useState<boolean>(false);
   const [isLoading, setisLoading] = useState<boolean>(false);
   const [items, setItems] = useState<string[] | null>(null);
-  const [listError, setListError] = useState<boolean>(false);
+  const [duplicateError, setDuplicateError] = useState<boolean>(false);
   const [newItem, setNewItem] = useState<string>('');
   const [store, setStore] = useState<string>('');
   const [value, setValue] = useState<string>('');
@@ -57,7 +57,7 @@ export const AddToBasket: React.FC = () => {
       } else {
         setisLoading(false);
       }
-      console.error('api call failed');
+      console.error('Api call failed');
     }
   };
 
@@ -71,8 +71,35 @@ export const AddToBasket: React.FC = () => {
     getItems(storeApi);
   }, [store, depart]);
 
+  useEffect(() => {
+    if (!store) {
+      setNewItem('');
+      setAvailableProducts([]);
+      setBasket([]);
+      setItems(null);
+      setValue('');
+      setDuplicateError(false);
+      setNoItemError(false);
+    }
+    setStoreError(false);
+  }, [store]);
+
   const addItem = () => {
+    if (!store) {
+      setStoreError(true);
+      return;
+    }
+    if (basket.find((next) => next.id === newItem)) {
+      setDuplicateError(true);
+      return;
+    }
+    if (!newItem) {
+      setNoItemError(true);
+      return;
+    }
     handleItemSelection(newItem);
+    setNoItemError(false);
+    setDuplicateError(false);
     setNewItem('');
   };
 
@@ -80,6 +107,8 @@ export const AddToBasket: React.FC = () => {
     setBasket((prevState) =>
       prevState.filter((prevItem) => prevItem.id !== itemToRemove),
     );
+    setNoItemError(false);
+    setDuplicateError(false);
   };
 
   const changeDepart: () => void = () => {
@@ -110,7 +139,7 @@ export const AddToBasket: React.FC = () => {
           setStore={setStore}
         />
         <br />
-        {store.length === 1 ? (
+        {store ? (
           <>
             <Paper className="paperClass">
               <h2 className="cartHeading">
@@ -177,9 +206,9 @@ export const AddToBasket: React.FC = () => {
           Add to basket
         </Button>
         <DisplayError
-          listError={listError}
-          formError={formError}
-          fetchError={fetchError}
+          listError={duplicateError}
+          formError={noItemError}
+          fetchError={storeError}
         />
         <Cart store={store}></Cart>
         <Price productPayload={basket} />
@@ -207,8 +236,8 @@ export const AddToBasket: React.FC = () => {
               setBasket([]);
               setNewItem('');
               setValue('');
-              setFormError(false);
-              setListError(false);
+              setNoItemError(false);
+              setDuplicateError(false);
             }}
           >
             Clear basket
