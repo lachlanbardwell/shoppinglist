@@ -21,7 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-toAdd
+toAdd.txt
+schema.txt
 .prettierignore
 dictionary
 transformer
