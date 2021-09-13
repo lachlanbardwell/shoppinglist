@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   FormControl,
   InputLabel,
@@ -12,14 +12,12 @@ interface Idepart {
   setDepart: (depart: string) => void;
 }
 
-const buttonStyles = {
-  color: 'white',
-  backgroundColor: '#282c34',
-  display: 'flex',
-};
-
 export const Department: React.FC<Idepart> = (props) => {
   const [option, setOption] = useState(props.depart);
+
+  useEffect(() => {
+    props.setDepart(option);
+  }, [option]);
 
   const handleChange = (event: any) => {
     setOption(event.target.value);
@@ -38,9 +36,6 @@ export const Department: React.FC<Idepart> = (props) => {
           <MenuItem value={'grocery'}>Grocery</MenuItem>
         </Select>
       </FormControl>
-      <Button style={buttonStyles} onClick={() => props.setDepart(option)}>
-        Change Department
-      </Button>
     </div>
   );
 };

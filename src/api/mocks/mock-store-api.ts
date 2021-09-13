@@ -117,6 +117,18 @@ export const getItems = async (storeId: string, departID: string) =>
               price: 7,
             },
           ],
+          perishables: [
+            {
+              id: 'Chobani 1L',
+              weight: 1000,
+              color: 'White',
+              price: 6,
+            },
+          ],
+          meat: [{ id: 'Minced Beef', weight: 500, color: 'Red', price: 9.99 }],
+          grocery: [
+            { id: 'Peanut Butter', weight: 200, color: 'Brown', price: 3.99 },
+          ],
         },
       },
     ],
