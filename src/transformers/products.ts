@@ -3,8 +3,9 @@ export const transformProductResponse = (
   storeId: string,
   departID: string,
 ) => {
+  // ?. Operator reads storeId within connected object, without needing to
+  // use a reduce function
   const storeArray = newData.find((obj) => obj[storeId])?.[storeId];
-  console.log(storeArray, storeId, newData);
 
   return storeArray[departID];
 };

@@ -15,6 +15,7 @@ import { IProduct } from '../models';
 import * as storeApi from '../api/store-api';
 import * as mockStoreApi from '../api/mocks/mock-store-api';
 import { makeStyles } from '@material-ui/styles';
+import { Department } from './depart';
 
 const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
 const useStyles = makeStyles(() => ({
@@ -48,7 +49,7 @@ export const AddToBasket: React.FC = () => {
       console.log(`Called ${isMock ? 'mock' : 'actual'} api`);
       console.log('result list', result);
       setAvailableProducts(result);
-      setItems(result.map((prev: IProduct) => prev.id));
+      setItems(result.map((prev: IProduct) => prev.id).sort());
       setisLoading(false);
     } catch (error) {
       console.log(`Failed to call ${isMock ? 'mock' : 'actual'} api`);
@@ -114,7 +115,7 @@ export const AddToBasket: React.FC = () => {
   };
 
   const changeDepart: () => void = () => {
-    depart === 'produce' ? setDepart('deli') : setDepart('produce');
+    setDepart(depart);
   };
 
   const buttonStyles = {
@@ -132,6 +133,10 @@ export const AddToBasket: React.FC = () => {
     setBasket((prev) => [...prev, selection]);
   };
 
+  const convertDepart = () => {
+    return depart.substring(0, 1).toUpperCase() + depart.substring(1) + ' ';
+  };
+
   return (
     <Box>
       <div>
@@ -145,12 +150,11 @@ export const AddToBasket: React.FC = () => {
           <>
             <Paper className="paperClass">
               <h2 className="cartHeading">
-                Department : {depart.toUpperCase()}
+                {convertDepart()}
+                Department
               </h2>
             </Paper>
-            <Button style={buttonStyles} onClick={changeDepart}>
-              Change Department
-            </Button>
+            <Department depart={depart} setDepart={setDepart}></Department>
           </>
         ) : null}
         <br />
