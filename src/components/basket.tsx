@@ -98,6 +98,7 @@ export const AddToBasket: React.FC = () => {
     }
     if (!newItem) {
       setNoItemError(true);
+      console.log('failing here');
       return;
     }
     handleItemSelection(newItem);
@@ -112,10 +113,6 @@ export const AddToBasket: React.FC = () => {
     );
     setNoItemError(false);
     setDuplicateError(false);
-  };
-
-  const changeDepart: () => void = () => {
-    setDepart(depart);
   };
 
   const buttonStyles = {
@@ -133,8 +130,11 @@ export const AddToBasket: React.FC = () => {
     setBasket((prev) => [...prev, selection]);
   };
 
-  const convertDepart = () => {
-    return depart.substring(0, 1).toUpperCase() + depart.substring(1) + ' ';
+  const convertDepart = (inputDepart: string) => {
+    const shane = React.createRef();
+    return (
+      inputDepart.substring(0, 1).toUpperCase() + inputDepart.substring(1) + ' '
+    );
   };
 
   return (
@@ -150,11 +150,15 @@ export const AddToBasket: React.FC = () => {
           <>
             <Paper className="paperClass">
               <h2 className="cartHeading">
-                {convertDepart()}
+                {convertDepart(depart)}
                 Department
               </h2>
             </Paper>
-            <Department depart={depart} setDepart={setDepart}></Department>
+            <Department
+              depart={depart}
+              setDepart={setDepart}
+              convert={convertDepart}
+            ></Department>
           </>
         ) : null}
         <br />
@@ -162,17 +166,10 @@ export const AddToBasket: React.FC = () => {
           autoComplete
           openOnFocus
           onChange={(event, value: string | null) => {
-            if (value && value !== 'Loading...') {
+            if (value !== null && value !== 'Loading...') {
               setNewItem(value);
             } else {
               setNewItem('');
-            }
-          }}
-          onInputChange={(e, input) => {
-            if (store.length > 1) {
-              setValue('');
-            } else {
-              setValue(input);
             }
           }}
           getOptionSelected={(option, value) =>

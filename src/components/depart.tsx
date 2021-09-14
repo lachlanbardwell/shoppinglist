@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import {
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Button,
-} from '@material-ui/core';
+import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 
 interface Idepart {
   depart: string;
   setDepart: (depart: string) => void;
+  convert: (depart: string) => string;
 }
 
 export const Department: React.FC<Idepart> = (props) => {
@@ -21,19 +16,31 @@ export const Department: React.FC<Idepart> = (props) => {
 
   const handleChange = (event: any) => {
     setOption(event.target.value);
-    console.log(option);
   };
+
+  const departArray: string[] = [
+    'produce',
+    'deli',
+    'perishables',
+    'meat',
+    'grocery',
+    'bathroom',
+    'cleaning',
+    'freezer',
+  ];
 
   return (
     <div>
       <FormControl>
         <InputLabel>Department</InputLabel>
         <Select value={option} onChange={handleChange}>
-          <MenuItem value={'produce'}>Produce</MenuItem>
-          <MenuItem value={'deli'}>Deli</MenuItem>
-          <MenuItem value={'perishables'}>Perishables</MenuItem>
-          <MenuItem value={'meat'}>Meat</MenuItem>
-          <MenuItem value={'grocery'}>Grocery</MenuItem>
+          {departArray.map((next) => {
+            return (
+              <MenuItem value={next} key={next}>
+                {props.convert(next)}
+              </MenuItem>
+            );
+          })}
         </Select>
       </FormControl>
     </div>
