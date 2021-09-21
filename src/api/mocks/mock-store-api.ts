@@ -150,6 +150,12 @@ export const getItems = async (storeId: string, departID: string) =>
               color: 'Green',
               price: 2.2,
             },
+            {
+              id: 'Grapes',
+              weight: 500,
+              color: 'Green',
+              price: 3,
+            },
           ],
           deli: [
             {
@@ -379,12 +385,6 @@ export const getItems = async (storeId: string, departID: string) =>
               price: 9.99,
             },
             {
-              id: 'Shampoo Old Spice',
-              weight: 550,
-              color: 'Blue',
-              price: 9.99,
-            },
-            {
               id: 'Body Wash',
               weight: 1000,
               color: 'Blue',
@@ -421,7 +421,7 @@ export const getItems = async (storeId: string, departID: string) =>
               price: 6.99,
             },
             {
-              id: 'Hand Soap',
+              id: 'Soap 5 Pack',
               weight: 550,
               color: 'Blue',
               price: 9.99,
@@ -698,6 +698,12 @@ export const getItems = async (storeId: string, departID: string) =>
               color: 'Green',
               price: 2.2,
             },
+            {
+              id: 'Grapes',
+              weight: 500,
+              color: 'Green',
+              price: 3,
+            },
           ],
           deli: [
             {
@@ -927,12 +933,6 @@ export const getItems = async (storeId: string, departID: string) =>
               price: 9.99,
             },
             {
-              id: 'Shampoo Old Spice',
-              weight: 550,
-              color: 'Blue',
-              price: 9.99,
-            },
-            {
               id: 'Body Wash',
               weight: 1000,
               color: 'Blue',
@@ -969,7 +969,7 @@ export const getItems = async (storeId: string, departID: string) =>
               price: 6.99,
             },
             {
-              id: 'Hand Soap',
+              id: 'Soap 5 pack',
               weight: 550,
               color: 'Blue',
               price: 9.99,
@@ -1103,49 +1103,49 @@ export const getItems = async (storeId: string, departID: string) =>
         Aldi: {
           produce: [
             {
-              id: 'Apples',
+              id: 'Apfel',
               weight: 1000,
               color: 'Pink',
               price: 4.99,
             },
             {
-              id: 'Strawberries',
+              id: 'Erdbeere',
               weight: 250,
               color: 'Red',
               price: 3.99,
             },
             {
-              id: 'Tomatoes',
+              id: 'Tomaten',
               weight: 500,
               color: 'red',
               price: 6.99,
             },
             {
-              id: 'Blueberries',
+              id: 'Blaubeere',
               weight: 200,
               color: 'Blue',
               price: 4.99,
             },
             {
-              id: 'Cashews',
+              id: 'Cashewkerne',
               weight: 400,
               color: 'Beige',
               price: 8.99,
             },
             {
-              id: 'Onions',
+              id: 'Zwiebeln',
               weight: 100,
               color: 'Brown',
               price: 0.7,
             },
             {
-              id: 'Carrots',
+              id: 'Möhren',
               weight: 1000,
               color: 'Orange',
               price: 3.99,
             },
             {
-              id: 'Broccolini',
+              id: 'Brokkolini',
               weight: 200,
               color: 'Green',
               price: 2.99,
@@ -1157,67 +1157,67 @@ export const getItems = async (storeId: string, departID: string) =>
               price: 2,
             },
             {
-              id: 'Oranges',
+              id: 'Orangen',
               weight: 3000,
               color: 'Orange',
               price: 5.99,
             },
             {
-              id: 'Potatoes',
+              id: 'Kartoffeln',
               weight: 200,
               color: 'White',
               price: 1,
             },
             {
-              id: 'Bananas',
+              id: 'Banane',
               weight: 500,
               color: 'Yellow',
               price: 2.5,
             },
             {
-              id: 'Lettuce',
+              id: 'Kopfsalat',
               weight: 200,
               color: 'Green',
               price: 2.9,
             },
             {
-              id: 'Raspberries',
+              id: 'Himbeere',
               weight: 250,
               color: 'Red',
               price: 6.99,
             },
             {
-              id: 'Lemons',
+              id: 'Zitrone',
               weight: 100,
               color: 'Yellow',
               price: 1.99,
             },
             {
-              id: 'Peaches',
+              id: 'Pfirsich',
               weight: 150,
               color: 'Orange',
               price: 2.99,
             },
             {
-              id: 'Nectarines',
+              id: 'Nektarinen',
               weight: 150,
               color: 'Red',
               price: 2.99,
             },
             {
-              id: 'Mandarins',
+              id: 'Mandarinen',
               weight: 250,
               color: 'Orange',
               price: 2.99,
             },
             {
-              id: 'Watermelon',
+              id: 'Wassermelone',
               weight: 2000,
               color: 'Red',
               price: 3.99,
             },
             {
-              id: 'Kiwifruit',
+              id: 'Kiwi',
               weight: 200,
               color: 'Brown',
               price: 4.99,
@@ -1229,22 +1229,28 @@ export const getItems = async (storeId: string, departID: string) =>
               price: 3.9,
             },
             {
-              id: 'Cucumbers',
+              id: 'Gurke',
               weight: 300,
               color: 'Green',
               price: 2.9,
             },
             {
-              id: 'Capsicums',
+              id: 'Paprika',
               weight: 200,
               color: 'Red',
               price: 2,
             },
             {
-              id: 'Pears',
+              id: 'Birne',
               weight: 400,
               color: 'Green',
               price: 2.2,
+            },
+            {
+              id: 'Traube',
+              weight: 500,
+              color: 'Green',
+              price: 3,
             },
           ],
           deli: [
@@ -1317,10 +1323,10 @@ export const getItems = async (storeId: string, departID: string) =>
               price: 3,
             },
             {
-              id: 'Kabana',
+              id: 'Berg Schinkengriller',
               weight: 250,
               color: 'Brown',
-              price: 4.99,
+              price: 2.99,
             },
             {
               id: 'Salmon',
@@ -1475,12 +1481,6 @@ export const getItems = async (storeId: string, departID: string) =>
               price: 9.99,
             },
             {
-              id: 'Shampoo Old Spice',
-              weight: 550,
-              color: 'Blue',
-              price: 9.99,
-            },
-            {
               id: 'Body Wash',
               weight: 1000,
               color: 'Blue',
@@ -1517,7 +1517,7 @@ export const getItems = async (storeId: string, departID: string) =>
               price: 6.99,
             },
             {
-              id: 'Hand Soap',
+              id: 'Soap 5 pack',
               weight: 550,
               color: 'Blue',
               price: 9.99,
@@ -1794,6 +1794,12 @@ export const getItems = async (storeId: string, departID: string) =>
               color: 'Green',
               price: 2.2,
             },
+            {
+              id: 'Grapes',
+              weight: 500,
+              color: 'Green',
+              price: 3,
+            },
           ],
           deli: [
             {
@@ -2023,12 +2029,6 @@ export const getItems = async (storeId: string, departID: string) =>
               price: 9.99,
             },
             {
-              id: 'Shampoo Old Spice',
-              weight: 550,
-              color: 'Blue',
-              price: 9.99,
-            },
-            {
               id: 'Body Wash',
               weight: 1000,
               color: 'Blue',
@@ -2065,7 +2065,7 @@ export const getItems = async (storeId: string, departID: string) =>
               price: 6.99,
             },
             {
-              id: 'Hand Soap',
+              id: 'Soap 5 pack',
               weight: 550,
               color: 'Blue',
               price: 9.99,
