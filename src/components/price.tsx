@@ -8,6 +8,7 @@ interface TypePrice {
 const priceStyles: React.CSSProperties = {
   color: '#0e0e42',
   display: 'flex',
+  marginLeft: '10px',
 };
 
 //Alternatively pass {price}. Just demoing props
@@ -25,10 +26,10 @@ export const Price: React.FC<TypePrice> = (props) => {
 
   return (
     <div>
-      <h2
+      <h3
         className="priceHeader"
         style={priceStyles}
-      >{`Total Price: $${totalPrice()}`}</h2>
+      >{`Estimated total: $${totalPrice()}`}</h3>
     </div>
   );
 };

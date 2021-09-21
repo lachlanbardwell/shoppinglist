@@ -30,7 +30,7 @@ export const Department: React.FC<Idepart> = (props) => {
   ];
 
   return (
-    <div>
+    <div className="departForm">
       <FormControl>
         <InputLabel>Department</InputLabel>
         <Select value={option} onChange={handleChange}>

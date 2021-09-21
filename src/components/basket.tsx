@@ -117,6 +117,7 @@ export const AddToBasket: React.FC = () => {
     color: 'white',
     backgroundColor: '#282c34',
     display: 'flex',
+    marginLeft: '10px',
   };
 
   const handleItemSelection = (nextItem: string) => {
@@ -144,19 +145,19 @@ export const AddToBasket: React.FC = () => {
         />
 
         {store ? (
-          <>
-            <Paper className="paperClass">
-              <h2 className="cartHeading">
-                {convertDepart(depart)}
-                Department
-              </h2>
-            </Paper>
+          <div className="departClass">
             <Department
               depart={depart}
               setDepart={setDepart}
               convert={convertDepart}
             ></Department>
-          </>
+            <Paper className="paperClass">
+              <h3 className="cartHeading">
+                {convertDepart(depart)}
+                Department
+              </h3>
+            </Paper>
+          </div>
         ) : null}
         <br />
         <Autocomplete
@@ -211,12 +212,12 @@ export const AddToBasket: React.FC = () => {
           fetchError={storeError}
         />
         <Cart store={store}></Cart>
-        <Price productPayload={basket} />
+
         <div className="basketOutput">
           {basket.length === 0
             ? null
             : basket.map((next, index) => (
-                <h3 key={index}>
+                <h3 key={index} className="basketItems">
                   {next.id}
                   <Button
                     value={next.id}
@@ -228,6 +229,7 @@ export const AddToBasket: React.FC = () => {
                 </h3>
               ))}
         </div>
+        <Price productPayload={basket} />
         <br />
         {basket.length === 0 ? null : (
           <>

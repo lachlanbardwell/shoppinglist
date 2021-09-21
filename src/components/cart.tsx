@@ -7,7 +7,7 @@ interface cartStore {
 export const Cart: React.FC<cartStore> = ({ store }) => {
   return (
     <div>
-      <h1 className="cartHeading">{store ? `${store} cart items:` : null}</h1>
+      <h3 className="cartHeading">{store ? `${store} cart items:` : null}</h3>
     </div>
   );
 };

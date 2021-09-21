@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(#b7dab7d3, #fff);
+  background-image: linear-gradient(#bde2bdd3, #fff);
 }
 
 footer {
@@ -31,11 +31,6 @@ footer {
   color: #61dafb;
 }
 
-#storeGrid > .storeImage {
-  display: flex;
-  justify-content: center;
-}
-
 #retailerButtons {
   display: flex;
   justify-content: center;
@@ -48,8 +43,13 @@ footer {
 
 #retailerButtons > .retailerBtn {
   background-color: #fff;
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
   border-radius: 10px 10px;
+}
+
+.basketItems {
+  margin-left: 10px;
 }
 
 .basketOutput {
@@ -60,13 +60,21 @@ footer {
 
 .boxStyles {
   background-color: #fff;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .cartHeading {
-  font-size: 30px;
+  margin: 20px;
   color: #021103;
   opacity: 0.9;
+  display: flex;
+  justify-content: center;
+}
+
+.departForm {
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .logo {
@@ -81,14 +89,46 @@ footer {
 }
 
 .paperClass {
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 
 .priceHeader {
   display: flex;
 }
 
+.storeImage {
+  margin-left: -5px;
+}
+
 .storeImage:hover {
   transition: 500ms;
   opacity: 0.85;
+}
+
+@media (max-width: 750px) {
+  .basketItems {
+    font-size: small;
+  }
+
+  .storeImage {
+    margin-left: 0;
+  }
+
+  #reselect > .storeImage {
+    margin-left: 30px;
+  }
+
+  .cartHeading {
+    font-size: 1em;
+  }
+
+  .storeImage {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: auto;
+    max-width: 60px;
+    max-height: 50px;
+  }
 }
