@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonGroup, Grid } from '@material-ui/core';
+import { Button, ButtonGroup, Grid, Tooltip } from '@material-ui/core';
 import { useEffect } from 'react';
 
 interface retailerStore {
@@ -15,56 +15,55 @@ export const Retailer: React.FC<retailerStore> = (props) => {
       : (document.title = 'Shopping List');
   }, [props.store]);
 
-  const Indicator = () => {
-    return <p>{`Now shopping at ${props.store}`}</p>;
-  };
-
   return (
     <div>
-      {props.storeList ? <h2>Shopping from:</h2> : <br />}
-
-      <Grid>
+      <br />
+      <Grid id="storeGrid">
         <ButtonGroup id="retailerButtons" color="primary">
           {props.store ? (
-            <Button
-              className="retailerBtn"
-              variant="contained"
-              color="primary"
-              onClick={() => props.setStore('')}
-            >
-              Re-select
-            </Button>
+            <div id="reselect">
+              <Button
+                className="reselectBtn"
+                variant="contained"
+                color="primary"
+                onClick={() => props.setStore('')}
+              >
+                Re-select
+              </Button>
+              <br />
+              <br />
+              <Tooltip title={`Shopping from ${props.store}`}>
+                <img
+                  className="storeImage"
+                  src={`https://logo.clearbit.com/${props.store}.com.au`}
+                ></img>
+              </Tooltip>
+            </div>
           ) : (
             props.storeList.map((next) => {
               return (
-                <Button
-                  className="retailerBtn"
-                  variant="contained"
-                  color="primary"
-                  key={next}
-                  value={next}
-                  onClick={() => props.setStore(next)}
-                >
-                  {next}
-                </Button>
+                <Tooltip title={next} key={next}>
+                  <Button
+                    className="retailerBtn"
+                    variant="contained"
+                    color="primary"
+                    key={next}
+                    value={next}
+                    onClick={() => props.setStore(next)}
+                  >
+                    {
+                      <img
+                        className="storeImage"
+                        src={`https://logo.clearbit.com/${next}.com.au`}
+                      ></img>
+                    }
+                  </Button>
+                </Tooltip>
               );
             })
           )}
         </ButtonGroup>
-        {props.store ? <Indicator /> : <br />}
       </Grid>
-      {props.store ? (
-        <img
-          className="storeImage"
-          src={`https://logo.clearbit.com/${props.store}.com.au`}
-        ></img>
-      ) : null}
-      <br />
-      {props.store ? (
-        <a className="logo" href="https://clearbit.com">
-          Logos provided by Clearbit
-        </a>
-      ) : null}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import {
   TextField,
   Paper,
   CircularProgress,
+  Grid,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Cart } from './cart';
@@ -62,8 +63,6 @@ export const AddToBasket: React.FC = () => {
     }
   };
 
-  console.log(availableProducts);
-
   useEffect(() => {
     if (!store || !depart) {
       return;
@@ -98,7 +97,6 @@ export const AddToBasket: React.FC = () => {
     }
     if (!newItem) {
       setNoItemError(true);
-      console.log('failing here');
       return;
     }
     handleItemSelection(newItem);
@@ -115,7 +113,7 @@ export const AddToBasket: React.FC = () => {
     setDuplicateError(false);
   };
 
-  const buttonStyles = {
+  const buttonStyles: Record<string, string> = {
     color: 'white',
     backgroundColor: '#282c34',
     display: 'flex',
@@ -131,7 +129,6 @@ export const AddToBasket: React.FC = () => {
   };
 
   const convertDepart = (inputDepart: string) => {
-    const shane = React.createRef();
     return (
       inputDepart.substring(0, 1).toUpperCase() + inputDepart.substring(1) + ' '
     );
@@ -139,13 +136,13 @@ export const AddToBasket: React.FC = () => {
 
   return (
     <Box>
-      <div>
+      <div className="boxStyles">
         <Retailer
           storeList={initialStoreState}
           store={store}
           setStore={setStore}
         />
-        <br />
+
         {store ? (
           <>
             <Paper className="paperClass">
@@ -233,20 +230,29 @@ export const AddToBasket: React.FC = () => {
         </div>
         <br />
         {basket.length === 0 ? null : (
-          <Button
-            style={buttonStyles}
-            onClick={() => {
-              setBasket([]);
-              setNewItem('');
-              setValue('');
-              setNoItemError(false);
-              setDuplicateError(false);
-            }}
-          >
-            Clear basket
-          </Button>
+          <>
+            <Button
+              style={buttonStyles}
+              onClick={() => {
+                setBasket([]);
+                setNewItem('');
+                setValue('');
+                setNoItemError(false);
+                setDuplicateError(false);
+              }}
+            >
+              Clear basket
+            </Button>
+            <br />
+          </>
         )}
       </div>
+      <footer>
+        <p>&copy; Lachlan Bardwell 2021</p>
+        <a className="logo" href="https://clearbit.com">
+          Logos provided by Clearbit
+        </a>
+      </footer>
     </Box>
   );
 };

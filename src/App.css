@@ -1,3 +1,11 @@
+body {
+  background-image: linear-gradient(#b7dab7d3, #fff);
+}
+
+footer {
+  color: black;
+}
+
 .App {
   text-align: center;
 }
@@ -23,27 +31,51 @@
   color: #61dafb;
 }
 
-#retailerButtons > .retailerBtn {
+#storeGrid > .storeImage {
+  display: flex;
+  justify-content: center;
+}
+
+#retailerButtons {
+  display: flex;
+  justify-content: center;
+}
+
+#reselect > .reselectBtn {
   background-color: #214621d3;
   color: white;
+}
+
+#retailerButtons > .retailerBtn {
+  background-color: #fff;
+  margin-left: 20px;
+  border-radius: 10px 10px;
 }
 
 .basketOutput {
   display: flex;
   flex-wrap: wrap;
-  background-color: #f3f3f8;
+  background-color: #f5f8f3;
+}
+
+.boxStyles {
+  background-color: #fff;
+  /* border: 5px;
+  border-color: #9bcf9bd3;
+  border-radius: 2px;
+  border-style: solid; */
+  margin-top: 10px;
 }
 
 .cartHeading {
   font-size: 30px;
-  color: #0e0e42;
-
+  color: #021103;
   opacity: 0.9;
 }
 
 .logo {
   text-decoration: none;
-  color: black;
+  color: #000000;
   font-size: 12;
 }
 
@@ -58,10 +90,6 @@
 
 .priceHeader {
   display: flex;
-}
-
-.storeImage {
-  border-radius: 10px;
 }
 
 .storeImage:hover {
