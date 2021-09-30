@@ -1,30 +1,43 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: auto;
+}
+
 body {
-  background-image: linear-gradient(#bde2bdd3, #fff);
+  background-image: linear-gradient(#eef7ee, #c9eec9d3);
+}
+
+header {
+  background-color: #282c34;
+  min-height: 8vh;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  margin-left: 7%;
+  margin-right: 7%;
+  line-height: 3;
 }
 
 footer {
-  color: black;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 10px;
+  position: relative;
 }
 
 .App {
   text-align: center;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -38,7 +51,7 @@ footer {
 
 #reselect > .reselectBtn {
   background-color: #214621d3;
-  color: white;
+  color: #ffffff;
 }
 
 #retailerButtons > .retailerBtn {
@@ -61,6 +74,10 @@ footer {
 .boxStyles {
   background-color: #fff;
   margin-top: 15px;
+  margin-left: 7%;
+  margin-right: 7%;
+  overflow: auto;
+  flex: 1 1 auto;
 }
 
 .cartHeading {
@@ -88,17 +105,24 @@ footer {
   font-size: 1.05em;
 }
 
+.muiDiv {
+  flex: 1 1 auto;
+  height: 100%;
+}
+
+.priceHeader {
+  align-items: center;
+  justify-content: center;
+}
+
 .paperClass {
   display: flex;
   justify-content: center;
 }
 
-.priceHeader {
-  display: flex;
-}
-
 .storeImage {
-  margin-left: -5px;
+  max-width: 90%;
+  max-height: 90%;
 }
 
 .storeImage:hover {
@@ -108,6 +132,18 @@ footer {
 
 @media (max-width: 750px) {
   .basketItems {
+    font-size: small;
+  }
+
+  .boxStyles {
+    height: 100%;
+  }
+
+  .muiDiv {
+    margin-top: -15px;
+  }
+
+  .priceHeader {
     font-size: small;
   }
 

@@ -136,7 +136,7 @@ export const AddToBasket: React.FC = () => {
   };
 
   return (
-    <Box>
+    <Box className="muiDiv">
       <div className="boxStyles">
         <Retailer
           storeList={initialStoreState}
@@ -161,6 +161,7 @@ export const AddToBasket: React.FC = () => {
         ) : null}
         <br />
         <Autocomplete
+          className="autoClass"
           autoComplete
           openOnFocus
           onChange={(event, value: string | null) => {
@@ -249,12 +250,6 @@ export const AddToBasket: React.FC = () => {
           </>
         )}
       </div>
-      <footer>
-        <p>&copy; Lachlan Bardwell 2021</p>
-        <a className="logo" href="https://clearbit.com">
-          Logos provided by Clearbit
-        </a>
-      </footer>
     </Box>
   );
 };

@@ -5,8 +5,10 @@ export const LachHeader: React.FC = () => {
   const [name, setName] = useState<string>('Lachie');
 
   return (
-    <div className="App">
-      <header className="App-header">{`${name}'s Shopping List`}</header>
+    <div>
+      <header>
+        <h2>{`${name}'s Shopping List`}</h2>
+      </header>
     </div>
   );
 };
