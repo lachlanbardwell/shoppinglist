@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 
 export const LachHeader: React.FC = () => {
-  const [name, setName] = useState<string>('Lachie');
+  const [name] = useState<string>('Lachie');
 
   return (
     <div>

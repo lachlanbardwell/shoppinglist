@@ -1,6 +1,10 @@
 import { transformProductResponse } from '../../transformers/products';
+import { IProduct } from '../../models';
 
-export const getItems = async (storeId: string, departID: string) =>
+export const retrieveItems: (
+  storeId: string,
+  departID: string,
+) => Promise<IProduct[]> = async (storeId: string, departID: string) =>
   transformProductResponse(
     [
       {

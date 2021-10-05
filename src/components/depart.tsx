@@ -7,27 +7,29 @@ interface Idepart {
   convert: (depart: string) => string;
 }
 
+const departArray: string[] = [
+  'produce',
+  'deli',
+  'perishables',
+  'meat',
+  'grocery',
+  'bathroom',
+  'cleaning',
+  'freezer',
+];
+
 export const Department: React.FC<Idepart> = (props) => {
-  const [option, setOption] = useState(props.depart);
+  const [option, setOption] = useState<string>(props.depart);
 
   useEffect(() => {
     props.setDepart(option);
   }, [option]);
 
-  const handleChange = (event: any) => {
-    setOption(event.target.value);
+  const handleChange: React.ChangeEventHandler<{ value: unknown }> = (
+    event,
+  ) => {
+    setOption(event.target.value as string);
   };
-
-  const departArray: string[] = [
-    'produce',
-    'deli',
-    'perishables',
-    'meat',
-    'grocery',
-    'bathroom',
-    'cleaning',
-    'freezer',
-  ];
 
   return (
     <div className="departForm">

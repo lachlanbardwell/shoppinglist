@@ -4,7 +4,7 @@ import { LachHeader } from './components/header';
 import { AddToBasket } from './components/basket';
 import { LachFooter } from './components/footer';
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
       <LachHeader />
@@ -12,6 +12,6 @@ function App() {
       <LachFooter />
     </>
   );
-}
+};
 
 export default App;

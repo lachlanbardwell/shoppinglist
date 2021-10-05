@@ -5,7 +5,6 @@ import {
   TextField,
   Paper,
   CircularProgress,
-  Grid,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Cart } from './cart';
@@ -27,7 +26,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const AddToBasket: React.FC = () => {
-  const [availableProducts, setAvailableProducts] = useState<any[]>([]);
+  const [availableProducts, setAvailableProducts] = useState<IProduct[]>([]);
   const [basket, setBasket] = useState<IProduct[]>([]);
   const [depart, setDepart] = useState<string>('produce');
   const [storeError, setStoreError] = useState<boolean>(false);
@@ -46,7 +45,7 @@ export const AddToBasket: React.FC = () => {
     setisLoading(true);
     try {
       console.log(`Attempting to call ${isMock ? 'mock' : 'actual'} api`);
-      const result = await service.getItems(store, depart);
+      const result = await service.retrieveItems(store, depart);
       console.log(`Called ${isMock ? 'mock' : 'actual'} api`);
       console.log('result list', result);
       setAvailableProducts(result);

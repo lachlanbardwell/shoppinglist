@@ -22,6 +22,8 @@ module.exports = {
   ],
   extends: [
     'airbnb-typescript',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'plugin:jsx-a11y/recommended',

@@ -15,7 +15,7 @@ const priceStyles: React.CSSProperties = {
 export const Price: React.FC<TypePrice> = (props) => {
   const totalPrice = () => {
     if (props.productPayload.length >= 1) {
-      let newPrice = props.productPayload
+      const newPrice = props.productPayload
         .reduce((total: number, next: IProduct) => total + next.price, 0)
         .toFixed(2);
       return newPrice;
