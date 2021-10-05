@@ -1,5 +1,5 @@
 import { transformProductResponse } from '../../transformers/products';
-import { IProduct } from '../../models';
+import { IProduct } from '../../types';
 
 export const retrieveItems: (
   storeId: string,

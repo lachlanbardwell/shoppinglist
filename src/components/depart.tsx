@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-
-interface Idepart {
-  depart: string;
-  setDepart: (depart: string) => void;
-  convert: (depart: string) => string;
-}
+import { IDepart } from '../types';
 
 const departArray: string[] = [
   'produce',
@@ -18,7 +13,7 @@ const departArray: string[] = [
   'freezer',
 ];
 
-export const Department: React.FC<Idepart> = (props) => {
+export const Department: React.FC<IDepart> = (props) => {
   const [option, setOption] = useState<string>(props.depart);
 
   useEffect(() => {

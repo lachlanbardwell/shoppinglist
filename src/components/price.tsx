@@ -1,9 +1,6 @@
 import React from 'react';
-import { IProduct } from '../models';
-
-interface TypePrice {
-  productPayload: IProduct[];
-}
+import { IProduct } from '../types';
+import { ITypePrice } from '../types';
 
 const priceStyles: React.CSSProperties = {
   color: '#0e0e42',
@@ -12,7 +9,7 @@ const priceStyles: React.CSSProperties = {
 };
 
 //Alternatively pass {price}. Just demoing props
-export const Price: React.FC<TypePrice> = (props) => {
+export const Price: React.FC<ITypePrice> = (props) => {
   const totalPrice = () => {
     if (props.productPayload.length >= 1) {
       const newPrice = props.productPayload

@@ -11,7 +11,7 @@ import { Cart } from './cart';
 import { Retailer } from './retailer';
 import { Price } from './price';
 import { DisplayError } from './display-error';
-import { IProduct } from '../models';
+import { IProduct } from '../types';
 import * as storeApi from '../api/store-api';
 import * as mockStoreApi from '../api/mocks/mock-store-api';
 import { makeStyles } from '@material-ui/styles';

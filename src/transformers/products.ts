@@ -1,4 +1,4 @@
-import { IProduct, IResponseData, IStoreData } from '../models';
+import { IProduct, IResponseData, IStoreData } from '../types';
 
 export const transformProductResponse: (
   newData: IResponseData[],

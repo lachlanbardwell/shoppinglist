@@ -1,14 +1,9 @@
 import React from 'react';
 import { Button, ButtonGroup, Grid, Tooltip } from '@material-ui/core';
 import { useEffect } from 'react';
+import { IRetailerStore } from '../types';
 
-interface retailerStore {
-  store: string;
-  storeList: string[];
-  setStore: (nextStore: string) => void;
-}
-
-export const Retailer: React.FC<retailerStore> = (props) => {
+export const Retailer: React.FC<IRetailerStore> = (props) => {
   useEffect(() => {
     props.store
       ? (document.title = `Shopping List from ${props.store}`)

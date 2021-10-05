@@ -1,13 +1,10 @@
 import React from 'react';
+import { ICartStore } from '../types';
 
-interface cartStore {
-  store: string;
-}
-
-export const Cart: React.FC<cartStore> = ({ store }) => {
+export const Cart: React.FC<ICartStore> = ({ store }) => {
   return (
     <div>
-      <h3 className="cartHeading">{store ? `${store} cart items:` : null}</h3>
+      <h3 className="cartHeading">{store ? `${store} list items:` : null}</h3>
     </div>
   );
 };

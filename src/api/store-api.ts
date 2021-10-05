@@ -1,6 +1,6 @@
 import { transformProductResponse } from '../transformers/products';
 import { apiInstance } from './api-instance';
-import { IProduct } from '../models';
+import { IProduct } from '../types';
 
 export const retrieveItems: (
   storeId: string,

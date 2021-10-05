@@ -1,13 +1,8 @@
 import React from 'react';
 import { Alert } from '@material-ui/lab';
+import { IErrorDisplay } from '../types';
 
-interface ErrorDisplay {
-  listError: boolean;
-  formError: boolean;
-  fetchError: boolean;
-}
-
-export const DisplayError: React.FC<ErrorDisplay> = ({
+export const DisplayError: React.FC<IErrorDisplay> = ({
   listError,
   formError,
   fetchError,
@@ -18,8 +13,7 @@ export const DisplayError: React.FC<ErrorDisplay> = ({
         ''
       ) : (
         <Alert severity="error">
-          Due to current lockdown restrictions, you may only purchase one of
-          each item.
+          Item is already in the list! Also, lockdown restrictions.
         </Alert>
       )}
       {!formError ? '' : <Alert severity="error">No item selected.</Alert>}
