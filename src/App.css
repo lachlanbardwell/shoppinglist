@@ -13,7 +13,9 @@ body,
 }
 
 body {
-  background-image: linear-gradient(#eef7ee, #c9eec9d3);
+  /* background-image: linear-gradient(#eef7ee, #c9eec9d3); */
+  background-image: url(img/strawbs.jpg);
+  background-size: cover;
 }
 
 header {
@@ -30,7 +32,7 @@ header {
 }
 
 footer {
-  color: #000000;
+  color: #ffffff;
   text-align: center;
   margin-bottom: 10px;
   position: relative;
@@ -80,6 +82,17 @@ footer {
   flex: 1 1 auto;
 }
 
+.boxStyles > .Button:hover {
+  color: 'white';
+  background-color: '#282c34';
+  display: 'flex';
+  margin-left: '10px';
+}
+
+.boxStyles > .utilBtn:hover {
+  background-color: black;
+}
+
 .cartHeading {
   margin: 20px;
   color: #021103;
@@ -96,7 +109,7 @@ footer {
 
 .logo {
   text-decoration: none;
-  color: #000000;
+  color: #ffffff;
   font-size: 12;
 }
 
