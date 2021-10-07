@@ -87,6 +87,10 @@ footer {
   border-radius: 10px 10px;
 }
 
+.basketOutput > .basketItems {
+  background-color: rgb(245, 245, 245);
+}
+
 .basketItemNames {
   margin-left: 10px;
 }
