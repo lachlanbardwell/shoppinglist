@@ -210,8 +210,8 @@ export const AddToBasket: React.FC = () => {
           {basket.length === 0
             ? null
             : basket.map((next, index) => (
-                <h3 key={index} className="basketItems">
-                  {next.id}
+                <Paper key={index} className="basketItems">
+                  <span className="basketItemNames">{next.id}</span>
                   <Button
                     className="removeBtn"
                     value={next.id}
@@ -220,7 +220,7 @@ export const AddToBasket: React.FC = () => {
                   >
                     x
                   </Button>
-                </h3>
+                </Paper>
               ))}
         </div>
         {store && <Price productPayload={basket} />}
