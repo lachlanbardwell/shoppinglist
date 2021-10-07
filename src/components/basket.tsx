@@ -112,13 +112,6 @@ export const AddToBasket: React.FC = () => {
     setDuplicateError(false);
   };
 
-  const buttonStyles: Record<string, string> = {
-    color: 'white',
-    backgroundColor: '#282c34',
-    display: 'flex',
-    marginLeft: '10px',
-  };
-
   const handleItemSelection = (nextItem: string) => {
     const selection = availableProducts.find((next) => next.id === nextItem);
     if (!selection) {
@@ -136,7 +129,7 @@ export const AddToBasket: React.FC = () => {
 
   return (
     <Box className="muiDiv">
-      <div className="boxStyles">
+      <div id="boxStyles">
         <Retailer
           storeList={initialStoreState}
           store={store}
@@ -203,7 +196,7 @@ export const AddToBasket: React.FC = () => {
           value={value}
         ></Autocomplete>
         <br />
-        <Button style={buttonStyles} onClick={addItem}>
+        <Button className="utilBtn" onClick={addItem}>
           Add to basket
         </Button>
         <DisplayError
@@ -234,7 +227,7 @@ export const AddToBasket: React.FC = () => {
         {basket.length === 0 ? null : (
           <>
             <Button
-              style={buttonStyles}
+              className="utilBtn"
               onClick={() => {
                 setBasket([]);
                 setNewItem('');
