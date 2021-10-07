@@ -12,12 +12,24 @@ export const DisplayError: React.FC<IErrorDisplay> = ({
       {!listError ? (
         ''
       ) : (
-        <Alert severity="error">
+        <Alert className="alertClass" severity="error">
           Item is already in the list! Also, lockdown restrictions.
         </Alert>
       )}
-      {!formError ? '' : <Alert severity="error">No item selected.</Alert>}
-      {!fetchError ? '' : <Alert severity="info">Select a store above.</Alert>}
+      {!formError ? (
+        ''
+      ) : (
+        <Alert className="alertClass" severity="error">
+          No item selected.
+        </Alert>
+      )}
+      {!fetchError ? (
+        ''
+      ) : (
+        <Alert className="alertClass" severity="info">
+          Select a store above.
+        </Alert>
+      )}
     </h3>
   );
 };

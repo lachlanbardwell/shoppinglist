@@ -1,3 +1,4 @@
+import { Paper } from '@material-ui/core';
 import React from 'react';
 import { IProduct } from '../types';
 import { ITypePrice } from '../types';
@@ -22,11 +23,11 @@ export const Price: React.FC<ITypePrice> = (props) => {
   };
 
   return (
-    <div>
+    <Paper className="paperClass">
       <h3
         className="priceHeader"
         style={priceStyles}
       >{`Estimated total: $${totalPrice()}`}</h3>
-    </div>
+    </Paper>
   );
 };

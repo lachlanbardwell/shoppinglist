@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonGroup, Grid, Tooltip } from '@material-ui/core';
+import { Button, Grid, Tooltip } from '@material-ui/core';
 import { useEffect } from 'react';
 import { IRetailerStore } from '../types';
 
@@ -14,7 +14,7 @@ export const Retailer: React.FC<IRetailerStore> = (props) => {
     <div>
       <br />
       <Grid id="storeGrid">
-        <ButtonGroup id="retailerButtons" color="primary">
+        <div id="retailerButtons" color="primary">
           {props.store ? (
             <div id="reselect">
               <Button
@@ -57,7 +57,7 @@ export const Retailer: React.FC<IRetailerStore> = (props) => {
               );
             })
           )}
-        </ButtonGroup>
+        </div>
       </Grid>
     </div>
   );

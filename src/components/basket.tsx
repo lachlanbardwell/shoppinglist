@@ -213,6 +213,7 @@ export const AddToBasket: React.FC = () => {
                 <h3 key={index} className="basketItems">
                   {next.id}
                   <Button
+                    className="removeBtn"
                     value={next.id}
                     key={index}
                     onClick={() => removeItem(next.id)}
@@ -222,7 +223,7 @@ export const AddToBasket: React.FC = () => {
                 </h3>
               ))}
         </div>
-        <Price productPayload={basket} />
+        {store && <Price productPayload={basket} />}
         <br />
         {basket.length === 0 ? null : (
           <>
