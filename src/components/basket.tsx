@@ -18,12 +18,12 @@ import { makeStyles } from '@material-ui/styles';
 import { Department } from './depart';
 
 const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles({
   circularProgress: {
     marginTop: -20,
     marginRight: -40,
   },
-}));
+});
 
 export const AddToBasket: React.FC = () => {
   const [availableProducts, setAvailableProducts] = useState<IProduct[]>([]);
@@ -177,7 +177,7 @@ export const AddToBasket: React.FC = () => {
                     <>
                       {isLoading ? (
                         <CircularProgress
-                          classes={{ root: classes.circularProgress }}
+                          className={classes.circularProgress}
                           size={20}
                         />
                       ) : (

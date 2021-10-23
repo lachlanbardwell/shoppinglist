@@ -8,48 +8,59 @@ body,
 #root {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   overflow: auto;
 }
 
-body {
-  background-image: url(img/strawbs.jpg);
-  background-size: cover;
+.titleHeader {
+  background-image: url(img/transp.gif);
+  background-size: 57% 400px;
+  background-repeat: no-repeat;
+  background-color: #282c34;
+  background-position: right top;
+  min-height: 13vh;
+  color: #ffffff;
 }
 
-header {
-  background-color: #282c34;
-  min-height: 8vh;
-  flex-direction: column;
-  text-align: center;
+.lachieSpan,
+.lachieTitle {
+  margin-left: 14%;
+  line-height: 20px;
   align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  margin-left: 7%;
-  margin-right: 7%;
-  line-height: 3;
 }
 
 footer {
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 10px;
+  color: white;
+  background-color: #282c34;
   position: relative;
 }
 
+.copyFootLeft {
+  margin-left: 14%;
+  margin-bottom: 10px;
+  float: left;
+}
+
+.copyFootRight {
+  float: right;
+  margin-right: 14%;
+  margin-bottom: 10px;
+}
+
+footer,
 .alertClass,
 .autoClass,
 .basketOutput,
 .departClass,
 .cartHeading,
 .priceHeader,
+.titleHeader,
 .utilBtn,
 #storeGrid {
   opacity: 1;
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
-  animation-duration: 0.5s;
+  animation-duration: 700ms;
 }
 
 .alertClass {
@@ -76,8 +87,9 @@ footer {
 }
 
 #reselect > .reselectBtn {
-  background-color: #214621d3;
+  background-color: #282c34;
   color: #ffffff;
+  border: 1px solid transparent;
 }
 
 #retailerButtons > .retailerBtn {
@@ -85,6 +97,12 @@ footer {
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 10px 10px;
+  top: 0;
+}
+
+#retailerButtons > .retailerBtn:hover {
+  transition: 250ms;
+  top: -9px;
 }
 
 .basketOutput > .basketItems {
@@ -135,6 +153,17 @@ footer {
   margin-bottom: 10px;
 }
 
+.legal a {
+  text-decoration: none;
+  color: white;
+  font-size: 12;
+  padding: 10px;
+}
+
+.legal ul {
+  list-style-type: none;
+}
+
 .logo {
   text-decoration: none;
   color: #ffffff;
@@ -158,6 +187,28 @@ footer {
   margin-right: 8%;
 }
 
+.social {
+  margin-top: 25px;
+  padding: 15px;
+}
+
+.social ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  list-style-type: none;
+}
+
+.social li {
+  padding: 0 15px;
+}
+
+.social img {
+  max-width: 45px;
+  max-height: 35px;
+  padding: 10px;
+}
+
 .storeImage {
   max-width: 90%;
   max-height: 90%;
@@ -166,6 +217,10 @@ footer {
 .storeImage:hover {
   transition: 500ms;
   opacity: 0.85;
+}
+
+.topBar {
+  background-color: white;
 }
 
 @keyframes fadeInOpacity {
@@ -178,6 +233,11 @@ footer {
 }
 
 @media (max-width: 750px) {
+  footer {
+    font-size: small;
+    margin-bottom: 0;
+  }
+
   #retailerButtons {
     padding-left: 5px;
     padding-right: 5px;
@@ -211,6 +271,17 @@ footer {
     font-size: x-small;
   }
 
+  .copyFootRight {
+    float: none;
+    margin-left: 12%;
+    margin-bottom: 40px;
+  }
+
+  .lachieTitle {
+    line-height: 10px;
+    font-size: 20px;
+  }
+
   .muiDiv {
     margin-top: -15px;
   }
@@ -219,8 +290,21 @@ footer {
     font-size: small;
   }
 
+  .social li {
+    padding: 0 10px;
+  }
+
+  .social img {
+    margin-left: -30%;
+    padding: 0;
+  }
+
   .storeImage {
     margin-left: 0;
+  }
+
+  .titleHeader {
+    background-size: 800px 500px;
   }
 
   #reselect > .storeImage {
@@ -250,7 +334,8 @@ footer {
 
   #reselect > .reselectBtn:hover {
     background-color: #fff;
-    color: #214621d3;
+    color: #282c34;
+    border: 1px solid #282c34;
   }
 
   .logo:hover {
