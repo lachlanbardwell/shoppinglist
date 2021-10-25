@@ -7,7 +7,7 @@ import {
   CircularProgress,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { Cart } from './cart';
+// import { Cart } from './cart';
 import { Retailer } from './retailer';
 import { Price } from './price';
 import { DisplayError } from './display-error';
@@ -15,6 +15,7 @@ import { IProduct } from '../types';
 import * as storeApi from '../api/store-api';
 import * as mockStoreApi from '../api/mocks/mock-store-api';
 import { makeStyles } from '@material-ui/styles';
+import CloseIcon from '@material-ui/icons/Close';
 import { Department } from './depart';
 
 const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
@@ -137,74 +138,77 @@ export const AddToBasket: React.FC = () => {
         />
 
         {store ? (
-          <div className="departClass">
-            <Department
-              depart={depart}
-              setDepart={setDepart}
-              convert={convertDepart}
-            ></Department>
-            <Paper className="paperClass">
-              <h3 className="cartHeading">
-                {convertDepart(depart)}
-                Department
-              </h3>
-            </Paper>
-          </div>
+          <>
+            <div className="departClass">
+              <Department
+                depart={depart}
+                setDepart={setDepart}
+                convert={convertDepart}
+              ></Department>
+              <Paper className="paperClass">
+                <h3 className="cartHeading">
+                  {convertDepart(depart)}
+                  Department
+                </h3>
+              </Paper>
+            </div>
+            <br />
+            <Autocomplete
+              className="autoClass"
+              autoComplete
+              openOnFocus
+              onChange={(event, value: string | null) => {
+                if (value !== null && value !== 'Loading...') {
+                  setNewItem(value);
+                } else {
+                  setNewItem('');
+                }
+              }}
+              getOptionSelected={(option, value) =>
+                option === value || value === ''
+              }
+              renderInput={(params) => {
+                return (
+                  <TextField
+                    {...params}
+                    disabled={isLoading}
+                    InputProps={{
+                      ...params.InputProps,
+                      endAdornment: (
+                        <>
+                          {isLoading ? (
+                            <CircularProgress
+                              className={classes.circularProgress}
+                              size={20}
+                            />
+                          ) : (
+                            params.InputProps.endAdornment
+                          )}
+                        </>
+                      ),
+                    }}
+                    variant="filled"
+                    label={
+                      isLoading ? 'Loading...' : 'What do you want to buy?'
+                    }
+                    value={basket}
+                  ></TextField>
+                );
+              }}
+              options={items == null || isLoading ? ['Loading...'] : [...items]}
+              value={value}
+            ></Autocomplete>
+            <br />
+            <Button className="utilBtn" onClick={addItem}>
+              Add to basket
+            </Button>{' '}
+          </>
         ) : null}
-        <br />
-        <Autocomplete
-          className="autoClass"
-          autoComplete
-          openOnFocus
-          onChange={(event, value: string | null) => {
-            if (value !== null && value !== 'Loading...') {
-              setNewItem(value);
-            } else {
-              setNewItem('');
-            }
-          }}
-          getOptionSelected={(option, value) =>
-            option === value || value === ''
-          }
-          renderInput={(params) => {
-            return (
-              <TextField
-                {...params}
-                disabled={isLoading}
-                InputProps={{
-                  ...params.InputProps,
-                  endAdornment: (
-                    <>
-                      {isLoading ? (
-                        <CircularProgress
-                          className={classes.circularProgress}
-                          size={20}
-                        />
-                      ) : (
-                        params.InputProps.endAdornment
-                      )}
-                    </>
-                  ),
-                }}
-                variant="filled"
-                label={isLoading ? 'Loading...' : 'What do you want to buy?'}
-                value={basket}
-              ></TextField>
-            );
-          }}
-          options={items == null || isLoading ? ['Loading...'] : [...items]}
-          value={value}
-        ></Autocomplete>
-        <br />
-        <Button className="utilBtn" onClick={addItem}>
-          Add to basket
-        </Button>
         <DisplayError
           listError={duplicateError}
           formError={noItemError}
           fetchError={storeError}
         />
-        <Cart store={store}></Cart>
 
         <div className="basketOutput">
           {basket.length === 0
@@ -218,15 +222,15 @@ export const AddToBasket: React.FC = () => {
                     key={index}
                     onClick={() => removeItem(next.id)}
                   >
-                    x
+                    <CloseIcon className="close" />
                   </Button>
                 </Paper>
               ))}
         </div>
-        {store && <Price productPayload={basket} />}
+
         <br />
         {basket.length === 0 ? null : (
-          <>
+          <div className="infoOutput">
             <Button
               className="utilBtn"
               onClick={() => {
@@ -239,8 +243,8 @@ export const AddToBasket: React.FC = () => {
             >
               Clear basket
             </Button>
-            <br />
-          </>
+            {store && <Price productPayload={basket} />}
+          </div>
         )}
       </div>
     </Box>

@@ -11,6 +11,11 @@ body,
   overflow: auto;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .titleHeader {
   background-image: url(img/transp.gif);
   background-size: 57% 400px;
@@ -32,11 +37,13 @@ footer {
   color: white;
   background-color: #282c34;
   position: relative;
+  margin-top: 100px;
 }
 
 .copyFootLeft {
   margin-left: 14%;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   float: left;
 }
 
@@ -90,6 +97,9 @@ footer,
   background-color: #282c34;
   color: #ffffff;
   border: 1px solid transparent;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 #retailerButtons > .retailerBtn {
@@ -106,7 +116,9 @@ footer,
 }
 
 .basketOutput > .basketItems {
-  background-color: rgb(245, 245, 245);
+  background-color: #f5f5f5;
+  padding: 10px;
+  margin: 10px;
 }
 
 .basketItemNames {
@@ -154,10 +166,8 @@ footer,
 }
 
 .legal a {
-  text-decoration: none;
   color: white;
   font-size: 12;
-  padding: 10px;
 }
 
 .legal ul {
@@ -173,11 +183,26 @@ footer,
 .muiDiv {
   flex: 1 1 auto;
   height: 100%;
+  margin-bottom: 50px;
+}
+
+.infoOutput {
+  display: flex;
+  margin-top: 50px;
 }
 
 .priceHeader {
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  margin-right: 8%;
+}
+
+.infoOutput > .utilBtn {
+  display: flex;
+  margin: auto auto auto 8%;
+  justify-content: flex-start;
+  background-color: #282c34;
+  color: #fff;
+  border: 1px solid transparent;
 }
 
 .paperClass {
@@ -209,11 +234,6 @@ footer,
   padding: 10px;
 }
 
-.storeImage {
-  max-width: 90%;
-  max-height: 90%;
-}
-
 .storeImage:hover {
   transition: 500ms;
   opacity: 0.85;
@@ -236,21 +256,30 @@ footer,
   footer {
     font-size: small;
     margin-bottom: 0;
+    margin-top: 0;
   }
 
   #retailerButtons {
+    display: grid;
     padding-left: 5px;
     padding-right: 5px;
+    height: 600px;
+    width: 300px;
   }
 
   #retailerButtons > .retailerBtn {
     margin-left: 2px;
     margin-right: 2px;
+    margin-bottom: 20px;
   }
 
   .basketOutput {
     display: grid;
     grid-template-columns: repeat(1, auto);
+  }
+
+  .basketOutput > .basketItems {
+    margin: 5px;
   }
 
   .basketItemNames {
@@ -267,14 +296,22 @@ footer,
     height: 100%;
   }
 
-  #boxStyles > .utilBtn {
-    font-size: x-small;
-  }
-
   .copyFootRight {
     float: none;
-    margin-left: 12%;
+    margin-left: 14%;
     margin-bottom: 40px;
+  }
+
+  .departClass {
+    margin-top: -380px;
+  }
+
+  .infoOutput {
+    display: grid;
+  }
+
+  .infoOutput > .priceHeader {
+    margin-left: 8%;
   }
 
   .lachieTitle {
@@ -286,10 +323,6 @@ footer,
     margin-top: -15px;
   }
 
-  .priceHeader {
-    font-size: small;
-  }
-
   .social li {
     padding: 0 10px;
   }
@@ -299,16 +332,8 @@ footer,
     padding: 0;
   }
 
-  .storeImage {
-    margin-left: 0;
-  }
-
   .titleHeader {
     background-size: 800px 500px;
-  }
-
-  #reselect > .storeImage {
-    margin-left: 30px;
   }
 
   .cartHeading {
@@ -317,16 +342,16 @@ footer,
 
   .storeImage {
     display: flex;
+    margin: auto;
     justify-content: center;
     height: auto;
     width: auto;
-    max-width: 60px;
-    max-height: 50px;
   }
 }
 
 @media (min-width: 750px) {
-  #boxStyles > .utilBtn:hover {
+  #boxStyles > .utilBtn:hover,
+  .infoOutput > .utilBtn:hover {
     background-color: #fff;
     color: #282c34;
     border: 1px solid #282c34;

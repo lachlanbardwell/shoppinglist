@@ -1,18 +1,11 @@
-import { Paper } from '@material-ui/core';
 import React from 'react';
 import { IProduct } from '../types';
 import { ITypePrice } from '../types';
 
-const priceStyles: React.CSSProperties = {
-  color: '#0e0e42',
-  display: 'flex',
-  marginLeft: '10px',
-};
-
 //Alternatively pass {price}. Just demoing props
 export const Price: React.FC<ITypePrice> = (props) => {
   const totalPrice = () => {
-    if (props.productPayload.length >= 1) {
+    if (props.productPayload) {
       const newPrice = props.productPayload
         .reduce((total: number, next: IProduct) => total + next.price, 0)
         .toFixed(2);
@@ -23,11 +16,9 @@ export const Price: React.FC<ITypePrice> = (props) => {
   };
 
   return (
-    <Paper className="paperClass">
-      <h3
-        className="priceHeader"
-        style={priceStyles}
-      >{`Estimated total: $${totalPrice()}`}</h3>
-    </Paper>
+    <div className="priceHeader">
+      <h3>Estimated total:</h3>
+      <h1 style={{ fontSize: '40px' }}>{`$${totalPrice()}`}</h1>
+    </div>
   );
 };
