@@ -21,6 +21,7 @@ export const TopBar: React.FC = () => {
   const classes = useStyles();
   const open = Boolean(visible);
 
+  // eslint-disable-next-line
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
     visible ? setVisible(false) : setVisible(true);
