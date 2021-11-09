@@ -7,7 +7,6 @@ import {
   CircularProgress,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-// import { Cart } from './cart';
 import { Retailer } from './retailer';
 import { Price } from './price';
 import { DisplayError } from './display-error';

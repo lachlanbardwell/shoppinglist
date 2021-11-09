@@ -16,8 +16,8 @@ const useStyles = makeStyles({
 });
 
 export const TopBar: React.FC = () => {
-  const [visible, setVisible] = useState(false);
-  const [anchorEl, setAnchorEl] = useState();
+  const [visible, setVisible] = useState<boolean>(false);
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>();
   const classes = useStyles();
   const open = Boolean(visible);
 
