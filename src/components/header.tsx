@@ -1,15 +1,22 @@
 import React from 'react';
-import { useState } from 'react';
+import { IHeaderCheck } from '../types';
 
-export const LachHeader: React.FC = () => {
-  const [name] = useState<string>('');
-
+export const LachHeader: React.FC<IHeaderCheck> = (props) => {
   return (
-    <div className="titleHeader">
-      <h2 className="lachieTitle">
-        {name ? `${name}'s Shopping List` : 'Your custom Shopping List'}
+    <div
+      className="titleHeader"
+      style={{ display: 'flex', minHeight: props.clicked ? '8vh' : '18vh' }}
+    >
+      <h2
+        style={{
+          margin: props.clicked ? 'none' : 'auto',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontFamily: 'Play, sans-serif',
+        }}
+      >
+        {props.clicked ? 'Choose list items' : 'Select a store to begin'}
       </h2>
-      <span className="lachieSpan">Select a store below</span>
     </div>
   );
 };

@@ -10,7 +10,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Retailer } from './retailer';
 import { Price } from './price';
 import { DisplayError } from './display-error';
-import { IProduct } from '../types';
+import { IHeaderCheck, IProduct } from '../types';
 import * as storeApi from '../api/store-api';
 import * as mockStoreApi from '../api/mocks/mock-store-api';
 import { makeStyles } from '@material-ui/styles';
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const AddToBasket: React.FC = () => {
+export const AddToBasket: React.FC<IHeaderCheck> = (props) => {
   const [availableProducts, setAvailableProducts] = useState<IProduct[]>([]);
   const [basket, setBasket] = useState<IProduct[]>([]);
   const [depart, setDepart] = useState<string>('produce');
@@ -69,6 +69,7 @@ export const AddToBasket: React.FC = () => {
     setDuplicateError(false);
     setNoItemError(false);
     getItems(storeApi);
+    props.setCheckClicked(true);
   }, [store, depart]);
 
   useEffect(() => {
@@ -80,6 +81,7 @@ export const AddToBasket: React.FC = () => {
       setValue('');
       setDuplicateError(false);
       setNoItemError(false);
+      props.setCheckClicked(false);
     }
     setStoreError(false);
   }, [store]);

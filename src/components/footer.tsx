@@ -9,9 +9,7 @@ const socials: string[] = [facebook, instagram, linkedin, twitter, youtube];
 const otherLinks: string[] = [
   'Terms & Conditions',
   'Legal Disclaimer',
-  'About Lachie B',
-  'Testimonials',
-  'Contact Us',
+  'Contact',
 ];
 
 export const LachFooter: React.FC = () => {
@@ -38,14 +36,22 @@ export const LachFooter: React.FC = () => {
         <span className="legal">
           {otherLinks.map((next, ind) => (
             <p key={ind}>
-              <a href="#">{next}</a>
+              <a
+                href={
+                  next == 'Contact'
+                    ? 'mailto:Lachbardwell@gmail.com?subject=Enquiry from website'
+                    : '#'
+                }
+              >
+                {next}
+              </a>
             </p>
           ))}
         </span>
       </div>
       <div className="copyFootLeft">
         <span>Made with Create React App and Material UI</span>
-        <p>&copy; Lachlan Bardwell 2021</p>
+        <p>&copy; Lachlan Bardwell 2022</p>
         <a className="logo" href="https://clearbit.com">
           Logos provided by Clearbit
         </a>

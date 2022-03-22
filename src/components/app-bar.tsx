@@ -7,9 +7,9 @@ import {
   makeStyles,
   Menu,
   MenuItem,
-  Typography,
 } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import DoubleArrowIcon from '@material-ui/icons/DoubleArrowSharp';
+import linkedIn from '../img/linkedin-black.svg';
 
 const useStyles = makeStyles({
   header: { backgroundColor: 'white', color: 'black' },
@@ -30,41 +30,49 @@ export const TopBar: React.FC = () => {
   return (
     <Box>
       <AppBar position="static" className={classes.header}>
-        <Toolbar>
-          <IconButton
-            id="anchor"
-            aria-controls="basic-menu"
-            aria-haspopup="true"
-            aria-expanded={visible ? 'true' : undefined}
-            onClick={handleClick}
-          >
-            <Menu
-              anchorEl={anchorEl}
-              open={open}
-              onClose={() => setVisible(false)}
-              style={{ padding: 20 }}
+        <Toolbar
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            fontFamily: 'Play, sans-serif',
+          }}
+        >
+          <h3 style={{ marginLeft: '2%' }}>
+            <a href="#">Lachieb.dev</a>
+          </h3>
+          <a href="https://www.linkedin.com/in/lachlan-bardwell">
+            <img
+              src={linkedIn}
+              alt="linkedIn link"
+              style={{ width: '40px', height: '30px' }}
+            />
+          </a>
+
+          <div style={{ display: 'flex' }}>
+            <h4 style={{ color: '##2b2b2b' }}>Other projects</h4>
+            <IconButton
+              id="anchor"
+              aria-controls="basic-menu"
+              aria-haspopup="true"
+              aria-expanded={visible ? 'true' : undefined}
+              onClick={handleClick}
             >
-              <MenuItem>Shopping List</MenuItem>
-              <MenuItem
-                onClick={() => window.open('https://xando.lachieb.dev')}
+              <Menu
+                anchorEl={anchorEl}
+                open={open}
+                onClose={() => setVisible(false)}
+                style={{ padding: 20 }}
               >
-                Naughts and Crosses
-              </MenuItem>
-            </Menu>
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            component="div"
-            style={{
-              padding: 10,
-              margin: 'auto',
-              justifyContent: 'centre',
-            }}
-          >
-            <h4>
-              <a href="#">Lachieb.dev</a>
-            </h4>
-          </Typography>
+                <MenuItem>Shopping List</MenuItem>
+                <MenuItem
+                  onClick={() => window.open('https://xando.lachieb.dev')}
+                >
+                  Naughts and Crosses
+                </MenuItem>
+              </Menu>
+              <DoubleArrowIcon />
+            </IconButton>
+          </div>
         </Toolbar>
       </AppBar>
     </Box>

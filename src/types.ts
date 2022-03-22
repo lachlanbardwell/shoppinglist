@@ -7,6 +7,11 @@ export interface IDepart {
   convert: (depart: string) => string;
 }
 
+export interface IHeaderCheck {
+  clicked: boolean;
+  setCheckClicked: (clicked: boolean) => void;
+}
+
 export interface IErrorDisplay {
   listError: boolean;
   formError: boolean;
