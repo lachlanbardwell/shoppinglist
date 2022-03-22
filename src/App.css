@@ -127,6 +127,7 @@ footer,
   margin-top: 15px;
   margin-left: 7%;
   margin-right: 7%;
+  margin-bottom: 7%;
   overflow: auto;
   flex: 1 1 auto;
 }
