@@ -25,7 +25,8 @@ const useStyles = makeStyles({
   },
 });
 
-export const AddToBasket: React.FC<IHeaderCheck> = (props) => {
+//Alternate typing of functional component - Using ReactFC means it Must accept a children prop of some kind
+export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   const [availableProducts, setAvailableProducts] = useState<IProduct[]>([]);
   const [basket, setBasket] = useState<IProduct[]>([]);
   const [depart, setDepart] = useState<string>('produce');

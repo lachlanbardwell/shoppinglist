@@ -69,6 +69,13 @@ export const TopBar: React.FC = () => {
                 >
                   Naughts and Crosses
                 </MenuItem>
+                <MenuItem
+                  onClick={() =>
+                    window.open('https://infinite-depths-41827.herokuapp.com/')
+                  }
+                >
+                  Kitchen Daydreams
+                </MenuItem>
               </Menu>
               <DoubleArrowIcon />
             </IconButton>
