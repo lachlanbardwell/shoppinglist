@@ -38,6 +38,8 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   const [newItem, setNewItem] = useState<string>('');
   const [store, setStore] = useState<string>('');
   const [value, setValue] = useState<string>('');
+  const [searchValue, setSearchValue] = useState<string>('');
+  const [searchOpen, setSearchOpen] = useState<boolean>(false);
   const classes = useStyles();
 
   //TODO : Remove use of mocks after backend is sorted
@@ -45,17 +47,15 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   const getItems = async (service: typeof storeApi, isMock?: boolean) => {
     setisLoading(true);
     try {
-      console.log(`Attempting to call ${isMock ? 'mock' : 'actual'} api`);
       const result = await service.retrieveItems(store, depart);
-      console.log(`Called ${isMock ? 'mock' : 'actual'} api`);
-      console.log('result list', result);
       setAvailableProducts(result);
       setItems(result.map((prev: IProduct) => prev.id).sort());
       setisLoading(false);
     } catch (error) {
-      console.log(`Failed to call ${isMock ? 'mock' : 'actual'} api`);
+      console.error(`Failed to call ${isMock ? 'mock' : 'actual'} api`);
       if (!isMock) {
         getItems(mockStoreApi, true);
+        console.log('called mock API');
       } else {
         setisLoading(false);
       }
@@ -124,6 +124,18 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     setBasket((prev) => [...prev, selection]);
   };
 
+  const handleInputChange = (
+    event: React.ChangeEvent<Record<string, never>>,
+    newInputValue: string,
+  ) => {
+    setSearchValue(newInputValue);
+    if (newInputValue.length > 0) {
+      setSearchOpen(true);
+    } else {
+      setSearchOpen(false);
+    }
+  };
+
   const convertDepart = (inputDepart: string) => {
     return (
       inputDepart.substring(0, 1).toUpperCase() + inputDepart.substring(1) + ' '
@@ -158,7 +170,11 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
             <Autocomplete
               className="autoClass"
               autoComplete
-              openOnFocus
+              inputValue={searchValue}
+              open={searchOpen}
+              onOpen={() => searchValue.length > 0 && setSearchOpen(true)}
+              onClose={() => setSearchOpen(false)}
+              onInputChange={handleInputChange}
               onChange={(event, value: string | null) => {
                 if (value !== null && value !== 'Loading...') {
                   setNewItem(value);

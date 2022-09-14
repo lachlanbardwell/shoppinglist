@@ -13,7 +13,7 @@ export const DisplayError: React.FC<IErrorDisplay> = ({
         ''
       ) : (
         <Alert className="alertClass" severity="error">
-          Item is already in the list! Also, lockdown restrictions.
+          Item is already in the list!
         </Alert>
       )}
       {!formError ? (
