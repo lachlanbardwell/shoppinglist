@@ -52,14 +52,13 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       setItems(result.map((prev: IProduct) => prev.id).sort());
       setisLoading(false);
     } catch (error) {
-      console.error(`Failed to call ${isMock ? 'mock' : 'actual'} api`);
+      console.log(`Failed to call ${isMock ? 'mock' : 'actual'} API`);
       if (!isMock) {
         getItems(mockStoreApi, true);
-        console.log('called mock API');
+        console.log('Called mock API');
       } else {
         setisLoading(false);
       }
-      console.error('Api call failed');
     }
   };
 

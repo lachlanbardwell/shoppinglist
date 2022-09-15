@@ -9,7 +9,9 @@ import {
   MenuItem,
 } from '@material-ui/core';
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrowSharp';
-import linkedIn from '../img/linkedin-black.svg';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import linkedIn from '../../img/linkedin-black.svg';
+import './app-bar.css';
 
 const useStyles = makeStyles({
   header: { backgroundColor: 'white', color: 'black' },
@@ -34,22 +36,12 @@ export const TopBar: React.FC = () => {
           style={{
             display: 'flex',
             justifyContent: 'space-between',
+            alignItems: 'center',
             fontFamily: 'Play, sans-serif',
           }}
         >
-          <h3 style={{ marginLeft: '2%' }}>
-            <a href="#">Lachieb.dev</a>
-          </h3>
-          <a href="https://www.linkedin.com/in/lachlan-bardwell">
-            <img
-              src={linkedIn}
-              alt="linkedIn link"
-              style={{ width: '40px', height: '30px' }}
-            />
-          </a>
-
-          <div style={{ display: 'flex' }}>
-            <h4 style={{ color: '##2b2b2b' }}>Other projects</h4>
+          <div style={{ display: 'flex', flexBasis: '0' }}>
+            <h3 style={{ color: '##2b2b2b' }}>Lachieb.dev</h3>
             <IconButton
               id="anchor"
               aria-controls="basic-menu"
@@ -79,6 +71,17 @@ export const TopBar: React.FC = () => {
               </Menu>
               <DoubleArrowIcon />
             </IconButton>
+          </div>
+          <a href="https://www.linkedin.com/in/lachlan-bardwell">
+            <img
+              src={linkedIn}
+              alt="linkedIn link"
+              style={{ width: '40px', height: '30px' }}
+            />
+          </a>
+          <div className="view-cart">
+            <h4>Click to View Cart</h4>&nbsp; &nbsp;
+            <ShoppingCartIcon style={{ margin: 'auto' }} fontSize="default" />
           </div>
         </Toolbar>
       </AppBar>

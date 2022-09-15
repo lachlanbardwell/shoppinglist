@@ -4,7 +4,7 @@ import './App.css';
 import { LachHeader } from './components/header';
 import { AddToBasket } from './components/basket';
 import { LachFooter } from './components/footer';
-import { TopBar } from './components/app-bar';
+import { TopBar } from './components/app-bar/app-bar';
 
 const App: React.FC = () => {
   const [checkClicked, setCheckClicked] = useState<boolean>(false);

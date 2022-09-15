@@ -25,6 +25,10 @@ footer {
   margin-top: 30vh;
 }
 
+/* .App {
+  background-color: #021103;
+} */
+
 .copyFootLeft {
   margin-left: 14%;
   margin-top: 20px;
@@ -58,10 +62,10 @@ footer,
   margin-left: 8%;
   margin-right: 8%;
 }
-
+/* 
 .App {
-  text-align: center;
-}
+  background-color: #eef4fa;
+} */
 
 .App-link {
   color: #61dafb;
@@ -78,13 +82,21 @@ footer,
   margin: auto;
 }
 
+#reselect {
+  display: flex;
+  flex: 1 1 0;
+  text-align: center;
+}
+
 #reselect > .reselectBtn {
   background-color: #282c34;
   color: #ffffff;
   border: 1px solid transparent;
-  margin: auto;
-  display: flex;
-  justify-content: center;
+  margin: 0 auto auto 8%;
+}
+
+#reselect > .storeImage {
+  margin: auto 46% auto auto;
 }
 
 #retailerButtons > .retailerBtn {
@@ -254,6 +266,15 @@ footer,
     margin-left: 2px;
     margin-right: 2px;
     margin-bottom: 20px;
+  }
+
+  #reselect {
+    flex-direction: column;
+    margin: 0 auto auto auto;
+  }
+
+  #reselect > .storeImage {
+    margin: 10% auto auto auto;
   }
 
   .basketOutput {
