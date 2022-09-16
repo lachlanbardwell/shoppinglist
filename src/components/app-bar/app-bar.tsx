@@ -10,8 +10,8 @@ import {
 } from '@material-ui/core';
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrowSharp';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import linkedIn from '../../img/linkedin-black.svg';
 import './app-bar.css';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   header: { backgroundColor: 'white', color: 'black' },
@@ -72,16 +72,21 @@ export const TopBar: React.FC = () => {
               <DoubleArrowIcon />
             </IconButton>
           </div>
-          <a href="https://www.linkedin.com/in/lachlan-bardwell">
-            <img
-              src={linkedIn}
-              alt="linkedIn link"
-              style={{ width: '40px', height: '30px' }}
-            />
-          </a>
+          <Link to={'/'}>
+            <h3>Shopping List</h3>
+          </Link>
           <div className="view-cart">
-            <h4>Click to View Cart</h4>&nbsp; &nbsp;
-            <ShoppingCartIcon style={{ margin: 'auto' }} fontSize="default" />
+            <Link
+              to={'/cart'}
+              style={{
+                color: 'black',
+                display: 'flex',
+                textDecoration: 'none',
+              }}
+            >
+              <h4>Click to View Cart</h4>&nbsp; &nbsp;
+              <ShoppingCartIcon style={{ margin: 'auto' }} fontSize="default" />
+            </Link>
           </div>
         </Toolbar>
       </AppBar>
