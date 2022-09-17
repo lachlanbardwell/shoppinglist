@@ -23,6 +23,11 @@ export interface IProduct {
   color: string;
   price: number;
 }
+
+export interface IContextProps {
+  cartItems: IProduct[];
+  setCartItems: React.Dispatch<React.SetStateAction<IProduct[]>>;
+}
 export interface IResponseData {
   [listNumber: string]: IStoreData;
 }

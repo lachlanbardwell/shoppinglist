@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -16,6 +16,7 @@ import * as mockStoreApi from '../api/mocks/mock-store-api';
 import { makeStyles } from '@material-ui/styles';
 import CloseIcon from '@material-ui/icons/Close';
 import { Department } from './depart';
+import { CartContext } from '../context';
 
 const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
 const useStyles = makeStyles({
@@ -28,7 +29,7 @@ const useStyles = makeStyles({
 //Alternate typing of functional component - Using ReactFC means it Must accept a children prop of some kind
 export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   const [availableProducts, setAvailableProducts] = useState<IProduct[]>([]);
-  const [basket, setBasket] = useState<IProduct[]>([]);
+  // const [cartItems, setCartItems] = useState<IProduct[]>([]);
   const [depart, setDepart] = useState<string>('produce');
   const [storeError, setStoreError] = useState<boolean>(false);
   const [noItemError, setNoItemError] = useState<boolean>(false);
@@ -40,6 +41,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   const [value, setValue] = useState<string>('');
   const [searchValue, setSearchValue] = useState<string>('');
   const [searchOpen, setSearchOpen] = useState<boolean>(false);
+  const { cartItems, setCartItems } = useContext(CartContext);
   const classes = useStyles();
 
   //TODO : Remove use of mocks after backend is sorted
@@ -76,7 +78,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     if (!store) {
       setNewItem('');
       setAvailableProducts([]);
-      setBasket([]);
+      setCartItems([]);
       setItems(null);
       setValue('');
       setDuplicateError(false);
@@ -91,7 +93,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       setStoreError(true);
       return;
     }
-    if (basket.find((next) => next.id === newItem)) {
+    if (cartItems.find((next) => next.id === newItem)) {
       setDuplicateError(true);
       setNewItem('');
       return;
@@ -107,9 +109,9 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   };
 
   const removeItem = (itemToRemove: string) => {
-    setBasket((prevState) =>
-      prevState.filter((prevItem) => prevItem.id !== itemToRemove),
-    );
+    setCartItems((prevState: IProduct[]) => {
+      return prevState.filter((prevItem) => prevItem.id !== itemToRemove);
+    });
     setNoItemError(false);
     setDuplicateError(false);
   };
@@ -120,7 +122,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       console.error('could not find next item', nextItem);
       return;
     }
-    setBasket((prev) => [...prev, selection]);
+    setCartItems((prev: IProduct[]) => [...prev, selection]);
   };
 
   const handleInputChange = (
@@ -208,7 +210,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                     label={
                       isLoading ? 'Loading...' : 'What do you want to buy?'
                     }
-                    value={basket}
+                    value={cartItems}
                   ></TextField>
                 );
               }}
@@ -228,9 +230,9 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
         />
 
         <div className="basketOutput">
-          {basket.length === 0
+          {cartItems.length === 0
             ? null
-            : basket.map((next, index) => (
+            : cartItems.map((next, index) => (
                 <Paper key={index} className="basketItems">
                   <span className="basketItemNames">{next.id}</span>
                   <Button
@@ -246,12 +248,12 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
         </div>
 
         <br />
-        {basket.length === 0 ? null : (
+        {cartItems.length === 0 ? null : (
           <div className="infoOutput">
             <Button
               className="utilBtn"
               onClick={() => {
-                setBasket([]);
+                setCartItems([]);
                 setNewItem('');
                 setValue('');
                 setNoItemError(false);
@@ -260,7 +262,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
             >
               Clear basket
             </Button>
-            {store && <Price productPayload={basket} />}
+            {store && <Price productPayload={cartItems} />}
           </div>
         )}
       </div>
