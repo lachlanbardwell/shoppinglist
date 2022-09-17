@@ -169,12 +169,6 @@ export const retrieveItems: (
               price: 10,
             },
             {
-              id: 'Microwave meal',
-              weight: 300,
-              color: 'White',
-              price: 7,
-            },
-            {
               id: 'Chicken Thigh kg',
               weight: 400,
               color: 'White',
@@ -715,12 +709,6 @@ export const retrieveItems: (
               weight: 2000,
               color: 'Brown',
               price: 10,
-            },
-            {
-              id: 'Microwave meal',
-              weight: 300,
-              color: 'White',
-              price: 7,
             },
             {
               id: 'Chicken Thigh kg',
@@ -1265,12 +1253,6 @@ export const retrieveItems: (
               price: 10,
             },
             {
-              id: 'Microwave meal',
-              weight: 300,
-              color: 'White',
-              price: 7,
-            },
-            {
               id: 'Chicken Thigh kg',
               weight: 400,
               color: 'White',
@@ -1811,12 +1793,6 @@ export const retrieveItems: (
               weight: 2000,
               color: 'Brown',
               price: 10,
-            },
-            {
-              id: 'Microwave meal',
-              weight: 300,
-              color: 'White',
-              price: 7,
             },
             {
               id: 'Chicken Thigh kg',

@@ -22,6 +22,7 @@ export interface IProduct {
   weight: number;
   color: string;
   price: number;
+  perkg?: boolean;
 }
 
 export interface IContextProps {

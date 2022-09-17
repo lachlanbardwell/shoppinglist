@@ -17,8 +17,8 @@ export const Price: React.FC<ITypePrice> = (props) => {
 
   return (
     <div className="priceHeader">
-      <h3>Estimated total:</h3>
-      <h1 style={{ fontSize: '40px' }}>{`$${totalPrice()}`}</h1>
+      <h3>Total Cost:</h3>
+      <h1 style={{ fontSize: '40px', margin: 'auto' }}>{`$${totalPrice()}`}</h1>
     </div>
   );
 };

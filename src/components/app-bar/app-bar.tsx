@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   AppBar,
   Box,
@@ -12,6 +12,7 @@ import DoubleArrowIcon from '@material-ui/icons/DoubleArrowSharp';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import './app-bar.css';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context';
 
 const useStyles = makeStyles({
   header: { backgroundColor: 'white', color: 'black' },
@@ -22,6 +23,7 @@ export const TopBar: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>();
   const classes = useStyles();
   const open = Boolean(visible);
+  const { cartItems } = useContext(CartContext);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -83,8 +85,10 @@ export const TopBar: React.FC = () => {
                 textDecoration: 'none',
               }}
             >
-              <h4>Click to View Cart</h4>&nbsp; &nbsp;
+              <h4>View Cart</h4>&nbsp; &nbsp;
               <ShoppingCartIcon style={{ margin: 'auto' }} fontSize="default" />
+              &nbsp;
+              <h5>{cartItems.length}</h5>
             </Link>
           </div>
         </Toolbar>

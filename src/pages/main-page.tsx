@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LachHeader } from '../components/header';
-import { AddToBasket } from '../components/basket';
+import { AddToBasket } from '../components/basket/basket';
 
 export const MainPage: React.FC = () => {
   const [checkClicked, setCheckClicked] = useState<boolean>(false);

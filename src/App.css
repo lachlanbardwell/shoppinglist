@@ -121,6 +121,8 @@ footer,
 }
 
 .basketItemNames {
+  display: flex;
+  flex-direction: column;
   margin-left: 10px;
   flex: 1 1 auto;
 }
@@ -160,6 +162,10 @@ footer,
   justify-content: center;
 }
 
+.checkout {
+  margin-right: 8%;
+}
+
 .departForm {
   margin-top: 20px;
   margin-left: 8%;
@@ -183,12 +189,17 @@ footer,
 
 .infoOutput {
   display: flex;
+  justify-content: space-between;
   margin-top: 50px;
 }
 
 .priceHeader {
-  justify-content: flex-end;
-  margin-right: 8%;
+  display: flex;
+  flex-direction: column;
+  /* margin: auto; */
+  flex: 1 1 0;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 .infoOutput > .utilBtn {
@@ -288,7 +299,7 @@ footer,
 
   .basketItemNames {
     font-size: medium;
-    justify-content: center;
+    /* justify-content: center; */
   }
 
   .basketItemNames > .removeBtn {
@@ -298,6 +309,10 @@ footer,
 
   #boxStyles {
     height: 100%;
+  }
+
+  .checkout {
+    margin-left: 8%;
   }
 
   .copyFootRight {

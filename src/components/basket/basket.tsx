@@ -7,16 +7,20 @@ import {
   CircularProgress,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { Retailer } from './retailer';
-import { Price } from './price';
-import { DisplayError } from './display-error';
-import { IHeaderCheck, IProduct } from '../types';
-import * as storeApi from '../api/store-api';
-import * as mockStoreApi from '../api/mocks/mock-store-api';
+import { Retailer } from '../retailer';
+import { Price } from '../price';
+import { DisplayError } from '../display-error';
+import { IHeaderCheck, IProduct } from '../../types';
+import * as storeApi from '../../api/store-api';
+import * as mockStoreApi from '../../api/mocks/mock-store-api';
 import { makeStyles } from '@material-ui/styles';
 import CloseIcon from '@material-ui/icons/Close';
-import { Department } from './depart';
-import { CartContext } from '../context';
+import { Department } from '../depart';
+import { CartContext } from '../../context';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import InputIcon from '@material-ui/icons/Input';
+import './basket.css';
+import { Link } from 'react-router-dom';
 
 const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
 const useStyles = makeStyles({
@@ -118,10 +122,15 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
 
   const handleItemSelection = (nextItem: string) => {
     const selection = availableProducts.find((next) => next.id === nextItem);
+
     if (!selection) {
       console.error('could not find next item', nextItem);
       return;
     }
+    if (depart === 'produce' || depart === 'deli' || depart === 'meat') {
+      selection.perkg = true;
+    }
+
     setCartItems((prev: IProduct[]) => [...prev, selection]);
   };
 
@@ -234,7 +243,12 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
             ? null
             : cartItems.map((next, index) => (
                 <Paper key={index} className="basketItems">
-                  <span className="basketItemNames">{next.id}</span>
+                  <span className="basketItemNames">
+                    <p>{next.id}</p>
+                    <p className="basketItemPrice">{`$${next.price} ${
+                      next.perkg ? 'per kg' : 'ea'
+                    }`}</p>
+                  </span>
                   <Button
                     className="removeBtn"
                     value={next.id}
@@ -246,8 +260,6 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                 </Paper>
               ))}
         </div>
-
-        <br />
         {cartItems.length === 0 ? null : (
           <div className="infoOutput">
             <Button
@@ -263,6 +275,13 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
               Clear basket
             </Button>
             {store && <Price productPayload={cartItems} />}
+            <span className="checkout">
+              <h3>Checkout</h3>
+              <Link to={'/cart'}>
+                <ShoppingCartIcon style={{ fontSize: '60px' }} />
+                <InputIcon style={{ fontSize: '30px', marginBottom: '15%' }} />
+              </Link>
+            </span>
           </div>
         )}
       </div>

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Price } from '../components/price';
 import { CartContext } from '../context';
 
 export const CartPage: React.FC = () => {
@@ -11,6 +12,7 @@ export const CartPage: React.FC = () => {
       ) : (
         cartItems.map((next) => <h1 key={next.id}>{next.id}</h1>)
       )}
+      <Price productPayload={cartItems} />
       <Link to={'/'}>Return to shopping</Link>
     </div>
   );
