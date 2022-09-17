@@ -6,8 +6,8 @@ import { MainPage } from './pages/main-page';
 import { CartPage } from './pages/cart-page';
 import { NotFoundPage } from './pages/not-found-page';
 import { IProduct } from './types';
-import './App.css';
 import { CartContext } from './context';
+import './App.css';
 
 const App: React.FC = () => {
   const [cartItems, setCartItems] = useState<IProduct[]>([]);
