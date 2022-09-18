@@ -23,6 +23,7 @@ export interface IProduct {
   color: string;
   price: number;
   perkg?: boolean;
+  quantity?: number;
 }
 
 export interface IContextProps {

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { TopBar } from './components/app-bar/app-bar';
 import { LachFooter } from './components/footer';
 import { MainPage } from './pages/main-page';
-import { CartPage } from './pages/cart-page';
+import { CartPage } from './pages/cart-page/cart-page';
 import { NotFoundPage } from './pages/not-found-page';
 import { IProduct } from './types';
 import { CartContext } from './context';

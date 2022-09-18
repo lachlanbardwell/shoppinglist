@@ -6,6 +6,7 @@ footer,
 #root {
   height: 100%;
   margin: 0;
+  /* background-color: #d1ffd4; */
 }
 
 #root {
@@ -24,10 +25,6 @@ footer {
   background-color: #282c34;
   margin-top: 30vh;
 }
-
-/* .App {
-  background-color: #021103;
-} */
 
 .copyFootLeft {
   margin-left: 14%;
@@ -127,13 +124,17 @@ footer,
   flex: 1 1 auto;
 }
 
+.basketItemNames > p {
+  line-height: 0%;
+}
+
 .basketOutput {
   display: grid;
   grid-template-columns: repeat(3, auto);
   flex-wrap: wrap;
   margin-bottom: 10px;
-  margin-left: 8%;
-  margin-right: 8%;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
 }
 
 #boxStyles {
@@ -191,14 +192,13 @@ footer,
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
+  margin-left: 7%;
 }
 
 .priceHeader {
   display: flex;
   flex-direction: column;
-  /* margin: auto; */
   flex: 1 1 0;
-  /* justify-content: center; */
   align-items: center;
 }
 
@@ -299,7 +299,6 @@ footer,
 
   .basketItemNames {
     font-size: medium;
-    /* justify-content: center; */
   }
 
   .basketItemNames > .removeBtn {
@@ -309,6 +308,7 @@ footer,
 
   #boxStyles {
     height: 100%;
+    margin-left: 0;
   }
 
   .checkout {

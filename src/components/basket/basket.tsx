@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {
+  Avatar,
+  Badge,
   Box,
   Button,
-  TextField,
-  Paper,
   CircularProgress,
+  Paper,
+  TextField,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Retailer } from '../retailer';
@@ -33,7 +35,6 @@ const useStyles = makeStyles({
 //Alternate typing of functional component - Using ReactFC means it Must accept a children prop of some kind
 export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   const [availableProducts, setAvailableProducts] = useState<IProduct[]>([]);
-  // const [cartItems, setCartItems] = useState<IProduct[]>([]);
   const [depart, setDepart] = useState<string>('produce');
   const [storeError, setStoreError] = useState<boolean>(false);
   const [noItemError, setNoItemError] = useState<boolean>(false);
@@ -130,7 +131,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     if (depart === 'produce' || depart === 'deli' || depart === 'meat') {
       selection.perkg = true;
     }
-
+    selection.quantity = 1;
     setCartItems((prev: IProduct[]) => [...prev, selection]);
   };
 
@@ -150,6 +151,11 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     return (
       inputDepart.substring(0, 1).toUpperCase() + inputDepart.substring(1) + ' '
     );
+  };
+
+  const itemCostTotal = (item: IProduct) => {
+    const calc = item.quantity && item.quantity * item.price;
+    return `$${calc?.toFixed(2)}`;
   };
 
   return (
@@ -245,10 +251,49 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                 <Paper key={index} className="basketItems">
                   <span className="basketItemNames">
                     <p>{next.id}</p>
-                    <p className="basketItemPrice">{`$${next.price} ${
-                      next.perkg ? 'per kg' : 'ea'
-                    }`}</p>
+                    <p className="basketItemPrice">{`$${next.price.toFixed(
+                      2,
+                    )} ${next.perkg ? 'per kg' : 'ea'}`}</p>
                   </span>
+                  <span className="basket-quantity">
+                    <Avatar
+                      className="basket-minus"
+                      style={{
+                        backgroundColor: 'black',
+                        margin: 'auto',
+                        width: 18,
+                        height: 18,
+                      }}
+                    >
+                      -
+                    </Avatar>
+                    &nbsp;
+                    <Avatar
+                      className="basket-quantity-count"
+                      style={{
+                        backgroundColor: 'white',
+                        border: '1px solid black',
+                        color: 'black',
+                        width: 26,
+                        height: 26,
+                      }}
+                    >
+                      {next.quantity}
+                    </Avatar>
+                    &nbsp;
+                    <Avatar
+                      className="basket-plus"
+                      style={{
+                        backgroundColor: 'black',
+                        margin: 'auto',
+                        width: 18,
+                        height: 18,
+                      }}
+                    >
+                      +
+                    </Avatar>
+                  </span>
+                  <p>{itemCostTotal(next)}</p>
                   <Button
                     className="removeBtn"
                     value={next.id}
@@ -260,7 +305,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                 </Paper>
               ))}
         </div>
-        {cartItems.length === 0 ? null : (
+        {cartItems.length > 0 && (
           <div className="infoOutput">
             <Button
               className="utilBtn"
@@ -278,7 +323,17 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
             <span className="checkout">
               <h3>Checkout</h3>
               <Link to={'/cart'}>
-                <ShoppingCartIcon style={{ fontSize: '60px' }} />
+                <Badge
+                  badgeContent={cartItems.length}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                  }}
+                  color="secondary"
+                  showZero
+                >
+                  <ShoppingCartIcon style={{ fontSize: '60px' }} />
+                </Badge>
                 <InputIcon style={{ fontSize: '30px', marginBottom: '15%' }} />
               </Link>
             </span>
