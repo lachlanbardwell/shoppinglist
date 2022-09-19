@@ -23,6 +23,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import InputIcon from '@material-ui/icons/Input';
 import './basket.css';
 import { Link } from 'react-router-dom';
+import { itemCostTotal } from '../../transformers/item-cost';
 
 const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
 const useStyles = makeStyles({
@@ -153,9 +154,19 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     );
   };
 
-  const itemCostTotal = (item: IProduct) => {
-    const calc = item.quantity && item.quantity * item.price;
-    return `$${calc?.toFixed(2)}`;
+  //TODO USEEEFFECT ?
+  const addQuantity = (item: IProduct) => {
+    if (!item.quantity) {
+      item.quantity = 0;
+    }
+    item.quantity = item.quantity + 1;
+  };
+
+  const removeQuantity = (item: IProduct) => {
+    if (!item.quantity) {
+      item.quantity = 0;
+    }
+    item.quantity = item.quantity - 1;
   };
 
   return (
@@ -258,6 +269,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                   <span className="basket-quantity">
                     <Avatar
                       className="basket-minus"
+                      onClick={() => removeQuantity(next)}
                       style={{
                         backgroundColor: 'black',
                         margin: 'auto',
@@ -283,6 +295,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                     &nbsp;
                     <Avatar
                       className="basket-plus"
+                      onClick={() => addQuantity(next)}
                       style={{
                         backgroundColor: 'black',
                         margin: 'auto',

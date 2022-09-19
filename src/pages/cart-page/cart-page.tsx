@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Price } from '../../components/price';
 import { CartContext } from '../../context';
+import { itemCostTotal } from '../../transformers/item-cost';
 import './cart-page.css';
 
 export const CartPage: React.FC = () => {
   const { cartItems } = useContext(CartContext);
+
   return (
     <div>
       {cartItems.length === 0 ? (
@@ -13,9 +15,9 @@ export const CartPage: React.FC = () => {
       ) : (
         cartItems.map((next) => (
           <span key={next.id} className="cart-items">
-            <h1>{next.id} -</h1>
+            <h1>{next.id} x</h1>
             <h1>
-              &nbsp;{next.quantity}&nbsp;({`$${next.price.toFixed(2)}`})
+              &nbsp;{next.quantity}&nbsp;({itemCostTotal(next)})
             </h1>
           </span>
         ))
