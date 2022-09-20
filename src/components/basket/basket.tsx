@@ -126,7 +126,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     const selection = availableProducts.find((next) => next.id === nextItem);
 
     if (!selection) {
-      console.error('could not find next item', nextItem);
+      console.error('Could not find next item', nextItem);
       return;
     }
     if (depart === 'produce' || depart === 'deli' || depart === 'meat') {
@@ -160,6 +160,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       item.quantity = 0;
     }
     item.quantity = item.quantity + 1;
+    // setCartItems((prev: IProduct[]) => [...prev, item]);
   };
 
   const removeQuantity = (item: IProduct) => {

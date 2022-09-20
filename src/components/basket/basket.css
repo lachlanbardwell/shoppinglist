@@ -8,6 +8,11 @@
   font-size: 12px;
 }
 
+.basket-minus,
+.basket-plus {
+  cursor: pointer;
+}
+
 .basket-quantity {
   display: flex;
   flex: 1 1 0;
