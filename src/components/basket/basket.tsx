@@ -47,7 +47,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   const [value, setValue] = useState<string>('');
   const [searchValue, setSearchValue] = useState<string>('');
   const [searchOpen, setSearchOpen] = useState<boolean>(false);
-  const { cartItems, setCartItems } = useContext(CartContext);
+  const { cartItems, setCartItems, calcTotal } = useContext(CartContext);
   const classes = useStyles();
 
   //TODO : Remove use of mocks after backend is sorted
@@ -185,7 +185,6 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       perkg: item.perkg,
       quantity: item.quantity - 1,
     };
-    console.log(newCartArray);
     if (newCartArray.find((match) => match.quantity == 0)) return;
     setCartItems(newCartArray);
   };
@@ -358,11 +357,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
               <h3>Checkout</h3>
               <Link to={'/cart'} style={{ display: 'flex' }}>
                 <Badge
-                  badgeContent={cartItems.length}
-                  // anchorOrigin={{
-                  //   vertical: 'top',
-                  //   horizontal: 'left',
-                  // }}
+                  badgeContent={calcTotal(cartItems)}
                   color="secondary"
                   showZero
                 >

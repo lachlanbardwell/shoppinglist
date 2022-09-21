@@ -12,9 +12,16 @@ import './App.css';
 const App: React.FC = () => {
   const [cartItems, setCartItems] = useState<IProduct[]>([]);
 
+  const calcTotal = (items: IProduct[]) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const quantityArr: number[] = items.map((next) => next.quantity);
+    return quantityArr.reduce((acc, b) => acc + b, 0);
+  };
+
   return (
     <>
-      <CartContext.Provider value={{ cartItems, setCartItems }}>
+      <CartContext.Provider value={{ cartItems, setCartItems, calcTotal }}>
         <BrowserRouter>
           <TopBar />
           <Routes>

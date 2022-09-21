@@ -29,6 +29,7 @@ export interface IProduct {
 export interface IContextProps {
   cartItems: IProduct[];
   setCartItems: React.Dispatch<React.SetStateAction<IProduct[]>>;
+  calcTotal: (items: IProduct[]) => number;
 }
 export interface IResponseData {
   [listNumber: string]: IStoreData;

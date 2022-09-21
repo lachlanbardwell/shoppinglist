@@ -24,7 +24,7 @@ export const TopBar: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>();
   const classes = useStyles();
   const open = Boolean(visible);
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, calcTotal } = useContext(CartContext);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -89,7 +89,7 @@ export const TopBar: React.FC = () => {
               <h4>View Cart</h4>&nbsp;
               <div className="cart-icon">
                 <Badge
-                  badgeContent={cartItems.length}
+                  badgeContent={calcTotal(cartItems)}
                   color="secondary"
                   showZero
                 >
