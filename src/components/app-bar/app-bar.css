@@ -2,6 +2,10 @@ h5 {
   color: red;
 }
 
+.cart-icon {
+  margin: auto;
+}
+
 .view-cart {
   display: flex;
 }

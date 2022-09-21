@@ -192,7 +192,7 @@ footer,
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
-  margin-left: 7%;
+  margin-left: 8%;
 }
 
 .priceHeader {
@@ -204,8 +204,7 @@ footer,
 
 .infoOutput > .utilBtn {
   display: flex;
-  margin: auto auto auto 8%;
-  justify-content: flex-start;
+  margin: auto;
   background-color: #282c34;
   color: #fff;
   border: 1px solid transparent;

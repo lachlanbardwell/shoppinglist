@@ -7,6 +7,7 @@ import {
   makeStyles,
   Menu,
   MenuItem,
+  Badge,
 } from '@material-ui/core';
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrowSharp';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -85,10 +86,19 @@ export const TopBar: React.FC = () => {
                 textDecoration: 'none',
               }}
             >
-              <h4>View Cart</h4>&nbsp; &nbsp;
-              <ShoppingCartIcon style={{ margin: 'auto' }} fontSize="default" />
-              &nbsp;
-              <h5>{cartItems.length}</h5>
+              <h4>View Cart</h4>&nbsp;
+              <div className="cart-icon">
+                <Badge
+                  badgeContent={cartItems.length}
+                  color="secondary"
+                  showZero
+                >
+                  <ShoppingCartIcon
+                    style={{ margin: 'auto' }}
+                    fontSize="default"
+                  />
+                </Badge>
+              </div>
             </Link>
           </div>
         </Toolbar>

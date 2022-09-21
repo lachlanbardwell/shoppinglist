@@ -154,20 +154,40 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     );
   };
 
-  //TODO USEEEFFECT ?
   const addQuantity = (item: IProduct) => {
     if (!item.quantity) {
       item.quantity = 0;
     }
-    item.quantity = item.quantity + 1;
-    // setCartItems((prev: IProduct[]) => [...prev, item]);
+    const newCartArray: IProduct[] = [...cartItems];
+    const itemIndex = cartItems.findIndex((match) => item.id === match.id);
+    newCartArray[itemIndex] = {
+      id: item.id,
+      weight: item.weight,
+      color: item.color,
+      price: item.price,
+      perkg: item.perkg,
+      quantity: item.quantity + 1,
+    };
+    setCartItems(newCartArray);
   };
 
   const removeQuantity = (item: IProduct) => {
     if (!item.quantity) {
       item.quantity = 0;
     }
-    item.quantity = item.quantity - 1;
+    const newCartArray: IProduct[] = [...cartItems];
+    const itemIndex = cartItems.findIndex((match) => item.id === match.id);
+    newCartArray[itemIndex] = {
+      id: item.id,
+      weight: item.weight,
+      color: item.color,
+      price: item.price,
+      perkg: item.perkg,
+      quantity: item.quantity - 1,
+    };
+    console.log(newCartArray);
+    if (newCartArray.find((match) => match.quantity == 0)) return;
+    setCartItems(newCartArray);
   };
 
   return (
@@ -336,19 +356,24 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
             {store && <Price productPayload={cartItems} />}
             <span className="checkout">
               <h3>Checkout</h3>
-              <Link to={'/cart'}>
+              <Link to={'/cart'} style={{ display: 'flex' }}>
                 <Badge
                   badgeContent={cartItems.length}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                  }}
+                  // anchorOrigin={{
+                  //   vertical: 'top',
+                  //   horizontal: 'left',
+                  // }}
                   color="secondary"
                   showZero
                 >
                   <ShoppingCartIcon style={{ fontSize: '60px' }} />
                 </Badge>
-                <InputIcon style={{ fontSize: '30px', marginBottom: '15%' }} />
+                <InputIcon
+                  style={{
+                    fontSize: '30px',
+                    marginTop: 'auto',
+                  }}
+                />
               </Link>
             </span>
           </div>
