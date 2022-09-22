@@ -19,8 +19,6 @@ export const CartImages: React.FC<ICartImages> = (props) => {
   const imageURLS: string[] = props.items.map((next) => next.id);
 
   const getImages = () => {
-    console.log('imageurls', imageURLS);
-    console.log('Aindex', arrayIndex);
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${FLICKR_API_KEY}&tags=${imageURLS[arrayIndex]}&format=json&nojsoncallback=1`;
     axios
       .get(url)
