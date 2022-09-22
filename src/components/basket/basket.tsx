@@ -359,6 +359,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                 <Badge
                   badgeContent={calcTotal(cartItems)}
                   color="secondary"
+                  overlap="rectangular"
                   showZero
                 >
                   <ShoppingCartIcon style={{ fontSize: '60px' }} />

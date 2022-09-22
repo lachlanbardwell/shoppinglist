@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartImages } from '../../components/cart-images/cart-images';
 import { Price } from '../../components/price';
 import { CartContext } from '../../context';
-import { itemCostTotal } from '../../transformers/item-cost';
 import './cart-page.css';
 
 export const CartPage: React.FC = () => {
@@ -13,14 +13,9 @@ export const CartPage: React.FC = () => {
       {cartItems.length === 0 ? (
         <h1>No items selected!</h1>
       ) : (
-        cartItems.map((next) => (
-          <span key={next.id} className="cart-items">
-            <h1>{next.id} x</h1>
-            <h1>
-              &nbsp;{next.quantity}&nbsp;({itemCostTotal(next)})
-            </h1>
-          </span>
-        ))
+        <div className="cart-items">
+          <CartImages items={cartItems} />
+        </div>
       )}
       <Price productPayload={cartItems} />
       <Link to={'/'}>Return to shopping</Link>

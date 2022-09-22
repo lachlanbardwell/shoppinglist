@@ -91,11 +91,12 @@ export const TopBar: React.FC = () => {
                 <Badge
                   badgeContent={calcTotal(cartItems)}
                   color="secondary"
+                  overlap="rectangular"
                   showZero
                 >
                   <ShoppingCartIcon
                     style={{ margin: 'auto' }}
-                    fontSize="default"
+                    fontSize="medium"
                   />
                 </Badge>
               </div>

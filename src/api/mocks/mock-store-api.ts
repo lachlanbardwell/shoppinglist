@@ -338,14 +338,9 @@ export const retrieveItems: (
               color: 'Black',
               price: 2.99,
             },
+
             {
-              id: 'Cooking Oil Avocado',
-              weight: 500,
-              color: 'Green',
-              price: 9.99,
-            },
-            {
-              id: 'Cooking Oil Extra Virgin',
+              id: 'Cooking Oil',
               weight: 750,
               color: 'Green',
               price: 6.99,
@@ -363,7 +358,7 @@ export const retrieveItems: (
               price: 1.5,
             },
             {
-              id: 'Tuna Premade Meal',
+              id: 'Tuna Meal',
               weight: 190,
               color: 'Yellow',
               price: 3.99,
@@ -880,14 +875,9 @@ export const retrieveItems: (
               color: 'Black',
               price: 2.99,
             },
+
             {
-              id: 'Cooking Oil Avocado',
-              weight: 500,
-              color: 'Green',
-              price: 9.99,
-            },
-            {
-              id: 'Cooking Oil Extra Virgin',
+              id: 'Cooking Oil',
               weight: 750,
               color: 'Green',
               price: 6.99,
@@ -905,7 +895,7 @@ export const retrieveItems: (
               price: 1.5,
             },
             {
-              id: 'Tuna Premade Meal',
+              id: 'Tuna Meal',
               weight: 190,
               color: 'Yellow',
               price: 3.99,
@@ -1422,14 +1412,9 @@ export const retrieveItems: (
               color: 'Black',
               price: 2.99,
             },
+
             {
-              id: 'Cooking Oil Avocado',
-              weight: 500,
-              color: 'Green',
-              price: 9.99,
-            },
-            {
-              id: 'Cooking Oil Extra Virgin',
+              id: 'Cooking Oil',
               weight: 750,
               color: 'Green',
               price: 6.99,
@@ -1447,7 +1432,7 @@ export const retrieveItems: (
               price: 1.5,
             },
             {
-              id: 'Tuna Premade Meal',
+              id: 'Tuna Meal',
               weight: 190,
               color: 'Yellow',
               price: 3.99,
@@ -1964,14 +1949,9 @@ export const retrieveItems: (
               color: 'Black',
               price: 2.99,
             },
+
             {
-              id: 'Cooking Oil Avocado',
-              weight: 500,
-              color: 'Green',
-              price: 9.99,
-            },
-            {
-              id: 'Cooking Oil Extra Virgin',
+              id: 'Cooking Oil',
               weight: 750,
               color: 'Green',
               price: 6.99,
@@ -1989,7 +1969,7 @@ export const retrieveItems: (
               price: 1.5,
             },
             {
-              id: 'Tuna Premade Meal',
+              id: 'Tuna Meal',
               weight: 190,
               color: 'Yellow',
               price: 3.99,
