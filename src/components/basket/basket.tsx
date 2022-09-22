@@ -17,6 +17,7 @@ import * as storeApi from '../../api/store-api';
 import * as mockStoreApi from '../../api/mocks/mock-store-api';
 import { makeStyles } from '@material-ui/styles';
 import CloseIcon from '@material-ui/icons/Close';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { Department } from '../depart';
 import { CartContext } from '../../context';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -339,7 +340,10 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
               ))}
         </div>
         {cartItems.length > 0 && (
-          <div className="infoOutput">
+          <div
+            className="infoOutput"
+            style={{ fontFamily: 'Play, sans-serif' }}
+          >
             <Button
               className="utilBtn"
               onClick={() => {
@@ -350,7 +354,8 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                 setDuplicateError(false);
               }}
             >
-              Clear basket
+              <DeleteForeverIcon />
+              &nbsp; Clear basket
             </Button>
             {store && <Price productPayload={cartItems} />}
             <span className="checkout">

@@ -23,7 +23,7 @@ a {
 footer {
   color: white;
   background-color: #282c34;
-  margin-top: 30vh;
+  margin-top: 10vh;
 }
 
 .copyFootLeft {
@@ -195,13 +195,6 @@ footer,
   margin-left: 8%;
 }
 
-.priceHeader {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 0;
-  align-items: center;
-}
-
 .infoOutput > .utilBtn {
   display: flex;
   margin: auto;
@@ -215,6 +208,14 @@ footer,
   justify-content: center;
   margin-left: 8%;
   margin-right: 8%;
+}
+
+.priceHeader {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  flex: 1 1 0;
+  align-items: center;
 }
 
 .social {

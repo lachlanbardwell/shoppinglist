@@ -3,6 +3,8 @@ import axios from 'axios';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
+// import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+
 import { itemCostTotal } from '../../transformers/item-cost';
 import { ICartImages, IFlickrData } from '../../types';
 
@@ -38,7 +40,7 @@ export const CartImages: React.FC<ICartImages> = (props) => {
   };
 
   return (
-    <ImageList style={{ width: 800, height: 450 }}>
+    <ImageList className="image-list" style={{ maxWidth: 900 }}>
       {props.items &&
         imageData.map((data: IFlickrData, index) => (
           <ImageListItem key={data.id}>
@@ -56,6 +58,11 @@ export const CartImages: React.FC<ICartImages> = (props) => {
                   {itemCostTotal(props.items[index])})
                 </span>
               }
+              // actionIcon={
+              //   <span>
+              //     <DeleteOutlineIcon />
+              //   </span>
+              // }
               position="bottom"
             />
           </ImageListItem>
