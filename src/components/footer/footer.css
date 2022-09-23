@@ -24,7 +24,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 20% 0 20%;
+  margin: 0 30% 0 30%;
 }
 
 @media (max-width: 750px) {
@@ -34,5 +34,6 @@ footer {
 
   .footer-contact {
     flex-direction: column;
+    margin: 0 20% 5% 20%;
   }
 }
