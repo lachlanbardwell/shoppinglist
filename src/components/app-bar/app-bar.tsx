@@ -32,7 +32,7 @@ export const TopBar: React.FC = () => {
   };
 
   return (
-    <Box>
+    <Box style={{ boxShadow: '0 3px 1px -2px gray', zIndex: 1 }}>
       <AppBar position="static" className={classes.header}>
         <Toolbar
           style={{

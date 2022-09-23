@@ -1,9 +1,10 @@
 import React from 'react';
-import facebook from '../img/facebook-white.svg';
-import instagram from '../img/instagram-white.svg';
-import linkedin from '../img/linkedin-white.svg';
-import twitter from '../img/twitter-white.svg';
-import youtube from '../img/youtube-white.svg';
+import facebook from '../../img/facebook-white.svg';
+import instagram from '../../img/instagram-white.svg';
+import linkedin from '../../img/linkedin-white.svg';
+import twitter from '../../img/twitter-white.svg';
+import youtube from '../../img/youtube-white.svg';
+import './footer.css';
 
 const socials: string[] = [facebook, instagram, linkedin, twitter, youtube];
 const otherLinks: string[] = [
@@ -12,7 +13,7 @@ const otherLinks: string[] = [
   'Contact',
 ];
 
-export const LachFooter: React.FC = () => {
+export const Footer: React.FC = () => {
   return (
     <footer>
       <nav className="social">

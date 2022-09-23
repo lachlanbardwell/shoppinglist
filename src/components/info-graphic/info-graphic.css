@@ -1,0 +1,13 @@
+.app-info {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.app-info > .info-button:hover {
+  background-color: white;
+}
+/* 
+.app-info > .info-button::before {
+
+} */

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { TopBar } from './components/app-bar/app-bar';
-import { LachFooter } from './components/footer';
-import { MainPage } from './pages/main-page';
+import { Footer } from './components/footer/footer';
+import { MainPage } from './pages/main-page/main-page';
 import { CartPage } from './pages/cart-page/cart-page';
 import { NotFoundPage } from './pages/not-found-page';
 import { IProduct } from './types';
@@ -29,7 +29,7 @@ const App: React.FC = () => {
             <Route path="/cart" element={<CartPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
-          <LachFooter />
+          <Footer />
         </BrowserRouter>
       </CartContext.Provider>
     </>
