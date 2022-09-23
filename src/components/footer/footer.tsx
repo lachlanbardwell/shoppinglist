@@ -1,30 +1,23 @@
 import React from 'react';
-import facebook from '../../img/facebook-white.svg';
-import instagram from '../../img/instagram-white.svg';
 import linkedin from '../../img/linkedin-white.svg';
-import twitter from '../../img/twitter-white.svg';
-import youtube from '../../img/youtube-white.svg';
+import github from '../../img/GitHub-Mark-Light-64px.png';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import './footer.css';
 
-const socials: string[] = [facebook, instagram, linkedin, twitter, youtube];
-const otherLinks: string[] = [
-  'Terms & Conditions',
-  'Legal Disclaimer',
-  'Contact',
-];
+const socials: string[] = [linkedin, github];
 
 export const Footer: React.FC = () => {
   return (
     <footer>
       <nav className="social">
         <ul>
-          {socials.map((next, ind) => (
-            <li key={ind}>
+          {socials.map((next, index) => (
+            <li key={index}>
               <a
                 href={
                   next === linkedin
                     ? 'https://www.linkedin.com/in/lachlan-bardwell'
-                    : '#'
+                    : 'https://github.com/KnowsJudo/'
                 }
               >
                 <img src={next} alt={`Find us on ${next}`} />
@@ -33,26 +26,15 @@ export const Footer: React.FC = () => {
           ))}
         </ul>
       </nav>
-      <div className="copyFootRight">
-        <span className="legal">
-          {otherLinks.map((next, ind) => (
-            <p key={ind}>
-              <a
-                href={
-                  next == 'Contact'
-                    ? 'mailto:Lachbardwell@gmail.com?subject=Enquiry from website'
-                    : '#'
-                }
-              >
-                {next}
-              </a>
-            </p>
-          ))}
-        </span>
-      </div>
-      <div className="copyFootLeft">
-        <span>Made with Create React App and Material UI</span>
+      <div className="footer-contact">
         <p>&copy; Lachlan Bardwell 2022</p>
+        <span className="footer-a">
+          <MailOutlineIcon />
+          <a href="mailto:Lachbardwell@gmail.com?subject=Enquiry from website">
+            &nbsp;Contact
+          </a>
+        </span>
+
         <a className="logo" href="https://clearbit.com">
           Logos provided by Clearbit
         </a>

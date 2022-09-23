@@ -1,1 +1,38 @@
+a {
+  color: white;
+  align-items: center;
+}
 
+a:hover {
+  transition: 300ms;
+  font-size: 1.05em;
+}
+
+footer {
+  flex: 1 1 0;
+  color: white;
+  background-color: #282c34;
+  padding-bottom: 2%;
+}
+
+.footer-a {
+  display: flex;
+  align-items: center;
+}
+
+.footer-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 20% 0 20%;
+}
+
+@media (max-width: 750px) {
+  .footer-a {
+    margin-bottom: 3%;
+  }
+
+  .footer-contact {
+    flex-direction: column;
+  }
+}

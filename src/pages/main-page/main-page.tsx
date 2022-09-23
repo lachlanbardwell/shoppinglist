@@ -11,7 +11,7 @@ export const MainPage: React.FC = () => {
     <div className="main-page-container">
       <LachHeader clicked={checkClicked} setCheckClicked={setCheckClicked} />
       <AddToBasket clicked={checkClicked} setCheckClicked={setCheckClicked} />
-      <InfoGraphic />
+      <InfoGraphic clicked={checkClicked} setCheckClicked={setCheckClicked} />
     </div>
   );
 };

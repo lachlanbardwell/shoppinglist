@@ -25,26 +25,6 @@ body {
   flex: 1 1 0;
 }
 
-footer {
-  flex: 1 1 0;
-  color: white;
-  background-color: #282c34;
-}
-
-.copyFootLeft {
-  margin-left: 14%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  float: left;
-}
-
-.copyFootRight {
-  float: right;
-  margin-right: 14%;
-  margin-bottom: 10px;
-}
-
-footer,
 .alertClass,
 .autoClass,
 .basketOutput,
@@ -262,7 +242,6 @@ footer,
 @media (max-width: 750px) {
   footer {
     font-size: small;
-    margin-bottom: 0;
   }
 
   #retailerButtons {
