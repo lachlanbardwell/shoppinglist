@@ -360,7 +360,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
             {store && <Price productPayload={cartItems} />}
             <span className="checkout">
               <h3>Checkout</h3>
-              <Link to={'/cart'} style={{ display: 'flex' }}>
+              <Link to={'/cart'} style={{ display: 'flex', color: 'black' }}>
                 <Badge
                   badgeContent={calcTotal(cartItems)}
                   color="secondary"
