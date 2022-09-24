@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { TopBar } from './components/app-bar/app-bar';
 import { Footer } from './components/footer/footer';
 import { MainPage } from './pages/main-page/main-page';
@@ -22,7 +22,7 @@ const App: React.FC = () => {
   return (
     <>
       <CartContext.Provider value={{ cartItems, setCartItems, calcTotal }}>
-        <BrowserRouter>
+        <HashRouter>
           <TopBar />
           <Routes>
             <Route path="/" element={<MainPage />} />
@@ -30,7 +30,7 @@ const App: React.FC = () => {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
           <Footer />
-        </BrowserRouter>
+        </HashRouter>
       </CartContext.Provider>
     </>
   );
