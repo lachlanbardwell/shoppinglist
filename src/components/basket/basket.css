@@ -1,7 +1,5 @@
 .basketItemNames {
   display: flex;
-  flex-direction: column;
-  flex: 1 1 0;
 }
 
 .basketItemPrice {
@@ -16,29 +14,24 @@
 .basket-quantity {
   display: flex;
   flex: 1 1 0;
-  padding: 15px;
+  padding: 8px;
+  margin: auto 1% auto 1%;
   background-color: white;
   border-radius: 50%;
 }
 
 .basket-quantity-count {
-  margin: auto 18px auto 18px;
+  margin: auto;
 }
 
 @media (max-width: 750px) {
-  .basket-quantity {
-    margin-right: 0;
-    padding: 0;
-  }
-
-  .basket-quantity-count {
+  .item-total {
     margin: auto;
   }
 }
 
 @media (max-width: 1250px) {
   .basketOutput {
-    /* background-color: red; */
     display: grid;
     grid-template-columns: repeat(1, auto);
   }

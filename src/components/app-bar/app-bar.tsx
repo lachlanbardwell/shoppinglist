@@ -11,9 +11,9 @@ import {
 } from '@material-ui/core';
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrowSharp';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import './app-bar.css';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context';
+import './app-bar.css';
 
 const useStyles = makeStyles({
   header: { backgroundColor: 'white', color: 'black' },
@@ -86,7 +86,7 @@ export const TopBar: React.FC = () => {
                 textDecoration: 'none',
               }}
             >
-              <h4>View Cart</h4>&nbsp;
+              <h3>View Cart</h3>&nbsp;
               <div className="cart-icon">
                 <Badge
                   badgeContent={calcTotal(cartItems)}

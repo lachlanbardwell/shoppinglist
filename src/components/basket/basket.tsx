@@ -22,9 +22,9 @@ import { Department } from '../depart';
 import { CartContext } from '../../context';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import InputIcon from '@material-ui/icons/Input';
-import './basket.css';
 import { Link } from 'react-router-dom';
 import { itemCostTotal } from '../../transformers/item-cost';
+import './basket.css';
 
 const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
 const useStyles = makeStyles({
@@ -214,7 +214,6 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                 </h3>
               </Paper>
             </div>
-            <br />
             <Autocomplete
               className="autoClass"
               autoComplete
@@ -326,16 +325,14 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                     >
                       +
                     </Avatar>
+                    <p className="item-total">{itemCostTotal(next)}</p>
                   </span>
-                  <p>{itemCostTotal(next)}</p>
-                  <Button
+                  <span
                     className="removeBtn"
-                    value={next.id}
-                    key={index}
                     onClick={() => removeItem(next.id)}
                   >
                     <CloseIcon className="close" />
-                  </Button>
+                  </span>
                 </Paper>
               ))}
         </div>

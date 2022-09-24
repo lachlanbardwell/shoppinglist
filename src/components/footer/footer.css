@@ -3,11 +3,6 @@ a {
   align-items: center;
 }
 
-a:hover {
-  transition: 300ms;
-  font-size: 1.05em;
-}
-
 footer {
   flex: 1 1 0;
   color: white;
@@ -27,7 +22,7 @@ footer {
   margin: 0 30% 0 30%;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1200px) {
   .footer-a {
     margin-bottom: 3%;
   }

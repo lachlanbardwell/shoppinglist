@@ -95,13 +95,13 @@ body {
   margin: 10px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .basketItemNames {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
-  flex: 1 1 auto;
+  margin-left: 7px;
 }
 
 .basketItemNames > p {
@@ -119,10 +119,7 @@ body {
 
 #boxStyles {
   background-color: #fff;
-  margin-top: 15px;
-  margin-left: 7%;
-  margin-right: 7%;
-  margin-bottom: 7%;
+  margin: 0 7% 7% 7%;
   overflow: auto;
   flex: 1 1 auto;
 }
@@ -147,10 +144,14 @@ body {
   margin-right: 8%;
 }
 
+.departClass {
+  margin-bottom: 1%;
+}
+
 .departForm {
-  margin-top: 20px;
+  margin-top: 1%;
   margin-left: 8%;
-  margin-bottom: 10px;
+  margin-bottom: 1%;
 }
 
 .legal a {
@@ -245,9 +246,9 @@ body {
 
   #retailerButtons {
     display: grid;
+    flex: 1 1 0;
     padding-left: 5px;
     padding-right: 5px;
-    height: 600px;
     width: 300px;
   }
 
@@ -266,41 +267,27 @@ body {
     margin: 10% auto auto auto;
   }
 
-  .basketOutput {
-    display: grid;
-    grid-template-columns: repeat(1, auto);
-  }
-
   .basketOutput > .basketItems {
     margin: 5px;
   }
 
   .basketItemNames {
     font-size: medium;
-  }
-
-  .basketItemNames > .removeBtn {
-    font-size: x-small;
-    padding: 0 5px;
+    margin-left: 0;
   }
 
   #boxStyles {
     height: 100%;
     margin-left: 0;
+    margin-right: 0;
   }
 
   .checkout {
     margin-left: 8%;
   }
 
-  .copyFootRight {
-    float: none;
-    margin-left: 14%;
-    margin-bottom: 40px;
-  }
-
   .departClass {
-    margin-top: -380px;
+    margin-top: 0;
   }
 
   .infoOutput {
@@ -309,10 +296,6 @@ body {
 
   .infoOutput > .priceHeader {
     margin-left: 8%;
-  }
-
-  .muiDiv {
-    margin-top: -15px;
   }
 
   .social li {
@@ -329,16 +312,19 @@ body {
     height: 0;
   }
 
-  .cartHeading {
-    font-size: 1em;
-  }
-
   .storeImage {
     display: flex;
     margin: auto;
     justify-content: center;
     height: auto;
     width: auto;
+  }
+}
+
+@media (max-width: 1400px) {
+  .basketOutput {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
   }
 }
 
@@ -354,10 +340,5 @@ body {
     background-color: #fff;
     color: #282c34;
     border: 1px solid #282c34;
-  }
-
-  .logo:hover {
-    transition: 300ms;
-    font-size: 1.05em;
   }
 }
