@@ -4,7 +4,7 @@ import { TopBar } from './components/app-bar/app-bar';
 import { Footer } from './components/footer/footer';
 import { MainPage } from './pages/main-page/main-page';
 import { CartPage } from './pages/cart-page/cart-page';
-import { NotFoundPage } from './pages/not-found-page';
+import { NotFoundPage } from './pages/not-found-page/not-found-page';
 import { IProduct } from './types';
 import { CartContext } from './context';
 import './App.css';

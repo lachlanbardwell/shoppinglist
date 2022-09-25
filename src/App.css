@@ -128,7 +128,7 @@ body {
   display: flex;
   background-color: #282c34;
   color: #fff;
-  margin-left: 8%;
+  margin: 1% auto auto 8%;
   border: 1px solid transparent;
 }
 
@@ -172,8 +172,7 @@ body {
 .infoOutput {
   display: flex;
   justify-content: space-between;
-  margin-top: 50px;
-  margin-left: 8%;
+  margin: 5% auto auto 8%;
 }
 
 .infoOutput > .utilBtn {
@@ -246,10 +245,9 @@ body {
 
   #retailerButtons {
     display: grid;
+    margin: auto;
     flex: 1 1 0;
-    padding-left: 5px;
-    padding-right: 5px;
-    width: 300px;
+    width: 280px;
   }
 
   #retailerButtons > .retailerBtn {

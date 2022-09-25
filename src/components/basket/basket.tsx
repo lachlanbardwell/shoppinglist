@@ -22,6 +22,7 @@ import { Department } from '../depart';
 import { CartContext } from '../../context';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import InputIcon from '@material-ui/icons/Input';
+import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
 import { itemCostTotal } from '../../transformers/item-cost';
 import './basket.css';
@@ -263,9 +264,9 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
               options={items == null || isLoading ? ['Loading...'] : [...items]}
               value={value}
             ></Autocomplete>
-            <br />
             <Button className="utilBtn" onClick={addItem}>
-              Add to basket
+              <AddIcon />
+              &nbsp; Add to basket
             </Button>{' '}
           </>
         ) : null}
