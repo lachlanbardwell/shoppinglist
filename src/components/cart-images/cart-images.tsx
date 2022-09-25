@@ -16,7 +16,6 @@ export const CartImages: React.FC<ICartImages> = (props) => {
   const [imageData, setImageData] = useState<IFlickrData[]>([]);
 
   useEffect(() => {
-    console.log('env', process.env);
     getImages();
   }, []);
 
