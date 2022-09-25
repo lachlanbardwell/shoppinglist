@@ -52,3 +52,7 @@ export interface IFlickrData {
   secret: string;
   tag: string;
 }
+
+export interface IInfoModal {
+  setInfoClicked: React.Dispatch<React.SetStateAction<boolean>>;
+}

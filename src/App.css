@@ -239,6 +239,10 @@ body {
 }
 
 @media (max-width: 750px) {
+  #root {
+    height: 150%;
+  }
+
   footer {
     font-size: small;
   }

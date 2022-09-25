@@ -1,0 +1,37 @@
+.modal-outer > .close-modal {
+  background-color: #282c34;
+  color: white;
+  border: 1px solid transparent;
+}
+
+.modal-outer > .close-modal:hover {
+  background-color: #fff;
+  color: #282c34;
+  border: 1px solid #282c34;
+}
+
+.info-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(40px);
+}
+
+.modal-outer {
+  display: flex;
+  flex: 1 1 auto;
+  margin: 20%;
+  background-color: #282c34;
+  color: white;
+  padding: 2% 5%;
+}
+
+.modal-inner {
+  border-radius: 50%;
+}
