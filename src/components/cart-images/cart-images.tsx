@@ -1,25 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
-// import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-
+import DeleteIcon from '@material-ui/icons/Delete';
+import { Tooltip } from '@material-ui/core';
 import { itemCostTotal } from '../../transformers/item-cost';
-import { ICartImages, IFlickrData } from '../../types';
+import { IFlickrData, IProduct } from '../../types';
+import { CartContext } from '../../context';
 
 const FLICKR_API_KEY = process.env.REACT_APP_FLICKR_API_KEY;
 
-export const CartImages: React.FC<ICartImages> = (props) => {
+export const CartImages: React.FC = () => {
   const [imageData, setImageData] = useState<IFlickrData[]>([]);
+  const { cartItems, setCartItems } = useContext(CartContext);
 
   useEffect(() => {
     console.log('env', process.env);
     getImages();
   }, []);
 
+  const removeCartItem = (itemToRemove: string) => {
+    setCartItems((prevState: IProduct[]) => {
+      return prevState.filter((prevItem) => prevItem.id !== itemToRemove);
+    });
+    setImageData((prevState: IFlickrData[]) => {
+      return prevState.filter((prevItem) => prevItem.tag !== itemToRemove);
+    });
+  };
+
   let arrayIndex = 0;
-  const imageURLS: string[] = props.items.map((next) => next.id);
+  const imageURLS: string[] = cartItems.map((next) => next.id);
   const getImages = () => {
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${FLICKR_API_KEY}&tags=${imageURLS[arrayIndex]}&format=json&nojsoncallback=1`;
     axios
@@ -27,13 +38,14 @@ export const CartImages: React.FC<ICartImages> = (props) => {
       .then((res) => {
         const photoArray = res.data.photos.photo;
         const newEntry = {
+          tag: imageURLS[arrayIndex],
           serverId: photoArray[3].server,
           id: photoArray[3].id,
           secret: photoArray[3].secret,
         };
         setImageData((prev) => [...prev, newEntry]);
         arrayIndex += 1;
-        if (arrayIndex < props.items.length) {
+        if (arrayIndex < cartItems.length) {
           getImages();
         }
       })
@@ -42,7 +54,7 @@ export const CartImages: React.FC<ICartImages> = (props) => {
 
   return (
     <ImageList className="image-list" style={{ maxWidth: 900 }}>
-      {props.items &&
+      {cartItems &&
         imageData.map((data: IFlickrData, index) => (
           <ImageListItem key={data.id}>
             <img
@@ -52,18 +64,23 @@ export const CartImages: React.FC<ICartImages> = (props) => {
               loading="lazy"
             />
             <ImageListItemBar
-              title={props.items[index].id}
+              title={cartItems[index].id}
               subtitle={
                 <span>
-                  x &nbsp;{props.items[index].quantity}&nbsp;(
-                  {itemCostTotal(props.items[index])})
+                  x &nbsp;{cartItems[index].quantity}&nbsp;(
+                  {itemCostTotal(cartItems[index])})
                 </span>
               }
-              // actionIcon={
-              //   <span>
-              //     <DeleteOutlineIcon />
-              //   </span>
-              // }
+              actionIcon={
+                <Tooltip title="Remove item">
+                  <span
+                    className="remove-span"
+                    onClick={() => removeCartItem(cartItems[index].id)}
+                  >
+                    <DeleteIcon style={{ color: 'white', fontSize: '30px' }} />
+                  </span>
+                </Tooltip>
+              }
               position="bottom"
             />
           </ImageListItem>

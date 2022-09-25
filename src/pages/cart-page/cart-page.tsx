@@ -24,11 +24,7 @@ export const CartPage: React.FC = () => {
         </Button>
       </Link>
       <div className="image-output" style={{ fontFamily: 'Play, sans-serif' }}>
-        {cartItems.length === 0 ? (
-          <h1>No items selected!</h1>
-        ) : (
-          <CartImages items={cartItems} />
-        )}
+        {cartItems.length === 0 ? <h1>No items selected!</h1> : <CartImages />}
       </div>
       <RemoveIcon
         preserveAspectRatio="none"

@@ -46,13 +46,9 @@ export interface IStoreData {
 export interface ITypePrice {
   productPayload: IProduct[];
 }
-
-export interface ICartImages {
-  items: IProduct[];
-}
-
 export interface IFlickrData {
   serverId: number;
   id: number;
   secret: string;
+  tag: string;
 }
