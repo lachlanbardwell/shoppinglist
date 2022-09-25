@@ -3,13 +3,11 @@ import axios from 'axios';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
-import * as dotenv from 'dotenv';
 // import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
 import { itemCostTotal } from '../../transformers/item-cost';
 import { ICartImages, IFlickrData } from '../../types';
 
-dotenv.config();
 const FLICKR_API_KEY = process.env.REACT_APP_FLICKR_API_KEY;
 
 export const CartImages: React.FC<ICartImages> = (props) => {
