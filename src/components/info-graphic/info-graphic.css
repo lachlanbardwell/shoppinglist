@@ -4,10 +4,23 @@
   justify-content: center;
 }
 
-.app-info > .info-button:hover {
-  background-color: white;
+.app-info:hover {
+  cursor: pointer;
 }
-/* 
-.app-info > .info-button::before {
 
-} */
+.info-button:hover .info-popout {
+  visibility: visible;
+}
+
+.info-popout {
+  background-color: #282c34;
+  color: #fff;
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 250px;
+  visibility: hidden;
+  transition: 0.3s;
+}
