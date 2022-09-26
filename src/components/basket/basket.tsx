@@ -32,6 +32,7 @@ const useStyles = makeStyles({
   circularProgress: {
     marginTop: -20,
     marginRight: -40,
+    color: 'black',
   },
 });
 
@@ -110,21 +111,22 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       setNoItemError(true);
       return;
     }
-    handleItemSelection(newItem);
+    addToBasket(newItem);
     setNoItemError(false);
     setDuplicateError(false);
     setNewItem('');
   };
 
-  const removeItem = (itemToRemove: string) => {
+  const removeFromBasket = (itemToRemove: string) => {
     setCartItems((prevState: IProduct[]) => {
       return prevState.filter((prevItem) => prevItem.id !== itemToRemove);
     });
+    //remove users selection from db
     setNoItemError(false);
     setDuplicateError(false);
   };
 
-  const handleItemSelection = (nextItem: string) => {
+  const addToBasket = (nextItem: string) => {
     const selection = availableProducts.find((next) => next.id === nextItem);
 
     if (!selection) {
@@ -136,6 +138,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     }
     selection.quantity = 1;
     setCartItems((prev: IProduct[]) => [...prev, selection]);
+    //put users selection into basket in db
   };
 
   const handleInputChange = (
@@ -330,7 +333,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                   </span>
                   <span
                     className="removeBtn"
-                    onClick={() => removeItem(next.id)}
+                    onClick={() => removeFromBasket(next.id)}
                   >
                     <CloseIcon className="close" />
                   </span>

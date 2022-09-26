@@ -10,8 +10,12 @@ import { CartContext } from './context';
 import './App.css';
 
 const App: React.FC = () => {
+  // document.cookie = 'sessionId' + '=' + 'value';
+  // if sessionid has basket products get data from api + db, set intial state to that value
+  // or if basket is empty initial = []
+  // const initialState = [{}, {}, {}]
+  // GET api/basket, then set initial state to that array. or []
   const [cartItems, setCartItems] = useState<IProduct[]>([]);
-
   const calcTotal = (items: IProduct[]) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore

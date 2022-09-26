@@ -4,19 +4,25 @@ import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { Tooltip } from '@material-ui/core';
+import { CircularProgress, makeStyles, Tooltip } from '@material-ui/core';
 import { itemCostTotal } from '../../transformers/item-cost';
 import { IFlickrData, IProduct } from '../../types';
 import { CartContext } from '../../context';
+import './cart-images.css';
 
 const FLICKR_API_KEY = process.env.REACT_APP_FLICKR_API_KEY;
 
+const useStyles = makeStyles({
+  circularProgress: { color: 'black' },
+});
+
 export const CartImages: React.FC = () => {
   const [imageData, setImageData] = useState<IFlickrData[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
   const { cartItems, setCartItems } = useContext(CartContext);
+  const classes = useStyles();
 
   useEffect(() => {
-    console.log('env', process.env);
     getImages();
   }, []);
 
@@ -32,6 +38,7 @@ export const CartImages: React.FC = () => {
   let arrayIndex = 0;
   const imageURLS: string[] = cartItems.map((next) => next.id);
   const getImages = () => {
+    setLoading(true);
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${FLICKR_API_KEY}&tags=${imageURLS[arrayIndex]}&format=json&nojsoncallback=1`;
     axios
       .get(url)
@@ -48,13 +55,21 @@ export const CartImages: React.FC = () => {
         if (arrayIndex < cartItems.length) {
           getImages();
         }
+        setLoading(false);
       })
-      .catch((e) => console.error(e));
+      .catch((e) => {
+        console.error(e);
+        setLoading(false);
+      });
   };
 
   return (
     <ImageList className="image-list" style={{ maxWidth: 900 }}>
-      {cartItems &&
+      {cartItems && loading ? (
+        <div className="loading-div">
+          <CircularProgress className={classes.circularProgress} size={80} />
+        </div>
+      ) : (
         imageData.map((data: IFlickrData, index) => (
           <ImageListItem key={data.id}>
             <img
@@ -84,7 +99,8 @@ export const CartImages: React.FC = () => {
               position="bottom"
             />
           </ImageListItem>
-        ))}
+        ))
+      )}
     </ImageList>
   );
 };
