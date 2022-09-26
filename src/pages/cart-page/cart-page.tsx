@@ -36,15 +36,15 @@ export const CartPage: React.FC = () => {
       />
       <Price productPayload={cartItems} />
       <div className="cart-output">
-        <Tooltip title="App for testing purposes only">
-          <span className="cart-pay">
-            <h1>Proceed to secure payment</h1>
+        <span className="cart-pay">
+          <h1>Proceed to secure payment</h1>
+          <Tooltip title="App for testing purposes only">
             <span className="pay-icons">
               <LocalAtmIcon style={{ fontSize: '60px', margin: 'auto' }} />
               <ArrowForwardIcon style={{ fontSize: '45px' }} />
             </span>
-          </span>
-        </Tooltip>
+          </Tooltip>
+        </span>
       </div>
     </section>
   );
