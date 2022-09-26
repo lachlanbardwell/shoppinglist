@@ -4,6 +4,7 @@ import './info-graphic.css';
 import { IHeaderCheck } from '../../types';
 import { InfoModal } from '../info-modal/info-modal';
 
+//
 export const InfoGraphic: React.FC<IHeaderCheck> = (
   props: IHeaderCheck,
 ): JSX.Element => {
