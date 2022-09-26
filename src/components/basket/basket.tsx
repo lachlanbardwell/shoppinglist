@@ -11,30 +11,22 @@ import {
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Retailer } from '../retailer';
 import { Price } from '../price';
-import { DisplayError } from '../display-error';
+import { DisplayError } from '../display-error/display-error';
 import { IHeaderCheck, IProduct } from '../../types';
-import * as storeApi from '../../api/store-api';
-import * as mockStoreApi from '../../api/mocks/mock-store-api';
-import { makeStyles } from '@material-ui/styles';
-import CloseIcon from '@material-ui/icons/Close';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import { Department } from '../depart';
+import { Department } from '../depart/depart';
 import { CartContext } from '../../context';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import InputIcon from '@material-ui/icons/Input';
-import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
 import { itemCostTotal } from '../../transformers/item-cost';
+import AddIcon from '@material-ui/icons/Add';
+import CloseIcon from '@material-ui/icons/Close';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import InputIcon from '@material-ui/icons/Input';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import * as storeApi from '../../api/store-api';
+import * as mockStoreApi from '../../api/mocks/mock-store-api';
 import './basket.css';
 
 const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
-const useStyles = makeStyles({
-  circularProgress: {
-    marginTop: -20,
-    marginRight: -40,
-    color: 'black',
-  },
-});
 
 //Alternate typing of functional component - Using ReactFC means it Must accept a children prop of some kind
 export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
@@ -48,10 +40,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   const [newItem, setNewItem] = useState<string>('');
   const [store, setStore] = useState<string>('');
   const [value, setValue] = useState<string>('');
-  const [searchValue, setSearchValue] = useState<string>('');
-  const [searchOpen, setSearchOpen] = useState<boolean>(false);
   const { cartItems, setCartItems, calcTotal } = useContext(CartContext);
-  const classes = useStyles();
 
   //TODO : Remove use of mocks after backend is sorted
   // First attempt backend api call, otherwise call from mock api
@@ -141,18 +130,6 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     //put users selection into basket in db
   };
 
-  const handleInputChange = (
-    event: React.ChangeEvent<Record<string, never>>,
-    newInputValue: string,
-  ) => {
-    setSearchValue(newInputValue);
-    if (newInputValue.length > 0) {
-      setSearchOpen(true);
-    } else {
-      setSearchOpen(false);
-    }
-  };
-
   const convertDepart = (inputDepart: string) => {
     return (
       inputDepart.substring(0, 1).toUpperCase() + inputDepart.substring(1) + ' '
@@ -221,11 +198,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
             <Autocomplete
               className="autoClass"
               autoComplete
-              inputValue={searchValue}
-              open={searchOpen}
-              onOpen={() => searchValue.length > 0 && setSearchOpen(true)}
-              onClose={() => setSearchOpen(false)}
-              onInputChange={handleInputChange}
+              onMouseDownCapture={(e) => e.stopPropagation()}
               onChange={(event, value: string | null) => {
                 if (value !== null && value !== 'Loading...') {
                   setNewItem(value);
@@ -236,6 +209,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
               getOptionSelected={(option, value) =>
                 option === value || value === ''
               }
+              options={items == null || isLoading ? ['Loading...'] : [...items]}
               renderInput={(params) => {
                 return (
                   <TextField
@@ -247,7 +221,11 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                         <>
                           {isLoading ? (
                             <CircularProgress
-                              className={classes.circularProgress}
+                              style={{
+                                marginTop: -20,
+                                marginRight: -40,
+                                color: 'black',
+                              }}
                               size={20}
                             />
                           ) : (
@@ -264,13 +242,12 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                   ></TextField>
                 );
               }}
-              options={items == null || isLoading ? ['Loading...'] : [...items]}
               value={value}
             ></Autocomplete>
             <Button className="utilBtn" onClick={addItem}>
               <AddIcon />
               &nbsp; Add to basket
-            </Button>{' '}
+            </Button>
           </>
         ) : null}
         <DisplayError

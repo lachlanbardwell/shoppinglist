@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-import { IDepart } from '../types';
+import { IDepart } from '../../types';
+import './depart.css';
 
 const departArray: string[] = [
   'produce',
@@ -27,7 +28,7 @@ export const Department: React.FC<IDepart> = (props) => {
   };
 
   return (
-    <div className="departForm">
+    <div className="depart-form">
       <FormControl>
         <InputLabel>Department</InputLabel>
         <Select value={option} onChange={handleChange}>

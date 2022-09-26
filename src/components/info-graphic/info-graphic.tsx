@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import InfoIcon from '@material-ui/icons/Info';
-import './info-graphic.css';
 import { IHeaderCheck } from '../../types';
 import { InfoModal } from '../info-modal/info-modal';
+import './info-graphic.css';
 
 //
 export const InfoGraphic: React.FC<IHeaderCheck> = (
@@ -17,7 +17,7 @@ export const InfoGraphic: React.FC<IHeaderCheck> = (
       <span className="info-button" onClick={() => setInfoClicked(true)}>
         <InfoIcon style={{ fontSize: '50px' }} />
         <div className="info-popout">
-          <p>&nbsp; More information about this App&nbsp;</p>{' '}
+          <p>&nbsp; More information about this App&nbsp;</p>
         </div>
       </span>
       {infoClicked && <InfoModal setInfoClicked={setInfoClicked} />}

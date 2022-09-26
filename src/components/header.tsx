@@ -1,10 +1,11 @@
 import React from 'react';
 import { IHeaderCheck } from '../types';
+// import './header.css';
 
 export const LachHeader: React.FC<IHeaderCheck> = (props) => {
   return (
     <div
-      className="titleHeader"
+      className="title-header"
       style={{ display: 'flex', minHeight: props.clicked ? '8vh' : '18vh' }}
     >
       <h2

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import DeleteIcon from '@material-ui/icons/Delete';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
-import DeleteIcon from '@material-ui/icons/Delete';
 import { CircularProgress, makeStyles, Tooltip } from '@material-ui/core';
 import { itemCostTotal } from '../../transformers/item-cost';
 import { IFlickrData, IProduct } from '../../types';
