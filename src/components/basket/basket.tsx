@@ -246,7 +246,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
             ></Autocomplete>
             <Button className="utilBtn" onClick={addItem}>
               <AddIcon />
-              &nbsp; Add to basket
+              &nbsp; Add to cart
             </Button>
             <DisplayError
               listError={duplicateError}
@@ -330,7 +330,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                   }}
                 >
                   <DeleteForeverIcon />
-                  &nbsp; Clear basket
+                  &nbsp; Clear all
                 </Button>
                 {store && <Price productPayload={cartItems} />}
                 <span className="checkout">

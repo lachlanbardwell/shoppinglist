@@ -7,11 +7,11 @@
   padding-bottom: 17vh;
 }
 
-.cart-page-container .reselectBtn {
+.cart-page-container .back-to-shopping {
   background-color: #282c34;
   color: #ffffff;
   border: 1px solid transparent;
-  margin: 3% auto 1% 13%;
+  margin: 3% auto 2% 13%;
 }
 
 .cart-output {
@@ -28,6 +28,19 @@
 
 .image-output {
   margin: auto;
+}
+
+.cart-page-container > .clear-basket {
+  background-color: #282c34;
+  color: #fff;
+  margin: 2% auto 1% 13%;
+  border: 1px solid transparent;
+}
+
+.cart-page-container > .clear-basket:hover {
+  background-color: #fff;
+  color: #282c34;
+  border: 1px solid #282c34;
 }
 
 .pay-icons {

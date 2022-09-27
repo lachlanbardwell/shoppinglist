@@ -8,10 +8,11 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import RemoveIcon from '@material-ui/icons/Remove';
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import './cart-page.css';
 
 export const CartPage: React.FC = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, setCartItems } = useContext(CartContext);
 
   return (
     <section
@@ -19,13 +20,24 @@ export const CartPage: React.FC = () => {
       style={{ fontFamily: 'Play, sans-serif' }}
     >
       <Link to={'/'}>
-        <Button className="reselectBtn" variant="contained">
+        <Button className="back-to-shopping" variant="contained">
           <ArrowBackIcon /> &nbsp; Return to shopping
         </Button>
       </Link>
       <div className="image-output" style={{ fontFamily: 'Play, sans-serif' }}>
         {cartItems.length === 0 ? <h1>No items selected!</h1> : <CartImages />}
       </div>
+      {cartItems.length > 0 && (
+        <Button
+          className="clear-basket"
+          onClick={() => {
+            setCartItems([]);
+          }}
+        >
+          <DeleteForeverIcon />
+          &nbsp; Clear all
+        </Button>
+      )}
       <RemoveIcon
         preserveAspectRatio="none"
         style={{

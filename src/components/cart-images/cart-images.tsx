@@ -70,7 +70,7 @@ export const CartImages: React.FC = () => {
   };
 
   return (
-    <ImageList className="image-list" style={{ maxWidth: 900 }}>
+    <ImageList style={{ maxWidth: 900 }}>
       {cartItems && loading ? (
         <div className="loading-div">
           <CircularProgress
