@@ -47,10 +47,10 @@ export interface ITypePrice {
   productPayload: IProduct[];
 }
 export interface IFlickrData {
+  tag: string;
   serverId: number;
   id: number;
   secret: string;
-  tag: string;
 }
 
 export interface IInfoModal {

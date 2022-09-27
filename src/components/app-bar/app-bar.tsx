@@ -12,7 +12,7 @@ import {
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrowSharp';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../context';
+import { CartContext } from '../../context/context';
 import './app-bar.css';
 
 const useStyles = makeStyles({

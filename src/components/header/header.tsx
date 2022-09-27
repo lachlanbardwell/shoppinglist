@@ -1,5 +1,5 @@
 import React from 'react';
-import { IHeaderCheck } from '../types';
+import { IHeaderCheck } from '../../types';
 // import './header.css';
 
 export const LachHeader: React.FC<IHeaderCheck> = (props) => {

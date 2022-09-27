@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LachHeader } from '../../components/header';
+import { LachHeader } from '../../components/header/header';
 import { AddToBasket } from '../../components/basket/basket';
 import { InfoGraphic } from '../../components/info-graphic/info-graphic';
 import './main-page.css';

@@ -4,23 +4,18 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
-import { CircularProgress, makeStyles, Tooltip } from '@material-ui/core';
+import { CircularProgress, Tooltip } from '@material-ui/core';
 import { itemCostTotal } from '../../transformers/item-cost';
 import { IFlickrData, IProduct } from '../../types';
-import { CartContext } from '../../context';
+import { CartContext } from '../../context/context';
 import './cart-images.css';
 
 const FLICKR_API_KEY = process.env.REACT_APP_FLICKR_API_KEY;
-
-const useStyles = makeStyles({
-  circularProgress: { color: 'black' },
-});
 
 export const CartImages: React.FC = () => {
   const [imageData, setImageData] = useState<IFlickrData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const { cartItems, setCartItems } = useContext(CartContext);
-  const classes = useStyles();
 
   useEffect(() => {
     getImages();
@@ -44,7 +39,7 @@ export const CartImages: React.FC = () => {
       .get(url)
       .then((res) => {
         const photoArray = res.data.photos.photo;
-        const newEntry = {
+        const newEntry: IFlickrData = {
           tag: imageURLS[arrayIndex],
           serverId: photoArray[3].server,
           id: photoArray[3].id,
@@ -59,6 +54,17 @@ export const CartImages: React.FC = () => {
       })
       .catch((e) => {
         console.error(e);
+        const newEntry = {
+          tag: imageURLS[arrayIndex],
+          serverId: 0,
+          id: 0,
+          secret: '',
+        };
+        setImageData((prev) => [...prev, newEntry]);
+        arrayIndex += 1;
+        if (arrayIndex < cartItems.length) {
+          getImages();
+        }
         setLoading(false);
       });
   };
@@ -67,7 +73,10 @@ export const CartImages: React.FC = () => {
     <ImageList className="image-list" style={{ maxWidth: 900 }}>
       {cartItems && loading ? (
         <div className="loading-div">
-          <CircularProgress className={classes.circularProgress} size={80} />
+          <CircularProgress
+            style={{ color: 'black', margin: 'auto' }}
+            size={70}
+          />
         </div>
       ) : (
         imageData.map((data: IFlickrData, index) => (
@@ -75,8 +84,8 @@ export const CartImages: React.FC = () => {
             <img
               src={`${`https://live.staticflickr.com/${data.serverId}/${data.id}_${data.secret}.jpg`}?w=248&fit=crop&auto=format`}
               srcSet={`${`https://live.staticflickr.com/${data.serverId}/${data.id}_${data.secret}.jpg`}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              alt={`${data.id} from Flickr API`}
-              loading="lazy"
+              alt={`Image data unavailable`}
+              style={{ minHeight: '20%' }}
             />
             <ImageListItemBar
               title={cartItems[index].id}

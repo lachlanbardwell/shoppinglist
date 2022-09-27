@@ -1,0 +1,18 @@
+#retailerButtons {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+#retailerButtons > .retailerBtn:hover {
+  transition: 250ms;
+  top: -9px;
+}
+
+#retailerButtons > .retailerBtn {
+  background-color: #fff;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px 10px;
+  top: -1px;
+}

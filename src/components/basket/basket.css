@@ -24,6 +24,10 @@
   margin: auto;
 }
 
+.remove-single-item:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 750px) {
   .item-total {
     margin: auto;

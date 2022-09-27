@@ -48,12 +48,6 @@ body {
   margin-right: 8%;
 }
 
-#retailerButtons {
-  display: flex;
-  justify-content: center;
-  margin: auto;
-}
-
 #reselect {
   display: flex;
   flex: 1 1 0;
@@ -69,19 +63,6 @@ body {
 
 #reselect > .storeImage {
   margin: auto 46% auto auto;
-}
-
-#retailerButtons > .retailerBtn {
-  background-color: #fff;
-  margin-left: 10px;
-  margin-right: 10px;
-  border-radius: 10px 10px;
-  top: 0;
-}
-
-#retailerButtons > .retailerBtn:hover {
-  transition: 250ms;
-  top: -9px;
 }
 
 .basketOutput > .basketItems {

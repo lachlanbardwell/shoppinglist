@@ -1,6 +1,6 @@
 import React from 'react';
-import { IProduct } from '../types';
-import { ITypePrice } from '../types';
+import { IProduct } from '../../types';
+import { ITypePrice } from '../../types';
 
 export const Price: React.FC<ITypePrice> = (props) => {
   const totalPrice = () => {

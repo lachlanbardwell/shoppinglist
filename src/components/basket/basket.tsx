@@ -9,12 +9,12 @@ import {
   TextField,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { Retailer } from '../retailer';
-import { Price } from '../price';
+import { Retailer } from '../retailer/retailer';
+import { Price } from '../price/price';
 import { DisplayError } from '../display-error/display-error';
 import { IHeaderCheck, IProduct } from '../../types';
 import { Department } from '../depart/depart';
-import { CartContext } from '../../context';
+import { CartContext } from '../../context/context';
 import { Link } from 'react-router-dom';
 import { itemCostTotal } from '../../transformers/item-cost';
 import AddIcon from '@material-ui/icons/Add';
@@ -76,7 +76,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     if (!store) {
       setNewItem('');
       setAvailableProducts([]);
-      setCartItems([]);
+      // setCartItems([]);
       setItems(null);
       setValue('');
       setDuplicateError(false);
@@ -180,7 +180,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
           setStore={setStore}
         />
 
-        {store ? (
+        {props.clicked ? (
           <>
             <div className="departClass">
               <Department
@@ -248,115 +248,117 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
               <AddIcon />
               &nbsp; Add to basket
             </Button>
+            <DisplayError
+              listError={duplicateError}
+              formError={noItemError}
+              fetchError={storeError}
+            />
+            <div className="basketOutput">
+              {cartItems.length === 0
+                ? null
+                : cartItems.map((next, index) => (
+                    <Paper key={index} className="basketItems">
+                      <span className="basketItemNames">
+                        <p>{next.id}</p>
+                        <p className="basketItemPrice">{`$${next.price.toFixed(
+                          2,
+                        )} ${next.perkg ? 'per kg' : 'ea'}`}</p>
+                      </span>
+                      <span className="basket-quantity">
+                        <Avatar
+                          className="basket-minus"
+                          onClick={() => removeQuantity(next)}
+                          style={{
+                            backgroundColor: 'black',
+                            margin: 'auto',
+                            width: 18,
+                            height: 18,
+                          }}
+                        >
+                          -
+                        </Avatar>
+                        &nbsp;
+                        <Avatar
+                          className="basket-quantity-count"
+                          style={{
+                            backgroundColor: 'white',
+                            border: '1px solid black',
+                            color: 'black',
+                            width: 26,
+                            height: 26,
+                          }}
+                        >
+                          {next.quantity}
+                        </Avatar>
+                        &nbsp;
+                        <Avatar
+                          className="basket-plus"
+                          onClick={() => addQuantity(next)}
+                          style={{
+                            backgroundColor: 'black',
+                            margin: 'auto',
+                            width: 18,
+                            height: 18,
+                          }}
+                        >
+                          +
+                        </Avatar>
+                        <p className="item-total">{itemCostTotal(next)}</p>
+                      </span>
+                      <span
+                        className="remove-single-item"
+                        onClick={() => removeFromBasket(next.id)}
+                      >
+                        <CloseIcon className="close" />
+                      </span>
+                    </Paper>
+                  ))}
+            </div>
+            {cartItems.length > 0 && (
+              <div
+                className="infoOutput"
+                style={{ fontFamily: 'Play, sans-serif' }}
+              >
+                <Button
+                  className="utilBtn"
+                  onClick={() => {
+                    setCartItems([]);
+                    setNewItem('');
+                    setValue('');
+                    setNoItemError(false);
+                    setDuplicateError(false);
+                  }}
+                >
+                  <DeleteForeverIcon />
+                  &nbsp; Clear basket
+                </Button>
+                {store && <Price productPayload={cartItems} />}
+                <span className="checkout">
+                  <h3>Checkout</h3>
+                  <Link
+                    to={'/cart'}
+                    style={{ display: 'flex', color: 'black' }}
+                  >
+                    <Badge
+                      badgeContent={calcTotal(cartItems)}
+                      color="secondary"
+                      overlap="rectangular"
+                      showZero
+                    >
+                      <ShoppingCartIcon style={{ fontSize: '60px' }} />
+                    </Badge>
+                    <InputIcon
+                      style={{
+                        fontSize: '30px',
+                        marginTop: 'auto',
+                      }}
+                    />
+                  </Link>
+                </span>
+              </div>
+            )}
           </>
         ) : null}
-        <DisplayError
-          listError={duplicateError}
-          formError={noItemError}
-          fetchError={storeError}
-        />
-
-        <div className="basketOutput">
-          {cartItems.length === 0
-            ? null
-            : cartItems.map((next, index) => (
-                <Paper key={index} className="basketItems">
-                  <span className="basketItemNames">
-                    <p>{next.id}</p>
-                    <p className="basketItemPrice">{`$${next.price.toFixed(
-                      2,
-                    )} ${next.perkg ? 'per kg' : 'ea'}`}</p>
-                  </span>
-                  <span className="basket-quantity">
-                    <Avatar
-                      className="basket-minus"
-                      onClick={() => removeQuantity(next)}
-                      style={{
-                        backgroundColor: 'black',
-                        margin: 'auto',
-                        width: 18,
-                        height: 18,
-                      }}
-                    >
-                      -
-                    </Avatar>
-                    &nbsp;
-                    <Avatar
-                      className="basket-quantity-count"
-                      style={{
-                        backgroundColor: 'white',
-                        border: '1px solid black',
-                        color: 'black',
-                        width: 26,
-                        height: 26,
-                      }}
-                    >
-                      {next.quantity}
-                    </Avatar>
-                    &nbsp;
-                    <Avatar
-                      className="basket-plus"
-                      onClick={() => addQuantity(next)}
-                      style={{
-                        backgroundColor: 'black',
-                        margin: 'auto',
-                        width: 18,
-                        height: 18,
-                      }}
-                    >
-                      +
-                    </Avatar>
-                    <p className="item-total">{itemCostTotal(next)}</p>
-                  </span>
-                  <span
-                    className="removeBtn"
-                    onClick={() => removeFromBasket(next.id)}
-                  >
-                    <CloseIcon className="close" />
-                  </span>
-                </Paper>
-              ))}
-        </div>
-        {cartItems.length > 0 && (
-          <div
-            className="infoOutput"
-            style={{ fontFamily: 'Play, sans-serif' }}
-          >
-            <Button
-              className="utilBtn"
-              onClick={() => {
-                setCartItems([]);
-                setNewItem('');
-                setValue('');
-                setNoItemError(false);
-                setDuplicateError(false);
-              }}
-            >
-              <DeleteForeverIcon />
-              &nbsp; Clear basket
-            </Button>
-            {store && <Price productPayload={cartItems} />}
-            <span className="checkout">
-              <h3>Checkout</h3>
-              <Link to={'/cart'} style={{ display: 'flex', color: 'black' }}>
-                <Badge
-                  badgeContent={calcTotal(cartItems)}
-                  color="secondary"
-                  overlap="rectangular"
-                  showZero
-                >
-                  <ShoppingCartIcon style={{ fontSize: '60px' }} />
-                </Badge>
-                <InputIcon
-                  style={{
-                    fontSize: '30px',
-                    marginTop: 'auto',
-                  }}
-                />
-              </Link>
-            </span>
-          </div>
-        )}
       </div>
     </Box>
   );

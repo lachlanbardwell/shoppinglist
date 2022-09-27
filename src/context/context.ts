@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { IContextProps } from './types';
+import { IContextProps } from '../types';
 
 export const CartContext = createContext<IContextProps>({
   cartItems: [],

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Tooltip } from '@material-ui/core';
-import { useEffect } from 'react';
-import { IRetailerStore } from '../types';
+import { IRetailerStore } from '../../types';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import './retailer.css';
 
 export const Retailer: React.FC<IRetailerStore> = (props) => {
   useEffect(() => {
