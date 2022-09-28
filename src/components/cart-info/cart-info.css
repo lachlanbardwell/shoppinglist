@@ -1,0 +1,13 @@
+.infoOutput > .clear-all {
+  display: flex;
+  margin: auto;
+  background-color: #282c34;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.infoOutput > .clear-all:hover {
+  background-color: #fff;
+  color: #282c34;
+  border: 1px solid #282c34;
+}

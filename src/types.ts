@@ -1,3 +1,8 @@
+export interface IBasketOutput {
+  changeQuantity: (item: IProduct, operator: string) => void;
+  removeItem: (itemToRemove: string) => void;
+}
+
 export interface ICartStore {
   store: string;
 }

@@ -16,7 +16,7 @@ export const Retailer: React.FC<IRetailerStore> = (props) => {
       {props.store ? (
         <div id="reselect">
           <Button
-            className="reselectBtn"
+            className="back-button"
             variant="contained"
             onClick={() => props.setStore('')}
           >
@@ -25,7 +25,7 @@ export const Retailer: React.FC<IRetailerStore> = (props) => {
 
           <Tooltip title={`Shopping from ${props.store}`}>
             <img
-              className="storeImage"
+              className="store-image"
               src={`https://logo.clearbit.com/${props.store}.com.au`}
             ></img>
           </Tooltip>

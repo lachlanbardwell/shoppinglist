@@ -1,3 +1,16 @@
+#reselect > .back-button {
+  background-color: #282c34;
+  color: #ffffff;
+  border: 1px solid transparent;
+  margin: 0 auto auto 8%;
+}
+
+#reselect > .back-button:hover {
+  background-color: #fff;
+  color: #282c34;
+  border: 1px solid #282c34;
+}
+
 #retailerButtons {
   display: flex;
   justify-content: center;
@@ -15,4 +28,19 @@
   margin-right: 10px;
   border-radius: 10px 10px;
   top: -1px;
+}
+
+.store-image {
+  margin: auto 46% auto auto;
+}
+
+.store-image:hover {
+  transition: 500ms;
+  opacity: 0.85;
+}
+
+@media (max-width: 750px) {
+  .store-image {
+    margin: 10% auto auto auto;
+  }
 }

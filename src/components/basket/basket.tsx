@@ -1,23 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
-import {
-  Avatar,
-  Box,
-  Button,
-  CircularProgress,
-  Paper,
-  TextField,
-  Tooltip,
-} from '@material-ui/core';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import { Retailer } from '../retailer/retailer';
-import { DisplayError } from '../display-error/display-error';
-import { IErrorStates, IHeaderCheck, IProduct } from '../../types';
-import { Department } from '../depart/depart';
-import { CartInfo } from '../cart-info/cart-info';
+import { BasketOutput } from '../basket-output/basket-output';
 import { CartContext } from '../../context/context';
-import { itemCostTotal } from '../../transformers/item-cost';
+import { CartInfo } from '../cart-info/cart-info';
+import { Department } from '../depart/depart';
+import { DisplayError } from '../display-error/display-error';
+import { Retailer } from '../retailer/retailer';
+import { IErrorStates, IHeaderCheck, IProduct } from '../../types';
+import { Box, Button, CircularProgress, TextField } from '@material-ui/core';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import AddIcon from '@material-ui/icons/Add';
-import CloseIcon from '@material-ui/icons/Close';
 import * as storeApi from '../../api/store-api';
 import * as mockStoreApi from '../../api/mocks/mock-store-api';
 import './basket.css';
@@ -135,15 +126,14 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   };
 
   return (
-    <Box className="muiDiv">
+    <Box>
       <div id="boxStyles">
         <Retailer
           storeList={initialStoreState}
           store={store}
           setStore={setStore}
         />
-
-        {props.clicked ? (
+        {props.clicked && (
           <>
             <Department depart={depart} setDepart={setDepart} />
             <Autocomplete
@@ -160,7 +150,9 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
               getOptionSelected={(option, value) =>
                 option === value || value === ''
               }
-              options={items == null || isLoading ? ['Loading...'] : [...items]}
+              options={
+                items === null || isLoading ? ['Loading...'] : [...items]
+              }
               renderInput={(params) => {
                 return (
                   <TextField
@@ -168,21 +160,17 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                     disabled={isLoading}
                     InputProps={{
                       ...params.InputProps,
-                      endAdornment: (
-                        <>
-                          {isLoading ? (
-                            <CircularProgress
-                              style={{
-                                marginTop: -20,
-                                marginRight: -40,
-                                color: 'black',
-                              }}
-                              size={20}
-                            />
-                          ) : (
-                            params.InputProps.endAdornment
-                          )}
-                        </>
+                      endAdornment: isLoading ? (
+                        <CircularProgress
+                          style={{
+                            marginTop: -20,
+                            marginRight: -40,
+                            color: 'black',
+                          }}
+                          size={25}
+                        />
+                      ) : (
+                        params.InputProps.endAdornment
                       ),
                     }}
                     variant="filled"
@@ -195,77 +183,18 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
               }}
               value={value}
             ></Autocomplete>
-            <Button className="utilBtn" onClick={addItem}>
+            <Button className="add-to-cart" onClick={addItem}>
               <AddIcon />
               &nbsp; Add to cart
             </Button>
             <DisplayError error={error} />
-            <div className="basketOutput">
-              {cartItems.length === 0
-                ? null
-                : cartItems.map((next, index) => (
-                    <Paper key={index} className="basketItems">
-                      <span className="basketItemNames">
-                        <p>{next.id}</p>
-                        <p className="basketItemPrice">{`$${next.price.toFixed(
-                          2,
-                        )} ${next.perkg ? 'per kg' : 'ea'}`}</p>
-                      </span>
-                      <span className="basket-quantity">
-                        <Avatar
-                          className="basket-minus"
-                          onClick={() => changeQuantity(next, 'subtract')}
-                          style={{
-                            backgroundColor: 'black',
-                            margin: 'auto',
-                            width: 18,
-                            height: 18,
-                          }}
-                        >
-                          -
-                        </Avatar>
-                        &nbsp;
-                        <Avatar
-                          className="basket-quantity-count"
-                          style={{
-                            backgroundColor: 'white',
-                            border: '1px solid black',
-                            color: 'black',
-                            width: 26,
-                            height: 26,
-                          }}
-                        >
-                          {next.quantity}
-                        </Avatar>
-                        &nbsp;
-                        <Avatar
-                          className="basket-plus"
-                          onClick={() => changeQuantity(next, 'add')}
-                          style={{
-                            backgroundColor: 'black',
-                            margin: 'auto',
-                            width: 18,
-                            height: 18,
-                          }}
-                        >
-                          +
-                        </Avatar>
-                        <p className="item-total">{itemCostTotal(next)}</p>
-                      </span>
-                      <Tooltip title="Remove item">
-                        <span
-                          className="remove-single-item"
-                          onClick={() => removeFromBasket(next.id)}
-                        >
-                          <CloseIcon className="close" />
-                        </span>
-                      </Tooltip>
-                    </Paper>
-                  ))}
-            </div>
+            <BasketOutput
+              changeQuantity={changeQuantity}
+              removeItem={removeFromBasket}
+            />
             {cartItems.length > 0 && <CartInfo setNewItem={setNewItem} />}
           </>
-        ) : null}
+        )}
       </div>
     </Box>
   );

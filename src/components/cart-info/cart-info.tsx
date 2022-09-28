@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Button } from '@material-ui/core';
+import { CartContext } from '../../context/context';
 import { Price } from '../price/price';
+import { Badge, Button } from '@material-ui/core';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import InputIcon from '@material-ui/icons/Input';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { CartContext } from '../../context/context';
 import { ICartInfo } from '../../types';
 import './cart-info.css';
 
@@ -15,7 +15,7 @@ export const CartInfo: React.FC<ICartInfo> = (props) => {
   return (
     <div className="infoOutput" style={{ fontFamily: 'Play, sans-serif' }}>
       <Button
-        className="utilBtn"
+        className="clear-all"
         onClick={() => {
           setCartItems([]);
           props.setNewItem('');

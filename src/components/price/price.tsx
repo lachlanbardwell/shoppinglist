@@ -1,6 +1,7 @@
 import React from 'react';
 import { IProduct } from '../../types';
 import { ITypePrice } from '../../types';
+import './price.css';
 
 export const Price: React.FC<ITypePrice> = (props) => {
   const totalPrice = () => {
@@ -20,7 +21,7 @@ export const Price: React.FC<ITypePrice> = (props) => {
     }
   };
   return (
-    <div className="priceHeader">
+    <div className="price-total">
       <h3>Total Cost:</h3>
       <h1
         style={{

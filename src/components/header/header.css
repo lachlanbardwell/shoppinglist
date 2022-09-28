@@ -1,0 +1,9 @@
+.title-head-clicked {
+  display: flex;
+  min-height: 8vh;
+}
+
+.title-head-home {
+  display: flex;
+  min-height: 18vh;
+}

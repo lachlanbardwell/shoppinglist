@@ -29,9 +29,9 @@ body {
 .basketOutput,
 .departClass,
 .cartHeading,
-.priceHeader,
-.titleHeader,
-.utilBtn {
+.price-total,
+.add-to-cart,
+.clear-all {
   opacity: 1;
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
@@ -54,58 +54,11 @@ body {
   text-align: center;
 }
 
-#reselect > .reselectBtn {
-  background-color: #282c34;
-  color: #ffffff;
-  border: 1px solid transparent;
-  margin: 0 auto auto 8%;
-}
-
-#reselect > .storeImage {
-  margin: auto 46% auto auto;
-}
-
-.basketOutput > .basketItems {
-  background-color: #f5f5f5;
-  padding: 10px;
-  margin: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.basketItemNames {
-  display: flex;
-  flex-direction: column;
-  margin-left: 7px;
-}
-
-.basketItemNames > p {
-  line-height: 0%;
-}
-
-.basketOutput {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-  margin-left: 7.5%;
-  margin-right: 7.5%;
-}
-
 #boxStyles {
   background-color: #fff;
   margin: 0 7% 7% 7%;
   overflow: auto;
   flex: 1 1 auto;
-}
-
-#boxStyles > .utilBtn {
-  display: flex;
-  background-color: #282c34;
-  color: #fff;
-  margin: 1% auto auto 8%;
-  border: 1px solid transparent;
 }
 
 .cartHeading {
@@ -145,22 +98,6 @@ body {
   margin: 5% auto auto 8%;
 }
 
-.infoOutput > .utilBtn {
-  display: flex;
-  margin: auto;
-  background-color: #282c34;
-  color: #fff;
-  border: 1px solid transparent;
-}
-
-.priceHeader {
-  display: flex;
-  margin: auto;
-  flex-direction: column;
-  flex: 1 1 0;
-  align-items: center;
-}
-
 .social {
   margin-top: 25px;
   padding: 15px;
@@ -181,11 +118,6 @@ body {
   max-width: 45px;
   max-height: 35px;
   padding: 10px;
-}
-
-.storeImage:hover {
-  transition: 500ms;
-  opacity: 0.85;
 }
 
 .topBar {
@@ -228,19 +160,6 @@ body {
     margin: 0 auto auto auto;
   }
 
-  #reselect > .storeImage {
-    margin: 10% auto auto auto;
-  }
-
-  .basketOutput > .basketItems {
-    margin: 5px;
-  }
-
-  .basketItemNames {
-    font-size: medium;
-    margin-left: 0;
-  }
-
   #boxStyles {
     height: 100%;
     margin-left: 0;
@@ -259,10 +178,6 @@ body {
     display: grid;
   }
 
-  .infoOutput > .priceHeader {
-    margin-left: 8%;
-  }
-
   .social li {
     padding: 0 10px;
   }
@@ -270,40 +185,5 @@ body {
   .social img {
     margin-left: -30%;
     padding: 0;
-  }
-
-  .titleHeader {
-    min-height: 0;
-    height: 0;
-  }
-
-  .storeImage {
-    display: flex;
-    margin: auto;
-    justify-content: center;
-    height: auto;
-    width: auto;
-  }
-}
-
-@media (max-width: 1400px) {
-  .basketOutput {
-    display: grid;
-    grid-template-columns: repeat(1, auto);
-  }
-}
-
-@media (min-width: 750px) {
-  #boxStyles > .utilBtn:hover,
-  .infoOutput > .utilBtn:hover {
-    background-color: #fff;
-    color: #282c34;
-    border: 1px solid #282c34;
-  }
-
-  #reselect > .reselectBtn:hover {
-    background-color: #fff;
-    color: #282c34;
-    border: 1px solid #282c34;
   }
 }

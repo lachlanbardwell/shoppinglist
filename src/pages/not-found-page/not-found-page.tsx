@@ -1,7 +1,7 @@
 import React from 'react';
-import BuildIcon from '@material-ui/icons/Build';
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
+import BuildIcon from '@material-ui/icons/Build';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import './not-found-page.css';
 
@@ -12,7 +12,7 @@ export const NotFoundPage: React.FC = () => {
       style={{ fontFamily: 'Play, sans-serif' }}
     >
       <Link to={'/'}>
-        <Button className="reselectBtn" variant="contained">
+        <Button className="return-to-shopping" variant="contained">
           <ArrowBackIcon /> &nbsp; Return to shopping
         </Button>
       </Link>

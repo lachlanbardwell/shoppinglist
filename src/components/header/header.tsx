@@ -1,13 +1,10 @@
 import React from 'react';
 import { IHeaderCheck } from '../../types';
-// import './header.css';
+import './header.css';
 
 export const LachHeader: React.FC<IHeaderCheck> = (props) => {
   return (
-    <div
-      className="title-header"
-      style={{ display: 'flex', minHeight: props.clicked ? '8vh' : '18vh' }}
-    >
+    <div className={props.clicked ? 'title-head-clicked' : 'title-head-home'}>
       <h2
         style={{
           margin: props.clicked ? 'none' : 'auto',
