@@ -153,13 +153,6 @@ body {
   border: 1px solid transparent;
 }
 
-.paperClass {
-  display: flex;
-  justify-content: center;
-  margin-left: 8%;
-  margin-right: 8%;
-}
-
 .priceHeader {
   display: flex;
   margin: auto;

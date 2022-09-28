@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Paper,
+} from '@material-ui/core';
 import { IDepart } from '../../types';
+import { convertDepart } from '../../transformers/convert-depart';
 import './depart.css';
 
 const departArray: string[] = [
@@ -35,12 +42,18 @@ export const Department: React.FC<IDepart> = (props) => {
           {departArray.map((next) => {
             return (
               <MenuItem value={next} key={next}>
-                {props.convert(next)}
+                {convertDepart(next)}
               </MenuItem>
             );
           })}
         </Select>
       </FormControl>
+      <Paper className="depart-paper">
+        <h3 className="cartHeading">
+          {convertDepart(props.depart)}
+          Department
+        </h3>
+      </Paper>
     </div>
   );
 };

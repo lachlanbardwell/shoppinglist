@@ -1,27 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {
   Avatar,
-  Badge,
   Box,
   Button,
   CircularProgress,
   Paper,
   TextField,
+  Tooltip,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Retailer } from '../retailer/retailer';
-import { Price } from '../price/price';
 import { DisplayError } from '../display-error/display-error';
-import { IHeaderCheck, IProduct } from '../../types';
+import { IErrorStates, IHeaderCheck, IProduct } from '../../types';
 import { Department } from '../depart/depart';
+import { CartInfo } from '../cart-info/cart-info';
 import { CartContext } from '../../context/context';
-import { Link } from 'react-router-dom';
 import { itemCostTotal } from '../../transformers/item-cost';
 import AddIcon from '@material-ui/icons/Add';
 import CloseIcon from '@material-ui/icons/Close';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import InputIcon from '@material-ui/icons/Input';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import * as storeApi from '../../api/store-api';
 import * as mockStoreApi from '../../api/mocks/mock-store-api';
 import './basket.css';
@@ -32,15 +28,16 @@ const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
 export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   const [availableProducts, setAvailableProducts] = useState<IProduct[]>([]);
   const [depart, setDepart] = useState<string>('produce');
-  const [storeError, setStoreError] = useState<boolean>(false);
-  const [noItemError, setNoItemError] = useState<boolean>(false);
+  const [error, setError] = useState<IErrorStates>({
+    noItem: false,
+    duplicate: false,
+  });
   const [isLoading, setisLoading] = useState<boolean>(false);
   const [items, setItems] = useState<string[] | null>(null);
-  const [duplicateError, setDuplicateError] = useState<boolean>(false);
   const [newItem, setNewItem] = useState<string>('');
   const [store, setStore] = useState<string>('');
   const [value, setValue] = useState<string>('');
-  const { cartItems, setCartItems, calcTotal } = useContext(CartContext);
+  const { cartItems, setCartItems } = useContext(CartContext);
 
   //TODO : Remove use of mocks after backend is sorted
   // First attempt backend api call, otherwise call from mock api
@@ -66,8 +63,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     if (!store || !depart) {
       return;
     }
-    setDuplicateError(false);
-    setNoItemError(false);
+    setError({ noItem: false, duplicate: false });
     getItems(storeApi);
     props.setCheckClicked(true);
   }, [store, depart]);
@@ -76,33 +72,25 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     if (!store) {
       setNewItem('');
       setAvailableProducts([]);
-      // setCartItems([]);
       setItems(null);
       setValue('');
-      setDuplicateError(false);
-      setNoItemError(false);
+      setError({ noItem: false, duplicate: false });
       props.setCheckClicked(false);
     }
-    setStoreError(false);
   }, [store]);
 
   const addItem = () => {
-    if (!store) {
-      setStoreError(true);
-      return;
-    }
     if (cartItems.find((next) => next.id === newItem)) {
-      setDuplicateError(true);
+      setError({ noItem: false, duplicate: true });
       setNewItem('');
       return;
     }
     if (!newItem) {
-      setNoItemError(true);
+      setError({ noItem: true, duplicate: false });
       return;
     }
     addToBasket(newItem);
-    setNoItemError(false);
-    setDuplicateError(false);
+    setError({ noItem: false, duplicate: false });
     setNewItem('');
   };
 
@@ -111,15 +99,13 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       return prevState.filter((prevItem) => prevItem.id !== itemToRemove);
     });
     //remove users selection from db
-    setNoItemError(false);
-    setDuplicateError(false);
+    setError({ noItem: false, duplicate: false });
   };
 
   const addToBasket = (nextItem: string) => {
     const selection = availableProducts.find((next) => next.id === nextItem);
-
     if (!selection) {
-      console.error('Could not find next item', nextItem);
+      console.error(`Could not find item: ${nextItem}`);
       return;
     }
     if (depart === 'produce' || depart === 'deli' || depart === 'meat') {
@@ -130,13 +116,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     //put users selection into basket in db
   };
 
-  const convertDepart = (inputDepart: string) => {
-    return (
-      inputDepart.substring(0, 1).toUpperCase() + inputDepart.substring(1) + ' '
-    );
-  };
-
-  const addQuantity = (item: IProduct) => {
+  const changeQuantity = (item: IProduct, operator: string) => {
     if (!item.quantity) {
       item.quantity = 0;
     }
@@ -148,24 +128,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       color: item.color,
       price: item.price,
       perkg: item.perkg,
-      quantity: item.quantity + 1,
-    };
-    setCartItems(newCartArray);
-  };
-
-  const removeQuantity = (item: IProduct) => {
-    if (!item.quantity) {
-      item.quantity = 0;
-    }
-    const newCartArray: IProduct[] = [...cartItems];
-    const itemIndex = cartItems.findIndex((match) => item.id === match.id);
-    newCartArray[itemIndex] = {
-      id: item.id,
-      weight: item.weight,
-      color: item.color,
-      price: item.price,
-      perkg: item.perkg,
-      quantity: item.quantity - 1,
+      quantity: operator === 'add' ? item.quantity + 1 : item.quantity - 1,
     };
     if (newCartArray.find((match) => match.quantity == 0)) return;
     setCartItems(newCartArray);
@@ -182,19 +145,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
 
         {props.clicked ? (
           <>
-            <div className="departClass">
-              <Department
-                depart={depart}
-                setDepart={setDepart}
-                convert={convertDepart}
-              ></Department>
-              <Paper className="paperClass">
-                <h3 className="cartHeading">
-                  {convertDepart(depart)}
-                  Department
-                </h3>
-              </Paper>
-            </div>
+            <Department depart={depart} setDepart={setDepart} />
             <Autocomplete
               className="autoClass"
               autoComplete
@@ -248,11 +199,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
               <AddIcon />
               &nbsp; Add to cart
             </Button>
-            <DisplayError
-              listError={duplicateError}
-              formError={noItemError}
-              fetchError={storeError}
-            />
+            <DisplayError error={error} />
             <div className="basketOutput">
               {cartItems.length === 0
                 ? null
@@ -267,7 +214,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                       <span className="basket-quantity">
                         <Avatar
                           className="basket-minus"
-                          onClick={() => removeQuantity(next)}
+                          onClick={() => changeQuantity(next, 'subtract')}
                           style={{
                             backgroundColor: 'black',
                             margin: 'auto',
@@ -293,7 +240,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                         &nbsp;
                         <Avatar
                           className="basket-plus"
-                          onClick={() => addQuantity(next)}
+                          onClick={() => changeQuantity(next, 'add')}
                           style={{
                             backgroundColor: 'black',
                             margin: 'auto',
@@ -305,58 +252,18 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                         </Avatar>
                         <p className="item-total">{itemCostTotal(next)}</p>
                       </span>
-                      <span
-                        className="remove-single-item"
-                        onClick={() => removeFromBasket(next.id)}
-                      >
-                        <CloseIcon className="close" />
-                      </span>
+                      <Tooltip title="Remove item">
+                        <span
+                          className="remove-single-item"
+                          onClick={() => removeFromBasket(next.id)}
+                        >
+                          <CloseIcon className="close" />
+                        </span>
+                      </Tooltip>
                     </Paper>
                   ))}
             </div>
-            {cartItems.length > 0 && (
-              <div
-                className="infoOutput"
-                style={{ fontFamily: 'Play, sans-serif' }}
-              >
-                <Button
-                  className="utilBtn"
-                  onClick={() => {
-                    setCartItems([]);
-                    setNewItem('');
-                    setValue('');
-                    setNoItemError(false);
-                    setDuplicateError(false);
-                  }}
-                >
-                  <DeleteForeverIcon />
-                  &nbsp; Clear all
-                </Button>
-                {store && <Price productPayload={cartItems} />}
-                <span className="checkout">
-                  <h3>Checkout</h3>
-                  <Link
-                    to={'/cart'}
-                    style={{ display: 'flex', color: 'black' }}
-                  >
-                    <Badge
-                      badgeContent={calcTotal(cartItems)}
-                      color="secondary"
-                      overlap="rectangular"
-                      showZero
-                    >
-                      <ShoppingCartIcon style={{ fontSize: '60px' }} />
-                    </Badge>
-                    <InputIcon
-                      style={{
-                        fontSize: '30px',
-                        marginTop: 'auto',
-                      }}
-                    />
-                  </Link>
-                </span>
-              </div>
-            )}
+            {cartItems.length > 0 && <CartInfo setNewItem={setNewItem} />}
           </>
         ) : null}
       </div>

@@ -4,7 +4,6 @@ export interface ICartStore {
 export interface IDepart {
   depart: string;
   setDepart: (depart: string) => void;
-  convert: (depart: string) => string;
 }
 
 export interface IHeaderCheck {
@@ -12,10 +11,12 @@ export interface IHeaderCheck {
   setCheckClicked: (clicked: boolean) => void;
 }
 
+export interface IErrorStates {
+  noItem: boolean;
+  duplicate: boolean;
+}
 export interface IErrorDisplay {
-  listError: boolean;
-  formError: boolean;
-  fetchError: boolean;
+  error: IErrorStates;
 }
 export interface IProduct {
   id: string;
@@ -26,6 +27,9 @@ export interface IProduct {
   quantity?: number;
 }
 
+export interface ICartInfo {
+  setNewItem: React.Dispatch<React.SetStateAction<string>>;
+}
 export interface IContextProps {
   cartItems: IProduct[];
   setCartItems: React.Dispatch<React.SetStateAction<IProduct[]>>;

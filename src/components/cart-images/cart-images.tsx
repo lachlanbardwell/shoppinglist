@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import DeleteIcon from '@material-ui/icons/Delete';
+import CloseIcon from '@material-ui/icons/Close';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
@@ -84,7 +84,7 @@ export const CartImages: React.FC = () => {
             <img
               src={`${`https://live.staticflickr.com/${data.serverId}/${data.id}_${data.secret}.jpg`}?w=248&fit=crop&auto=format`}
               srcSet={`${`https://live.staticflickr.com/${data.serverId}/${data.id}_${data.secret}.jpg`}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              alt={`Image data unavailable`}
+              alt={`Picture unavailable`}
               style={{ minHeight: '20%' }}
             />
             <ImageListItemBar
@@ -101,7 +101,7 @@ export const CartImages: React.FC = () => {
                     className="remove-span"
                     onClick={() => removeCartItem(cartItems[index].id)}
                   >
-                    <DeleteIcon style={{ color: 'white', fontSize: '30px' }} />
+                    <CloseIcon style={{ color: 'white', fontSize: '30px' }} />
                   </span>
                 </Tooltip>
               }

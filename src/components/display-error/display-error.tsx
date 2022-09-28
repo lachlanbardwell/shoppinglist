@@ -3,32 +3,17 @@ import { Alert } from '@material-ui/lab';
 import { IErrorDisplay } from '../../types';
 import './display-error.css';
 
-export const DisplayError: React.FC<IErrorDisplay> = ({
-  listError,
-  formError,
-  fetchError,
-}) => {
+export const DisplayError: React.FC<IErrorDisplay> = (props) => {
   return (
     <h3>
-      {!listError ? (
-        ''
-      ) : (
+      {props.error.duplicate && (
         <Alert className="alert-message" severity="error">
           Item is already in the list!
         </Alert>
       )}
-      {!formError ? (
-        ''
-      ) : (
+      {props.error.noItem && (
         <Alert className="alert-message" severity="error">
           No item selected.
-        </Alert>
-      )}
-      {!fetchError ? (
-        ''
-      ) : (
-        <Alert className="alert-message" severity="info">
-          Select a store above.
         </Alert>
       )}
     </h3>

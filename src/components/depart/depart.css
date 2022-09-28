@@ -1,5 +1,8 @@
 .depart-form {
-  margin-top: 1%;
-  margin-left: 8%;
-  margin-bottom: 1%;
+  margin: 1% 8% 1% 8%;
+}
+
+.depart-paper {
+  display: flex;
+  justify-content: center;
 }
