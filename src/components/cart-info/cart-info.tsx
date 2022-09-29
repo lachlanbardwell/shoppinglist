@@ -13,7 +13,7 @@ export const CartInfo: React.FC<ICartInfo> = (props) => {
   const { cartItems, setCartItems, calcTotal } = useContext(CartContext);
 
   return (
-    <div className="infoOutput" style={{ fontFamily: 'Play, sans-serif' }}>
+    <div className="info-output" style={{ fontFamily: 'Play, sans-serif' }}>
       <Button
         className="clear-all"
         onClick={() => {

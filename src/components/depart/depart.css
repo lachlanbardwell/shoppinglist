@@ -6,3 +6,9 @@
   display: flex;
   justify-content: center;
 }
+
+@media (max-width: 750px) {
+  .depart-form {
+    margin-top: 0;
+  }
+}

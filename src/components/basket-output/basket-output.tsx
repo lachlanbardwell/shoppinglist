@@ -10,14 +10,14 @@ export const BasketOutput: React.FC<IBasketOutput> = (props) => {
   const { cartItems } = useContext(CartContext);
 
   return (
-    <div className="basketOutput">
+    <div className="basket-output">
       {cartItems.length === 0
         ? null
         : cartItems.map((next, index) => (
-            <Paper key={index} className="basketItems">
-              <span className="basketItemNames">
+            <Paper key={index} className="basket-items">
+              <span className="basket-item-names">
                 <p>{next.id}</p>
-                <p className="basketItemPrice">{`$${next.price.toFixed(2)} ${
+                <p className="basket-item-price">{`$${next.price.toFixed(2)} ${
                   next.perkg ? 'per kg' : 'ea'
                 }`}</p>
               </span>

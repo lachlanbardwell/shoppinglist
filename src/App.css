@@ -24,104 +24,18 @@ body {
   flex: 1 1 0;
 }
 
-.alertClass,
-.autoClass,
-.basketOutput,
-.departClass,
-.cartHeading,
-.price-total,
 .add-to-cart,
-.clear-all {
+.autocomplete-dropdown,
+.basket-output,
+.cart-heading,
+.clear-all,
+.depart-form,
+.price-total {
   opacity: 1;
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-duration: 700ms;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.autoClass {
-  margin-left: 8%;
-  margin-right: 8%;
-}
-
-#reselect {
-  display: flex;
-  flex: 1 1 0;
-  text-align: center;
-}
-
-#boxStyles {
-  background-color: #fff;
-  margin: 0 7% 7% 7%;
-  overflow: auto;
-  flex: 1 1 auto;
-}
-
-.cartHeading {
-  margin: 20px;
-  color: #021103;
-  opacity: 0.9;
-  display: flex;
-  justify-content: center;
-}
-
-.checkout {
-  margin-right: 8%;
-}
-
-.departClass {
-  margin-bottom: 1%;
-}
-
-.legal a {
-  color: white;
-  font-size: 12;
-}
-
-.legal ul {
-  list-style-type: none;
-}
-
-.logo {
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 12;
-}
-
-.infoOutput {
-  display: flex;
-  justify-content: space-between;
-  margin: 5% auto auto 8%;
-}
-
-.social {
-  margin-top: 25px;
-  padding: 15px;
-}
-
-.social ul {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  list-style-type: none;
-}
-
-.social li {
-  padding: 0 15px;
-}
-
-.social img {
-  max-width: 45px;
-  max-height: 35px;
-  padding: 10px;
-}
-
-.topBar {
-  background-color: white;
 }
 
 @keyframes fadeInOpacity {
@@ -135,55 +49,6 @@ body {
 
 @media (max-width: 750px) {
   #root {
-    height: 150%;
-  }
-
-  footer {
-    font-size: small;
-  }
-
-  #retailerButtons {
-    display: grid;
-    margin: auto;
-    flex: 1 1 0;
-    width: 280px;
-  }
-
-  #retailerButtons > .retailerBtn {
-    margin-left: 2px;
-    margin-right: 2px;
-    margin-bottom: 20px;
-  }
-
-  #reselect {
-    flex-direction: column;
-    margin: 0 auto auto auto;
-  }
-
-  #boxStyles {
-    height: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .checkout {
-    margin-left: 8%;
-  }
-
-  .departClass {
-    margin-top: 0;
-  }
-
-  .infoOutput {
-    display: grid;
-  }
-
-  .social li {
-    padding: 0 10px;
-  }
-
-  .social img {
-    margin-left: -30%;
-    padding: 0;
+    height: 146%;
   }
 }

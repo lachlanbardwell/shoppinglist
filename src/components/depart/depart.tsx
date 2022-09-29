@@ -49,7 +49,7 @@ export const Department: React.FC<IDepart> = (props) => {
         </Select>
       </FormControl>
       <Paper className="depart-paper">
-        <h3 className="cartHeading">
+        <h3 className="cart-heading">
           {convertDepart(props.depart)}
           Department
         </h3>

@@ -11,7 +11,7 @@ export const InfoGraphic: React.FC<IHeaderCheck> = (
   const [infoClicked, setInfoClicked] = useState<boolean>(false);
 
   return props.clicked ? (
-    <div></div>
+    <></>
   ) : (
     <div className="app-info">
       <span className="info-button" onClick={() => setInfoClicked(true)}>

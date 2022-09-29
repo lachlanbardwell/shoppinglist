@@ -12,7 +12,7 @@ export const Retailer: React.FC<IRetailerStore> = (props) => {
   }, [props.store]);
 
   return (
-    <div id="retailerButtons">
+    <div id="retailer-buttons">
       {props.store ? (
         <div id="reselect">
           <Button
@@ -25,7 +25,7 @@ export const Retailer: React.FC<IRetailerStore> = (props) => {
 
           <Tooltip title={`Shopping from ${props.store}`}>
             <img
-              className="store-image"
+              className="store-image-clicked"
               src={`https://logo.clearbit.com/${props.store}.com.au`}
             ></img>
           </Tooltip>
@@ -35,7 +35,7 @@ export const Retailer: React.FC<IRetailerStore> = (props) => {
           return (
             <Tooltip title={next} key={next}>
               <Button
-                className="retailerBtn"
+                className="retailer-button"
                 variant="contained"
                 color="primary"
                 key={next}
@@ -44,7 +44,7 @@ export const Retailer: React.FC<IRetailerStore> = (props) => {
               >
                 {
                   <img
-                    className="storeImage"
+                    className="store-image"
                     src={`https://logo.clearbit.com/${next}.com.au`}
                   ></img>
                 }

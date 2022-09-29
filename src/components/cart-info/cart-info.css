@@ -1,4 +1,14 @@
-.infoOutput > .clear-all {
+.checkout {
+  margin-right: 8%;
+}
+
+.info-output {
+  display: flex;
+  justify-content: space-between;
+  margin: 2% auto auto 8%;
+}
+
+.info-output > .clear-all {
   display: flex;
   margin: auto;
   background-color: #282c34;
@@ -6,8 +16,19 @@
   border: 1px solid transparent;
 }
 
-.infoOutput > .clear-all:hover {
+.info-output > .clear-all:hover {
   background-color: #fff;
   color: #282c34;
   border: 1px solid #282c34;
+}
+
+@media (max-width: 750px) {
+  .checkout {
+    margin-left: 8%;
+  }
+
+  .info-output {
+    display: grid;
+    justify-content: center;
+  }
 }

@@ -1,10 +1,17 @@
-#boxStyles > .add-to-cart:hover {
+#main-box {
+  background-color: #fff;
+  margin: 0 7% 0 7%;
+  overflow: auto;
+  flex: 1 1 auto;
+}
+
+#main-box > .add-to-cart:hover {
   background-color: #fff;
   color: #282c34;
   border: 1px solid #282c34;
 }
 
-#boxStyles > .add-to-cart {
+#main-box > .add-to-cart {
   display: flex;
   background-color: #282c34;
   color: #fff;
@@ -12,45 +19,15 @@
   border: 1px solid transparent;
 }
 
-.basketItemNames {
-  display: flex;
-}
-
-.basketItemPrice {
-  font-size: 12px;
-}
-
-.basket-minus,
-.basket-plus {
-  cursor: pointer;
-}
-
-.basket-quantity {
-  display: flex;
-  flex: 1 1 0;
-  padding: 8px;
-  margin: auto 1% auto 1%;
-  background-color: white;
-  border-radius: 50%;
-}
-
-.basket-quantity-count {
-  margin: auto;
-}
-
-.remove-single-item:hover {
-  cursor: pointer;
+.autocomplete-dropdown {
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
 @media (max-width: 750px) {
-  .item-total {
-    margin: auto;
-  }
-}
-
-@media (max-width: 1250px) {
-  .basketOutput {
-    display: grid;
-    grid-template-columns: repeat(1, auto);
+  #main-box {
+    height: 72%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }

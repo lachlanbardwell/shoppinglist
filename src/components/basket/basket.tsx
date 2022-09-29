@@ -126,76 +126,70 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   };
 
   return (
-    <Box>
-      <div id="boxStyles">
-        <Retailer
-          storeList={initialStoreState}
-          store={store}
-          setStore={setStore}
-        />
-        {props.clicked && (
-          <>
-            <Department depart={depart} setDepart={setDepart} />
-            <Autocomplete
-              className="autoClass"
-              autoComplete
-              onMouseDownCapture={(e) => e.stopPropagation()}
-              onChange={(event, value: string | null) => {
-                if (value !== null && value !== 'Loading...') {
-                  setNewItem(value);
-                } else {
-                  setNewItem('');
-                }
-              }}
-              getOptionSelected={(option, value) =>
-                option === value || value === ''
+    <Box id="main-box">
+      <Retailer
+        storeList={initialStoreState}
+        store={store}
+        setStore={setStore}
+      />
+      {props.clicked && (
+        <>
+          <Department depart={depart} setDepart={setDepart} />
+          <Autocomplete
+            className="autocomplete-dropdown"
+            autoComplete
+            onMouseDownCapture={(e) => e.stopPropagation()}
+            onChange={(event, value: string | null) => {
+              if (value !== null && value !== 'Loading...') {
+                setNewItem(value);
+              } else {
+                setNewItem('');
               }
-              options={
-                items === null || isLoading ? ['Loading...'] : [...items]
-              }
-              renderInput={(params) => {
-                return (
-                  <TextField
-                    {...params}
-                    disabled={isLoading}
-                    InputProps={{
-                      ...params.InputProps,
-                      endAdornment: isLoading ? (
-                        <CircularProgress
-                          style={{
-                            marginTop: -20,
-                            marginRight: -40,
-                            color: 'black',
-                          }}
-                          size={25}
-                        />
-                      ) : (
-                        params.InputProps.endAdornment
-                      ),
-                    }}
-                    variant="filled"
-                    label={
-                      isLoading ? 'Loading...' : 'What do you want to buy?'
-                    }
-                    value={cartItems}
-                  ></TextField>
-                );
-              }}
-              value={value}
-            ></Autocomplete>
-            <Button className="add-to-cart" onClick={addItem}>
-              <AddIcon />
-              &nbsp; Add to cart
-            </Button>
-            <DisplayError error={error} />
-            <BasketOutput
-              changeQuantity={changeQuantity}
-              removeItem={removeFromBasket}
-            />
-            {cartItems.length > 0 && <CartInfo setNewItem={setNewItem} />}
-          </>
-        )}
-      </div>
+            }}
+            getOptionSelected={(option, value) =>
+              option === value || value === ''
+            }
+            options={items === null || isLoading ? ['Loading...'] : [...items]}
+            renderInput={(params) => {
+              return (
+                <TextField
+                  {...params}
+                  disabled={isLoading}
+                  InputProps={{
+                    ...params.InputProps,
+                    endAdornment: isLoading ? (
+                      <CircularProgress
+                        style={{
+                          marginTop: -20,
+                          marginRight: -40,
+                          color: 'black',
+                        }}
+                        size={25}
+                      />
+                    ) : (
+                      params.InputProps.endAdornment
+                    ),
+                  }}
+                  variant="filled"
+                  label={isLoading ? 'Loading...' : 'What do you want to buy?'}
+                  value={cartItems}
+                ></TextField>
+              );
+            }}
+            value={value}
+          ></Autocomplete>
+          <Button className="add-to-cart" onClick={addItem}>
+            <AddIcon />
+            &nbsp; Add to cart
+          </Button>
+          <DisplayError error={error} />
+          <BasketOutput
+            changeQuantity={changeQuantity}
+            removeItem={removeFromBasket}
+          />
+          {cartItems.length > 0 && <CartInfo setNewItem={setNewItem} />}
+        </>
+      )}
     </Box>
   );
 };

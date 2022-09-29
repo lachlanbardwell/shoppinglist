@@ -1,3 +1,9 @@
+#reselect {
+  display: flex;
+  flex: 1 1 0;
+  text-align: center;
+}
+
 #reselect > .back-button {
   background-color: #282c34;
   color: #ffffff;
@@ -11,18 +17,18 @@
   border: 1px solid #282c34;
 }
 
-#retailerButtons {
+#retailer-buttons {
   display: flex;
   justify-content: center;
   margin: auto;
 }
 
-#retailerButtons > .retailerBtn:hover {
+#retailer-buttons > .retailer-button:hover {
   transition: 250ms;
   top: -9px;
 }
 
-#retailerButtons > .retailerBtn {
+#retailer-buttons > .retailer-button {
   background-color: #fff;
   margin-left: 10px;
   margin-right: 10px;
@@ -30,17 +36,35 @@
   top: -1px;
 }
 
-.store-image {
+.store-image-clicked {
   margin: auto 46% auto auto;
 }
 
-.store-image:hover {
+.store-image-clicked:hover {
   transition: 500ms;
   opacity: 0.85;
 }
 
 @media (max-width: 750px) {
-  .store-image {
+  #reselect {
+    flex-direction: column;
+    margin: 0 auto auto auto;
+  }
+
+  #retailer-buttons {
+    display: grid;
+    margin: auto;
+    flex: 1 1 0;
+    width: 280px;
+  }
+
+  #retailer-buttons > .retailer-button {
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 20px;
+  }
+
+  .store-image-clicked {
     margin: 10% auto auto auto;
   }
 }

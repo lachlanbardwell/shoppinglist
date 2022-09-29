@@ -5,9 +5,3 @@
   flex: 1 1 0;
   align-items: center;
 }
-
-@media (max-width: 750px) {
-  .infoOutput > .price-total {
-    margin-left: 8%;
-  }
-}

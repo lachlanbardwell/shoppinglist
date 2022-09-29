@@ -1,4 +1,6 @@
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/context';
 import {
   AppBar,
   Box,
@@ -11,8 +13,6 @@ import {
 } from '@material-ui/core';
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrowSharp';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { Link } from 'react-router-dom';
-import { CartContext } from '../../context/context';
 import './app-bar.css';
 
 const useStyles = makeStyles({

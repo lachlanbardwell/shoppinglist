@@ -68,5 +68,6 @@
 @media (max-width: 750px) {
   .cart-page-container {
     margin: 0 5% 0 5%;
+    padding-bottom: 5vh;
   }
 }
