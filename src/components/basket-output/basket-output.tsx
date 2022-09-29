@@ -16,6 +16,10 @@ export const BasketOutput: React.FC<IBasketOutput> = (props) => {
         : cartItems.map((next, index) => (
             <Paper key={index} className="basket-items">
               <span className="basket-item-names">
+                <img
+                  className="basket-item-image"
+                  src={`https://logo.clearbit.com/${next.store}.com.au`}
+                />
                 <p>{next.id}</p>
                 <p className="basket-item-price">{`$${next.price.toFixed(2)} ${
                   next.perkg ? 'per kg' : 'ea'

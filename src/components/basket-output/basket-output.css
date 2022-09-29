@@ -1,15 +1,21 @@
+.basket-item-image {
+  max-width: 25px;
+  max-height: 25px;
+  border-radius: 5px;
+}
+
 .basket-item-names {
   display: flex;
   flex-direction: column;
   margin-left: 7px;
 }
 
-.basket-item-price {
-  font-size: 12px;
-}
-
 .basket-item-names > p {
   line-height: 0%;
+}
+
+.basket-item-price {
+  font-size: 12px;
 }
 
 .basket-minus,
@@ -46,6 +52,11 @@
 
 .basket-quantity-count {
   margin: auto;
+}
+
+.basket-title {
+  display: flex;
+  flex-direction: column;
 }
 
 .remove-single-item:hover {

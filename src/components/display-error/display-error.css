@@ -1,3 +1,7 @@
+.alert-display {
+  display: grid;
+}
+
 .alert-message {
   margin-left: 8%;
   margin-right: 8%;
@@ -6,4 +10,26 @@
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-duration: 400ms;
+}
+
+.confirm-buttons {
+  display: flex;
+  margin: 1% auto auto 8%;
+}
+
+.confirm-buttons > .confirm {
+  background-color: #282c34;
+  color: #fff;
+  border: 1px solid transparent;
+  margin: 2% 25% auto auto;
+}
+
+.confirm-buttons > .confirm:hover {
+  background-color: #fff;
+  color: #282c34;
+  border: 1px solid #282c34;
+}
+
+.store-confirm {
+  display: flex;
 }

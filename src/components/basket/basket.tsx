@@ -22,6 +22,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   const [error, setError] = useState<IErrorStates>({
     noItem: false,
     duplicate: false,
+    otherStore: false,
   });
   const [isLoading, setisLoading] = useState<boolean>(false);
   const [items, setItems] = useState<string[] | null>(null);
@@ -54,7 +55,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     if (!store || !depart) {
       return;
     }
-    setError({ noItem: false, duplicate: false });
+    setError({ noItem: false, duplicate: false, otherStore: false });
     getItems(storeApi);
     props.setCheckClicked(true);
   }, [store, depart]);
@@ -65,23 +66,26 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       setAvailableProducts([]);
       setItems(null);
       setValue('');
-      setError({ noItem: false, duplicate: false });
+      setError({ noItem: false, duplicate: false, otherStore: false });
       props.setCheckClicked(false);
     }
   }, [store]);
 
   const addItem = () => {
-    if (cartItems.find((next) => next.id === newItem)) {
-      setError({ noItem: false, duplicate: true });
+    if (cartItems.find((next) => next.id === newItem && next.store === store)) {
+      setError({ noItem: false, duplicate: true, otherStore: false });
       setNewItem('');
+      return;
+    } else if (cartItems.find((next) => next.id === newItem)) {
+      setError({ noItem: false, duplicate: false, otherStore: true });
       return;
     }
     if (!newItem) {
-      setError({ noItem: true, duplicate: false });
+      setError({ noItem: true, duplicate: false, otherStore: false });
       return;
     }
     addToBasket(newItem);
-    setError({ noItem: false, duplicate: false });
+    setError({ noItem: false, duplicate: false, otherStore: false });
     setNewItem('');
   };
 
@@ -90,7 +94,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       return prevState.filter((prevItem) => prevItem.id !== itemToRemove);
     });
     //remove users selection from db
-    setError({ noItem: false, duplicate: false });
+    setError({ noItem: false, duplicate: false, otherStore: false });
   };
 
   const addToBasket = (nextItem: string) => {
@@ -103,6 +107,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       selection.perkg = true;
     }
     selection.quantity = 1;
+    selection.store = store;
     setCartItems((prev: IProduct[]) => [...prev, selection]);
     //put users selection into basket in db
   };
@@ -119,6 +124,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       color: item.color,
       price: item.price,
       perkg: item.perkg,
+      store: item.store,
       quantity: operator === 'add' ? item.quantity + 1 : item.quantity - 1,
     };
     if (newCartArray.find((match) => match.quantity == 0)) return;
@@ -182,7 +188,12 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
             <AddIcon />
             &nbsp; Add to cart
           </Button>
-          <DisplayError error={error} />
+          <DisplayError
+            error={error}
+            setError={setError}
+            newItem={newItem}
+            addToBasket={addToBasket}
+          />
           <BasketOutput
             changeQuantity={changeQuantity}
             removeItem={removeFromBasket}

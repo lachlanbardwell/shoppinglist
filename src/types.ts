@@ -19,9 +19,13 @@ export interface IHeaderCheck {
 export interface IErrorStates {
   noItem: boolean;
   duplicate: boolean;
+  otherStore: boolean;
 }
 export interface IErrorDisplay {
   error: IErrorStates;
+  setError: React.Dispatch<React.SetStateAction<IErrorStates>>;
+  newItem: string;
+  addToBasket: (nextItem: string) => void;
 }
 export interface IProduct {
   id: string;
@@ -30,6 +34,7 @@ export interface IProduct {
   price: number;
   perkg?: boolean;
   quantity?: number;
+  store?: string;
 }
 
 export interface ICartInfo {
