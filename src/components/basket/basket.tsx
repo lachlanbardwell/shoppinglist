@@ -103,8 +103,11 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       console.error(`Could not find item: ${nextItem}`);
       return;
     }
-    if (depart === 'produce' || depart === 'deli' || depart === 'meat') {
+    if (depart === 'deli' || depart === 'meat') {
       selection.perkg = true;
+    }
+    if (!selection.tag) {
+      selection.tag = '';
     }
     selection.quantity = 1;
     selection.store = store;

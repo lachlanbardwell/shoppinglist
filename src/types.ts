@@ -29,6 +29,7 @@ export interface IErrorDisplay {
 }
 export interface IProduct {
   id: string;
+  tag?: string;
   weight: number;
   color: string;
   price: number;

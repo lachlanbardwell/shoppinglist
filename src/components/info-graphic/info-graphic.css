@@ -10,6 +10,11 @@
 
 .info-button:hover .info-popout {
   visibility: visible;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 700ms;
 }
 
 .info-popout {
@@ -22,5 +27,13 @@
   margin: auto;
   width: 250px;
   visibility: hidden;
-  transition: 0.3s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
