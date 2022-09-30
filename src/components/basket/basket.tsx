@@ -123,6 +123,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     const itemIndex = cartItems.findIndex((match) => item.id === match.id);
     newCartArray[itemIndex] = {
       id: item.id,
+      tag: item.tag,
       weight: item.weight,
       color: item.color,
       price: item.price,
