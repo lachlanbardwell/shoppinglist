@@ -1,14 +1,44 @@
 .depart-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.depart-filters {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1% 8% 1% 8%;
+  flex: 1 1 auto;
+}
+
+.depart-filters > h3:hover,
+.depart-filters-headings > h3:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.depart-headings {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
   margin: 1% 8% 1% 8%;
 }
 
 .depart-paper {
   display: flex;
+  padding: 0 5px;
   justify-content: center;
 }
 
 @media (max-width: 750px) {
+  .cart-heading {
+    font-size: 14px;
+  }
+
   .depart-form {
     margin-top: 0;
+  }
+
+  .depart-filters {
+    font-size: 12px;
   }
 }

@@ -11,9 +11,9 @@ import { convertDepart } from '../../transformers/convert-depart';
 import './depart.css';
 
 const departArray: string[] = [
-  'produce',
+  'fruit & Veg',
   'deli',
-  'perishables',
+  'dairy',
   'meat',
   'grocery',
   'bathroom',
@@ -36,24 +36,42 @@ export const Department: React.FC<IDepart> = (props) => {
 
   return (
     <div className="depart-form">
-      <FormControl>
-        <InputLabel>Department</InputLabel>
-        <Select value={option} onChange={handleChange}>
-          {departArray.map((next) => {
-            return (
-              <MenuItem value={next} key={next}>
-                {convertDepart(next)}
-              </MenuItem>
-            );
-          })}
-        </Select>
-      </FormControl>
-      <Paper className="depart-paper">
-        <h3 className="cart-heading">
-          {convertDepart(props.depart)}
-          Department
+      <div className="depart-headings">
+        <FormControl>
+          <InputLabel>Department</InputLabel>
+          <Select value={option} onChange={handleChange}>
+            {departArray.map((next) => {
+              return (
+                <MenuItem value={next} key={next}>
+                  {convertDepart(next)}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </FormControl>
+        <Paper className="depart-paper">
+          <h3 className="cart-heading">{`Category: ${convertDepart(
+            props.currentCategory,
+          )}`}</h3>
+        </Paper>
+      </div>
+      <div className="depart-filters">
+        {props.categories.map((next, i) => {
+          return (
+            <div className="depart-filters-headings" key={i}>
+              <h3 onClick={() => props.filter(next)}>
+                {convertDepart(next)}&nbsp;|&nbsp;
+              </h3>
+            </div>
+          );
+        })}
+        <h3
+          className="depart-filters-headings"
+          onClick={() => props.filter('all')}
+        >
+          All
         </h3>
-      </Paper>
+      </div>
     </div>
   );
 };

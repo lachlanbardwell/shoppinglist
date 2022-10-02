@@ -18,7 +18,7 @@ const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
 //Alternate typing of functional component - Using ReactFC means it Must accept a children prop of some kind
 export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   const [availableProducts, setAvailableProducts] = useState<IProduct[]>([]);
-  const [depart, setDepart] = useState<string>('produce');
+  const [depart, setDepart] = useState<string>('fruit & Veg');
   const [error, setError] = useState<IErrorStates>({
     noItem: false,
     duplicate: false,
@@ -29,6 +29,8 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   const [newItem, setNewItem] = useState<string>('');
   const [store, setStore] = useState<string>('');
   const [value, setValue] = useState<string>('');
+  const [categories, setCategories] = useState<string[]>([]);
+  const [currentCategory, setCurrentCategory] = useState<string>('All Items');
   const { cartItems, setCartItems } = useContext(CartContext);
 
   //TODO : Remove use of mocks after backend is sorted
@@ -38,7 +40,13 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     try {
       const result = await service.retrieveItems(store, depart);
       setAvailableProducts(result);
-      setItems(result.map((prev: IProduct) => prev.id).sort());
+      setItems(result.map((next: IProduct) => next.id).sort());
+      setCategories(
+        result
+          .map((next: IProduct) => next.type)
+          .filter((match, id, array) => array.indexOf(match) === id)
+          .sort(),
+      );
       setisLoading(false);
     } catch (error) {
       console.log(`Failed to call ${isMock ? 'mock' : 'actual'} API`);
@@ -58,6 +66,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     setError({ noItem: false, duplicate: false, otherStore: false });
     getItems(storeApi);
     props.setCheckClicked(true);
+    setCurrentCategory('All Items');
   }, [store, depart]);
 
   useEffect(() => {
@@ -129,10 +138,27 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       price: item.price,
       perkg: item.perkg,
       store: item.store,
+      type: item.type,
       quantity: operator === 'add' ? item.quantity + 1 : item.quantity - 1,
     };
     if (newCartArray.find((match) => match.quantity == 0)) return;
     setCartItems(newCartArray);
+  };
+
+  const filterItems = (typeOfFilter: string) => {
+    if (typeOfFilter === 'all') {
+      setItems(availableProducts.map((prev: IProduct) => prev.id).sort());
+      setCurrentCategory('All Item');
+      return;
+    }
+    const matchingItems: IProduct[] = availableProducts.filter(
+      (match) => match.type === typeOfFilter,
+    );
+    const matchingStrings: string[] = matchingItems
+      .map((next) => next.id)
+      .sort();
+    setItems(matchingStrings);
+    setCurrentCategory(typeOfFilter);
   };
 
   return (
@@ -144,7 +170,13 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       />
       {props.clicked && (
         <>
-          <Department depart={depart} setDepart={setDepart} />
+          <Department
+            depart={depart}
+            setDepart={setDepart}
+            filter={filterItems}
+            categories={categories}
+            currentCategory={currentCategory}
+          />
           <Autocomplete
             className="autocomplete-dropdown"
             autoComplete

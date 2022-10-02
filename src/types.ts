@@ -3,19 +3,26 @@ export interface IBasketOutput {
   removeItem: (itemToRemove: string) => void;
 }
 
+export interface ICartInfo {
+  setNewItem: React.Dispatch<React.SetStateAction<string>>;
+}
+
 export interface ICartStore {
   store: string;
+}
+
+export interface IContextProps {
+  cartItems: IProduct[];
+  setCartItems: React.Dispatch<React.SetStateAction<IProduct[]>>;
+  calcTotal: (items: IProduct[]) => number;
 }
 export interface IDepart {
   depart: string;
   setDepart: (depart: string) => void;
+  filter: (type: string) => void;
+  categories: string[];
+  currentCategory: string;
 }
-
-export interface IHeaderCheck {
-  clicked: boolean;
-  setCheckClicked: (clicked: boolean) => void;
-}
-
 export interface IErrorStates {
   noItem: boolean;
   duplicate: boolean;
@@ -27,6 +34,11 @@ export interface IErrorDisplay {
   newItem: string;
   addToBasket: (nextItem: string) => void;
 }
+
+export interface IHeaderCheck {
+  clicked: boolean;
+  setCheckClicked: (clicked: boolean) => void;
+}
 export interface IProduct {
   id: string;
   tag: string;
@@ -36,15 +48,7 @@ export interface IProduct {
   perkg?: boolean;
   quantity?: number;
   store?: string;
-}
-
-export interface ICartInfo {
-  setNewItem: React.Dispatch<React.SetStateAction<string>>;
-}
-export interface IContextProps {
-  cartItems: IProduct[];
-  setCartItems: React.Dispatch<React.SetStateAction<IProduct[]>>;
-  calcTotal: (items: IProduct[]) => number;
+  type: string;
 }
 export interface IResponseData {
   [listNumber: string]: IStoreData;

@@ -31,8 +31,6 @@ export const CartImages: React.FC = () => {
   };
 
   let arrayIndex = 0;
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   const imageURLS: string[] = cartItems
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
