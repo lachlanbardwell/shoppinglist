@@ -17,7 +17,7 @@ export const retrieveItems: (
               color: 'Pink',
               price: 0.9,
               //packaging: string - loose | prepacked
-              //type: string - fruit | vegetable | salad
+              //type: string - fruit | vegetables | salad
               type: 'fruit',
               //inStock: boolean
             },
@@ -59,7 +59,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'red',
               price: 0.7,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Blueberries 250g',
@@ -83,7 +83,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Brown',
               price: 0.7,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Carrots',
@@ -91,7 +91,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Orange',
               price: 0.4,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Broccolini Bunch',
@@ -99,7 +99,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.99,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Avocados',
@@ -123,7 +123,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Brown',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Bananas',
@@ -139,7 +139,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Lettuce Oakleaf Combo',
@@ -147,7 +147,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Raspberries 250g',
@@ -219,7 +219,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 1.87,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cucumbers Continental',
@@ -227,7 +227,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Capsicums Red',
@@ -235,7 +235,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 1.98,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Capsicums Yellow',
@@ -243,7 +243,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 2.95,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Pears',
@@ -395,7 +395,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Yellow',
               price: 2.33,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Star Fruit',
@@ -451,7 +451,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 3.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Beans 400g',
@@ -459,7 +459,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Beetroot',
@@ -467,7 +467,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Brown',
               price: 1.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Mushrooms 500g',
@@ -475,7 +475,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'White',
               price: 7.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Buk Choy',
@@ -483,7 +483,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'White',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Wombok Cabbage',
@@ -491,7 +491,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 2.95,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cabbage Green',
@@ -499,7 +499,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Green',
               price: 5.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cabbage Red',
@@ -507,7 +507,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Red',
               price: 5.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cabbage Savoy',
@@ -515,7 +515,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Green',
               price: 5.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Celeriac',
@@ -523,7 +523,7 @@ export const retrieveItems: (
               weight: 400,
               color: 'Brown',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Celery Whole',
@@ -531,7 +531,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'Green',
               price: 4,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Celery Half',
@@ -539,7 +539,7 @@ export const retrieveItems: (
               weight: 250,
               color: 'Green',
               price: 2,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Chilli Red',
@@ -547,7 +547,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Chilli Green',
@@ -555,7 +555,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Chilli Jalapeno',
@@ -563,7 +563,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Chilli Habenaro',
@@ -571,7 +571,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Asparagus',
@@ -579,7 +579,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Corn Sweet 500g',
@@ -587,7 +587,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'Yellow',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Eggplant',
@@ -595,7 +595,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Purple',
               price: 3.17,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cauliflower Whole',
@@ -603,7 +603,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'White',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cauliflower Half',
@@ -611,7 +611,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'White',
               price: 1.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Fennel',
@@ -619,7 +619,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 3,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Leek',
@@ -627,7 +627,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 4.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Garlic',
@@ -635,7 +635,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'White',
               price: 3.3,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Ginger',
@@ -643,7 +643,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Brown',
               price: 3.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Zucchini',
@@ -651,7 +651,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'Green',
               price: 0.98,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Lettuce Iceberg',
@@ -667,7 +667,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'Green',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Spring Onion Bunch',
@@ -675,7 +675,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Onions Red',
@@ -683,7 +683,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 0.7,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Parsley Bunch',
@@ -691,7 +691,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Parsnips',
@@ -699,7 +699,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 1.54,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Potatoes White Washed',
@@ -707,7 +707,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'White',
               price: 0.81,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Potatoes Red Washed',
@@ -715,7 +715,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 0.81,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Potatoes Sweet',
@@ -723,7 +723,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Orange',
               price: 0.97,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Spinach Baby 250g',
@@ -755,7 +755,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Orange',
               price: 4.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Pumpkin Butternut Cut',
@@ -763,7 +763,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Orange',
               price: 4.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Herb Rosemary',
@@ -771,7 +771,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Chives',
@@ -779,7 +779,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Green Basil',
@@ -787,7 +787,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Thyme',
@@ -795,7 +795,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Curry Leaves',
@@ -803,7 +803,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Lemongrass',
@@ -811,7 +811,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Thyme Lemon',
@@ -819,7 +819,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Kaffir Lime Leaves',
@@ -827,7 +827,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Sage',
@@ -835,7 +835,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Thai Basil',
@@ -843,7 +843,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Coriander',
@@ -851,7 +851,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Bay Leaf',
@@ -859,7 +859,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Dill',
@@ -867,7 +867,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Mint Bunch',
@@ -875,7 +875,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Oregano',
@@ -883,7 +883,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Okra',
@@ -891,7 +891,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Green',
               price: 2.77,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Onions Shallot',
@@ -899,7 +899,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Brown',
               price: 2.13,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Pak Choy',
@@ -907,7 +907,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Choy Sum',
@@ -915,7 +915,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Choy Sum Baby',
@@ -923,7 +923,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Carrots Dutch',
@@ -931,7 +931,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'Orange',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Radish bunch',
@@ -939,7 +939,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Capsicums Green',
@@ -947,7 +947,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Rhubarb bunch',
@@ -955,7 +955,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Red',
               price: 4,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Lettuce Cos Baby',
@@ -963,7 +963,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Silverbeet',
@@ -971,15 +971,15 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 4.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Swedes',
-              tag: 'swede vegetable',
+              tag: 'swede vegetables',
               weight: 50,
               color: 'Yellow',
               price: 1.3,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Turnip',
@@ -987,7 +987,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Purple',
               price: 1.2,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Snow Peas',
@@ -995,7 +995,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Green',
               price: 2.2,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Tomatoes Truss',
@@ -1003,7 +1003,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 1.1,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Tomatoes Mini Roma',
@@ -1011,7 +1011,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Tomatoes Cherry',
@@ -1019,7 +1019,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Tomatoes Roma',
@@ -1027,7 +1027,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 0.7,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Brussel Sprouts',
@@ -1035,7 +1035,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Green',
               price: 1.3,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Broccoli Chinese',
@@ -1043,7 +1043,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Broccoli',
@@ -1051,7 +1051,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 0.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Sugar Snap Peas',
@@ -1059,7 +1059,7 @@ export const retrieveItems: (
               weight: 250,
               color: 'Green',
               price: 5.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
           ],
           deli: [
@@ -1212,7 +1212,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Brown',
               price: 3.99,
-              type: 'spread',
+              type: 'spreads',
             },
             {
               id: 'Rolled Oats 1kg',
@@ -1228,7 +1228,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Yellow',
               price: 2.99,
-              type: 'bag',
+              type: 'bags',
             },
             {
               id: 'Freezer Bags',
@@ -1236,7 +1236,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 1.99,
-              type: 'bag',
+              type: 'bags',
             },
             {
               id: 'Chips',
@@ -1244,7 +1244,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Yellow',
               price: 2,
-              type: 'snack',
+              type: 'snacks',
             },
             {
               id: 'Savoys',
@@ -1252,7 +1252,7 @@ export const retrieveItems: (
               weight: 250,
               color: 'Red',
               price: 2.5,
-              type: 'biscuit',
+              type: 'biscuits',
             },
             {
               id: 'Pasta Shells',
@@ -1260,7 +1260,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'Yellow',
               price: 2.99,
-              type: 'rice and pasta',
+              type: 'rice & Pasta',
             },
             {
               id: 'Pasta Sauce',
@@ -1284,7 +1284,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Yellow',
               price: 3.99,
-              type: 'snack',
+              type: 'snacks',
             },
             {
               id: 'Brown Rice',
@@ -1292,7 +1292,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Brown',
               price: 2,
-              type: 'rice and pasta',
+              type: 'rice & Pasta',
             },
             {
               id: 'Salt',
@@ -1300,7 +1300,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'White',
               price: 2.99,
-              type: 'condiment',
+              type: 'condiments',
             },
             {
               id: 'Pepper',
@@ -1308,7 +1308,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Black',
               price: 2.99,
-              type: 'condiment',
+              type: 'condiments',
             },
 
             {
@@ -1325,7 +1325,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 2.99,
-              type: 'condiment',
+              type: 'condiments',
             },
             {
               id: 'Tuna Can',
@@ -1343,6 +1343,14 @@ export const retrieveItems: (
               price: 3.99,
               type: 'canned',
             },
+            {
+              id: 'Skittles',
+              tag: 'skittles',
+              weight: 250,
+              color: 'Red',
+              price: 4.99,
+              type: 'confectionary',
+            },
           ],
           bathroom: [
             {
@@ -1359,7 +1367,7 @@ export const retrieveItems: (
               weight: 550,
               color: 'Blue',
               price: 9.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Body Wash',
@@ -1367,7 +1375,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Blue',
               price: 8.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Toothpaste',
@@ -1415,7 +1423,7 @@ export const retrieveItems: (
               weight: 550,
               color: 'Blue',
               price: 9.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Hand Soap',
@@ -1423,7 +1431,7 @@ export const retrieveItems: (
               weight: 250,
               color: 'Pink',
               price: 2.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Hand Soap Refill',
@@ -1431,7 +1439,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Pink',
               price: 7.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Hand Sanitizer',
@@ -1439,7 +1447,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 2.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Sunscreen',
@@ -1547,7 +1555,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Yellow',
               price: 5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Hot Bandito Wedges',
@@ -1571,7 +1579,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'Black',
               price: 8.99,
-              type: 'confectionary',
+              type: 'sweet',
             },
           ],
         },
@@ -1584,7 +1592,7 @@ export const retrieveItems: (
               color: 'Pink',
               price: 0.9,
               //packaging: string - loose | prepacked
-              //type: string - fruit | vegetable | salad
+              //type: string - fruit | vegetables | salad
               type: 'fruit',
               //inStock: boolean
             },
@@ -1618,7 +1626,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'red',
               price: 0.7,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Blueberries 250g',
@@ -1642,7 +1650,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Brown',
               price: 0.7,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Carrots',
@@ -1650,7 +1658,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Orange',
               price: 0.4,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Broccolini Bunch',
@@ -1658,7 +1666,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.99,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Avocados',
@@ -1682,7 +1690,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Brown',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Bananas',
@@ -1698,7 +1706,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Lettuce Oakleaf Combo',
@@ -1706,7 +1714,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Raspberries 250g',
@@ -1778,7 +1786,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 1.87,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cucumbers Continental',
@@ -1786,7 +1794,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Capsicums Red',
@@ -1794,7 +1802,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 1.98,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Capsicums Yellow',
@@ -1802,7 +1810,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 2.95,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Pears',
@@ -1954,7 +1962,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Yellow',
               price: 2.33,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Star Fruit',
@@ -2010,7 +2018,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 3.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Beans 400g',
@@ -2018,7 +2026,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Beetroot',
@@ -2026,7 +2034,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Brown',
               price: 1.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Mushrooms 500g',
@@ -2034,7 +2042,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'White',
               price: 7.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Buk Choy',
@@ -2042,7 +2050,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'White',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Wombok Cabbage',
@@ -2050,7 +2058,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 2.95,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cabbage Green',
@@ -2058,7 +2066,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Green',
               price: 5.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cabbage Red',
@@ -2066,7 +2074,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Red',
               price: 5.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cabbage Savoy',
@@ -2074,7 +2082,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Green',
               price: 5.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Celeriac',
@@ -2082,7 +2090,7 @@ export const retrieveItems: (
               weight: 400,
               color: 'Brown',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Celery Whole',
@@ -2090,7 +2098,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'Green',
               price: 4,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Celery Half',
@@ -2098,7 +2106,7 @@ export const retrieveItems: (
               weight: 250,
               color: 'Green',
               price: 2,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Chilli Red',
@@ -2106,7 +2114,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Chilli Green',
@@ -2114,7 +2122,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Chilli Jalapeno',
@@ -2122,7 +2130,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Chilli Habenaro',
@@ -2130,7 +2138,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Asparagus',
@@ -2138,7 +2146,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Corn Sweet 500g',
@@ -2146,7 +2154,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'Yellow',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Eggplant',
@@ -2154,7 +2162,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Purple',
               price: 3.17,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cauliflower Whole',
@@ -2162,7 +2170,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'White',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cauliflower Half',
@@ -2170,7 +2178,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'White',
               price: 1.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Fennel',
@@ -2178,7 +2186,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 3,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Leek',
@@ -2186,7 +2194,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 4.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Garlic',
@@ -2194,7 +2202,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'White',
               price: 3.3,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Ginger',
@@ -2202,7 +2210,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Brown',
               price: 3.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Zucchini',
@@ -2210,7 +2218,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'Green',
               price: 0.98,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Lettuce Iceberg',
@@ -2226,7 +2234,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'Green',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Spring Onion Bunch',
@@ -2234,7 +2242,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Onions Red',
@@ -2242,7 +2250,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 0.7,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Parsley Bunch',
@@ -2250,7 +2258,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Parsnips',
@@ -2258,7 +2266,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 1.54,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Potatoes White Washed',
@@ -2266,7 +2274,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'White',
               price: 0.81,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Potatoes Red Washed',
@@ -2274,7 +2282,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 0.81,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Potatoes Sweet',
@@ -2282,7 +2290,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Orange',
               price: 0.97,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Spinach Baby 250g',
@@ -2314,7 +2322,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Orange',
               price: 4.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Pumpkin Butternut Cut',
@@ -2322,7 +2330,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Orange',
               price: 4.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Herb Rosemary',
@@ -2330,7 +2338,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Chives',
@@ -2338,7 +2346,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Green Basil',
@@ -2346,7 +2354,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Thyme',
@@ -2354,7 +2362,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Curry Leaves',
@@ -2362,7 +2370,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Lemongrass',
@@ -2370,7 +2378,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Thyme Lemon',
@@ -2378,7 +2386,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Sage',
@@ -2386,7 +2394,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Thai Basil',
@@ -2394,7 +2402,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Coriander',
@@ -2402,7 +2410,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Bay Leaf',
@@ -2410,7 +2418,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Dill',
@@ -2418,7 +2426,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Mint Bunch',
@@ -2426,7 +2434,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Oregano',
@@ -2434,7 +2442,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Okra',
@@ -2442,7 +2450,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Green',
               price: 2.77,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Onions Shallot',
@@ -2450,7 +2458,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Brown',
               price: 2.13,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Pak Choy',
@@ -2458,7 +2466,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Choy Sum',
@@ -2466,7 +2474,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Choy Sum Baby',
@@ -2474,7 +2482,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Carrots Dutch',
@@ -2482,7 +2490,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'Orange',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Radish bunch',
@@ -2490,7 +2498,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Capsicums Green',
@@ -2498,7 +2506,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Rhubarb bunch',
@@ -2506,7 +2514,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Red',
               price: 4,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Lettuce Cos Baby',
@@ -2514,7 +2522,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Silverbeet',
@@ -2522,15 +2530,15 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 4.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Swedes',
-              tag: 'swede vegetable',
+              tag: 'swede vegetables',
               weight: 50,
               color: 'Yellow',
               price: 1.3,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Turnip',
@@ -2538,7 +2546,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Purple',
               price: 1.2,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Snow Peas',
@@ -2546,7 +2554,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Green',
               price: 2.2,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Tomatoes Truss',
@@ -2554,7 +2562,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 1.1,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Tomatoes Cherry',
@@ -2562,7 +2570,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Tomatoes Roma',
@@ -2570,7 +2578,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 0.7,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Brussel Sprouts',
@@ -2578,7 +2586,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Green',
               price: 1.3,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Broccoli Chinese',
@@ -2586,7 +2594,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Broccoli',
@@ -2594,7 +2602,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 0.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Sugar Snap Peas',
@@ -2602,7 +2610,7 @@ export const retrieveItems: (
               weight: 250,
               color: 'Green',
               price: 5.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
           ],
           deli: [
@@ -2755,7 +2763,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Brown',
               price: 3.99,
-              type: 'spread',
+              type: 'spreads',
             },
             {
               id: 'Rolled Oats 1kg',
@@ -2771,7 +2779,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Yellow',
               price: 2.99,
-              type: 'bag',
+              type: 'bags',
             },
             {
               id: 'Freezer Bags',
@@ -2779,7 +2787,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 1.99,
-              type: 'bag',
+              type: 'bags',
             },
             {
               id: 'Chips',
@@ -2787,7 +2795,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Yellow',
               price: 2,
-              type: 'snack',
+              type: 'snacks',
             },
             {
               id: 'Savoys',
@@ -2795,7 +2803,7 @@ export const retrieveItems: (
               weight: 250,
               color: 'Red',
               price: 2.5,
-              type: 'biscuit',
+              type: 'biscuits',
             },
             {
               id: 'Pasta Shells',
@@ -2803,7 +2811,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'Yellow',
               price: 2.99,
-              type: 'rice and pasta',
+              type: 'rice & Pasta',
             },
             {
               id: 'Pasta Sauce',
@@ -2827,7 +2835,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Yellow',
               price: 3.99,
-              type: 'snack',
+              type: 'snacks',
             },
             {
               id: 'Brown Rice',
@@ -2835,7 +2843,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Brown',
               price: 2,
-              type: 'rice and pasta',
+              type: 'rice & Pasta',
             },
             {
               id: 'Salt',
@@ -2843,7 +2851,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'White',
               price: 2.99,
-              type: 'condiment',
+              type: 'condiments',
             },
             {
               id: 'Pepper',
@@ -2851,7 +2859,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Black',
               price: 2.99,
-              type: 'condiment',
+              type: 'condiments',
             },
 
             {
@@ -2868,7 +2876,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 2.99,
-              type: 'condiment',
+              type: 'condiments',
             },
             {
               id: 'Tuna Can',
@@ -2886,6 +2894,14 @@ export const retrieveItems: (
               price: 3.99,
               type: 'canned',
             },
+            {
+              id: 'Skittles',
+              tag: 'skittles',
+              weight: 250,
+              color: 'Red',
+              price: 4.99,
+              type: 'confectionary',
+            },
           ],
           bathroom: [
             {
@@ -2902,7 +2918,7 @@ export const retrieveItems: (
               weight: 550,
               color: 'Blue',
               price: 9.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Body Wash',
@@ -2910,7 +2926,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Blue',
               price: 8.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Toothpaste',
@@ -2958,7 +2974,7 @@ export const retrieveItems: (
               weight: 550,
               color: 'Blue',
               price: 9.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Hand Soap',
@@ -2966,7 +2982,7 @@ export const retrieveItems: (
               weight: 250,
               color: 'Pink',
               price: 2.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Hand Soap Refill',
@@ -2974,7 +2990,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Pink',
               price: 7.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Hand Sanitizer',
@@ -2982,7 +2998,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 2.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Sunscreen',
@@ -3090,7 +3106,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Yellow',
               price: 5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Hot Bandito Wedges',
@@ -3114,7 +3130,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'Black',
               price: 8.99,
-              type: 'confectionary',
+              type: 'sweet',
             },
           ],
         },
@@ -3142,7 +3158,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'red',
               price: 6.99,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Blaubeere 200g',
@@ -3166,7 +3182,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Brown',
               price: 0.7,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Möhren',
@@ -3182,7 +3198,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.99,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Avocados',
@@ -3206,7 +3222,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 1,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Banane',
@@ -3222,7 +3238,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
 
             {
@@ -3295,7 +3311,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Paprika',
@@ -3303,7 +3319,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 2,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Birne',
@@ -3472,7 +3488,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Brown',
               price: 3.99,
-              type: 'spread',
+              type: 'spreads',
             },
             {
               id: 'Rolled Oats 1kg',
@@ -3488,7 +3504,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Yellow',
               price: 2.99,
-              type: 'bag',
+              type: 'bags',
             },
             {
               id: 'Freezer Bags',
@@ -3496,7 +3512,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 1.99,
-              type: 'bag',
+              type: 'bags',
             },
             {
               id: 'Chips',
@@ -3504,7 +3520,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Yellow',
               price: 2,
-              type: 'snack',
+              type: 'snacks',
             },
             {
               id: 'Savoys',
@@ -3512,7 +3528,7 @@ export const retrieveItems: (
               weight: 250,
               color: 'Red',
               price: 2.5,
-              type: 'biscuit',
+              type: 'biscuits',
             },
             {
               id: 'Pasta Shells',
@@ -3520,7 +3536,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'Yellow',
               price: 2.99,
-              type: 'rice and pasta',
+              type: 'rice & Pasta',
             },
             {
               id: 'Pasta Sauce',
@@ -3544,7 +3560,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Yellow',
               price: 3.99,
-              type: 'snack',
+              type: 'snacks',
             },
             {
               id: 'Brown Rice',
@@ -3552,7 +3568,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Brown',
               price: 2,
-              type: 'rice and pasta',
+              type: 'rice & Pasta',
             },
             {
               id: 'Salt',
@@ -3560,7 +3576,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'White',
               price: 2.99,
-              type: 'condiment',
+              type: 'condiments',
             },
             {
               id: 'Pepper',
@@ -3568,7 +3584,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Black',
               price: 2.99,
-              type: 'condiment',
+              type: 'condiments',
             },
 
             {
@@ -3585,7 +3601,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 2.99,
-              type: 'condiment',
+              type: 'condiments',
             },
             {
               id: 'Tuna Can',
@@ -3603,6 +3619,14 @@ export const retrieveItems: (
               price: 3.99,
               type: 'canned',
             },
+            {
+              id: 'Skittles',
+              tag: 'skittles',
+              weight: 250,
+              color: 'Red',
+              price: 4.99,
+              type: 'confectionary',
+            },
           ],
           bathroom: [
             {
@@ -3619,7 +3643,7 @@ export const retrieveItems: (
               weight: 550,
               color: 'Blue',
               price: 9.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Body Wash',
@@ -3627,7 +3651,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Blue',
               price: 8.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Toothpaste',
@@ -3675,7 +3699,7 @@ export const retrieveItems: (
               weight: 550,
               color: 'Blue',
               price: 9.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Hand Soap',
@@ -3683,7 +3707,7 @@ export const retrieveItems: (
               weight: 250,
               color: 'Pink',
               price: 2.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Hand Soap Refill',
@@ -3691,7 +3715,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Pink',
               price: 7.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Hand Sanitizer',
@@ -3699,7 +3723,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 2.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Sunscreen',
@@ -3807,7 +3831,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Yellow',
               price: 5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Hot Bandito Wedges',
@@ -3831,7 +3855,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'Black',
               price: 8.99,
-              type: 'confectionary',
+              type: 'sweet',
             },
           ],
         },
@@ -3844,7 +3868,7 @@ export const retrieveItems: (
               color: 'Pink',
               price: 0.9,
               //packaging: string - loose | prepacked
-              //type: string - fruit | vegetable | salad
+              //type: string - fruit | vegetables | salad
               type: 'fruit',
               //inStock: boolean
             },
@@ -3878,7 +3902,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'red',
               price: 0.7,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Blueberries 250g',
@@ -3902,7 +3926,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Brown',
               price: 0.7,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Carrots',
@@ -3910,7 +3934,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Orange',
               price: 0.4,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Broccolini Bunch',
@@ -3918,7 +3942,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.99,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Avocados',
@@ -3942,7 +3966,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Brown',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Bananas',
@@ -3958,7 +3982,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Lettuce Oakleaf Combo',
@@ -3966,7 +3990,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Raspberries 250g',
@@ -4038,7 +4062,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 1.87,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cucumbers Continental',
@@ -4046,7 +4070,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Capsicums Red',
@@ -4054,7 +4078,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 1.98,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Capsicums Yellow',
@@ -4062,7 +4086,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 2.95,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Pears',
@@ -4214,7 +4238,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Yellow',
               price: 2.33,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Star Fruit',
@@ -4270,7 +4294,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 3.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Beans 400g',
@@ -4278,7 +4302,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Beetroot',
@@ -4286,7 +4310,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Brown',
               price: 1.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Mushrooms 500g',
@@ -4294,7 +4318,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'White',
               price: 7.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Buk Choy',
@@ -4302,7 +4326,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'White',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Wombok Cabbage',
@@ -4310,7 +4334,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Green',
               price: 2.95,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cabbage Green',
@@ -4318,7 +4342,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Green',
               price: 5.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cabbage Red',
@@ -4326,7 +4350,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Red',
               price: 5.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cabbage Savoy',
@@ -4334,7 +4358,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Green',
               price: 5.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Celeriac',
@@ -4342,7 +4366,7 @@ export const retrieveItems: (
               weight: 400,
               color: 'Brown',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Celery Whole',
@@ -4350,7 +4374,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'Green',
               price: 4,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Celery Half',
@@ -4358,7 +4382,7 @@ export const retrieveItems: (
               weight: 250,
               color: 'Green',
               price: 2,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Chilli Red',
@@ -4366,7 +4390,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Chilli Green',
@@ -4374,7 +4398,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Chilli Jalapeno',
@@ -4382,7 +4406,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Chilli Habenaro',
@@ -4390,7 +4414,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 0.6,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Asparagus',
@@ -4398,7 +4422,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Corn Sweet 500g',
@@ -4406,7 +4430,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'Yellow',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Eggplant',
@@ -4414,7 +4438,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Purple',
               price: 3.17,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cauliflower Whole',
@@ -4422,7 +4446,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'White',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Cauliflower Half',
@@ -4430,7 +4454,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'White',
               price: 1.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Fennel',
@@ -4438,7 +4462,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 3,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Leek',
@@ -4446,7 +4470,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 4.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Garlic',
@@ -4454,7 +4478,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'White',
               price: 3.3,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Ginger',
@@ -4462,7 +4486,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Brown',
               price: 3.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Zucchini',
@@ -4470,7 +4494,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'Green',
               price: 0.98,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Lettuce Iceberg',
@@ -4486,7 +4510,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'Green',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Spring Onion Bunch',
@@ -4494,7 +4518,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Onions Red',
@@ -4502,7 +4526,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 0.7,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Parsley Bunch',
@@ -4510,7 +4534,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Parsnips',
@@ -4518,7 +4542,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 1.54,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Potatoes White Washed',
@@ -4526,7 +4550,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'White',
               price: 0.81,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Potatoes Red Washed',
@@ -4534,7 +4558,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 0.81,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Potatoes Sweet',
@@ -4542,7 +4566,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Orange',
               price: 0.97,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Spinach Baby 250g',
@@ -4574,7 +4598,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Orange',
               price: 4.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Pumpkin Butternut Cut',
@@ -4582,7 +4606,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Orange',
               price: 4.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Herb Rosemary',
@@ -4590,7 +4614,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Chives',
@@ -4598,7 +4622,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Green Basil',
@@ -4606,7 +4630,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Thyme',
@@ -4614,7 +4638,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Curry Leaves',
@@ -4622,7 +4646,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Lemongrass',
@@ -4630,7 +4654,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Thyme Lemon',
@@ -4638,7 +4662,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Sage',
@@ -4646,7 +4670,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Thai Basil',
@@ -4654,7 +4678,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Coriander',
@@ -4662,7 +4686,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Bay Leaf',
@@ -4670,7 +4694,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Dill',
@@ -4678,7 +4702,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Mint Bunch',
@@ -4686,7 +4710,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Herb Oregano',
@@ -4694,7 +4718,7 @@ export const retrieveItems: (
               weight: 10,
               color: 'Green',
               price: 2.9,
-              type: 'herb',
+              type: 'herbs',
             },
             {
               id: 'Okra',
@@ -4702,7 +4726,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Green',
               price: 2.77,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Onions Shallot',
@@ -4710,7 +4734,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Brown',
               price: 2.13,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Pak Choy',
@@ -4718,7 +4742,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Choy Sum',
@@ -4726,7 +4750,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Choy Sum Baby',
@@ -4734,7 +4758,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Carrots Dutch',
@@ -4742,7 +4766,7 @@ export const retrieveItems: (
               weight: 150,
               color: 'Orange',
               price: 3.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Radish bunch',
@@ -4750,7 +4774,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Red',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Capsicums Green',
@@ -4758,7 +4782,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Rhubarb bunch',
@@ -4766,7 +4790,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Red',
               price: 4,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Lettuce Cos Baby',
@@ -4774,7 +4798,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Silverbeet',
@@ -4782,15 +4806,15 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 4.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Swedes',
-              tag: 'swede vegetable',
+              tag: 'swede vegetables',
               weight: 50,
               color: 'Yellow',
               price: 1.3,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Turnip',
@@ -4798,7 +4822,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Purple',
               price: 1.2,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Snow Peas',
@@ -4806,7 +4830,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Green',
               price: 2.2,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Tomatoes Truss',
@@ -4814,7 +4838,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 1.1,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Tomatoes Cherry',
@@ -4822,7 +4846,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Tomatoes Roma',
@@ -4830,7 +4854,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Red',
               price: 0.7,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Brussel Sprouts',
@@ -4838,7 +4862,7 @@ export const retrieveItems: (
               weight: 50,
               color: 'Green',
               price: 1.3,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Broccoli Chinese',
@@ -4846,7 +4870,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 2.5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Broccoli',
@@ -4854,7 +4878,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Green',
               price: 0.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Sugar Snap Peas',
@@ -4862,7 +4886,7 @@ export const retrieveItems: (
               weight: 250,
               color: 'Green',
               price: 5.9,
-              type: 'vegetable',
+              type: 'vegetables',
             },
           ],
           deli: [
@@ -5015,7 +5039,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Brown',
               price: 3.99,
-              type: 'spread',
+              type: 'spreads',
             },
             {
               id: 'Rolled Oats 1kg',
@@ -5031,7 +5055,7 @@ export const retrieveItems: (
               weight: 300,
               color: 'Yellow',
               price: 2.99,
-              type: 'bag',
+              type: 'bags',
             },
             {
               id: 'Freezer Bags',
@@ -5039,7 +5063,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 1.99,
-              type: 'bag',
+              type: 'bags',
             },
             {
               id: 'Chips',
@@ -5047,7 +5071,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Yellow',
               price: 2,
-              type: 'snack',
+              type: 'snacks',
             },
             {
               id: 'Savoys',
@@ -5055,7 +5079,7 @@ export const retrieveItems: (
               weight: 250,
               color: 'Red',
               price: 2.5,
-              type: 'biscuit',
+              type: 'biscuits',
             },
             {
               id: 'Pasta Shells',
@@ -5063,7 +5087,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'Yellow',
               price: 2.99,
-              type: 'rice and pasta',
+              type: 'rice & Pasta',
             },
             {
               id: 'Pasta Sauce',
@@ -5087,7 +5111,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Yellow',
               price: 3.99,
-              type: 'snack',
+              type: 'snacks',
             },
             {
               id: 'Brown Rice',
@@ -5095,7 +5119,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'Brown',
               price: 2,
-              type: 'rice and pasta',
+              type: 'rice & Pasta',
             },
             {
               id: 'Salt',
@@ -5103,7 +5127,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'White',
               price: 2.99,
-              type: 'condiment',
+              type: 'condiments',
             },
             {
               id: 'Pepper',
@@ -5111,7 +5135,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Black',
               price: 2.99,
-              type: 'condiment',
+              type: 'condiments',
             },
 
             {
@@ -5128,7 +5152,7 @@ export const retrieveItems: (
               weight: 100,
               color: 'Green',
               price: 2.99,
-              type: 'condiment',
+              type: 'condiments',
             },
             {
               id: 'Tuna Can',
@@ -5146,6 +5170,14 @@ export const retrieveItems: (
               price: 3.99,
               type: 'canned',
             },
+            {
+              id: 'Skittles',
+              tag: 'skittles',
+              weight: 250,
+              color: 'Red',
+              price: 4.99,
+              type: 'confectionary',
+            },
           ],
           bathroom: [
             {
@@ -5162,7 +5194,7 @@ export const retrieveItems: (
               weight: 550,
               color: 'Blue',
               price: 9.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Body Wash',
@@ -5170,7 +5202,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Blue',
               price: 8.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Toothpaste',
@@ -5218,7 +5250,7 @@ export const retrieveItems: (
               weight: 550,
               color: 'Blue',
               price: 9.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Hand Soap',
@@ -5226,7 +5258,7 @@ export const retrieveItems: (
               weight: 250,
               color: 'Pink',
               price: 2.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Hand Soap Refill',
@@ -5234,7 +5266,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Pink',
               price: 7.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Hand Sanitizer',
@@ -5242,7 +5274,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 2.99,
-              type: 'soap and shampoo',
+              type: 'soap & Shampoo',
             },
             {
               id: 'Sunscreen',
@@ -5350,7 +5382,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'Yellow',
               price: 5,
-              type: 'vegetable',
+              type: 'vegetables',
             },
             {
               id: 'Hot Bandito Wedges',
@@ -5374,7 +5406,7 @@ export const retrieveItems: (
               weight: 500,
               color: 'Black',
               price: 8.99,
-              type: 'confectionary',
+              type: 'sweet',
             },
           ],
         },

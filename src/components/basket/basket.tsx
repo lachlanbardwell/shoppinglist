@@ -148,7 +148,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
   const filterItems = (typeOfFilter: string) => {
     if (typeOfFilter === 'all') {
       setItems(availableProducts.map((prev: IProduct) => prev.id).sort());
-      setCurrentCategory('All Item');
+      setCurrentCategory('All Items');
       return;
     }
     const matchingItems: IProduct[] = availableProducts.filter(
