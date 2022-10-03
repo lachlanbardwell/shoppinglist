@@ -98,9 +98,12 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     setNewItem('');
   };
 
-  const removeFromBasket = (itemToRemove: string) => {
+  const removeFromBasket = (itemToRemove: string, itemFromStore: string) => {
+    const selection = cartItems.find(
+      (next) => next.id === itemToRemove && next.store === itemFromStore,
+    );
     setCartItems((prevState: IProduct[]) => {
-      return prevState.filter((prevItem) => prevItem.id !== itemToRemove);
+      return prevState.filter((prev) => prev !== selection);
     });
     //remove users selection from db
     setError({ noItem: false, duplicate: false, otherStore: false });
@@ -220,6 +223,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
             error={error}
             setError={setError}
             newItem={newItem}
+            setNewItem={setNewItem}
             addToBasket={addToBasket}
           />
           <BasketOutput

@@ -1,6 +1,6 @@
 export interface IBasketOutput {
   changeQuantity: (item: IProduct, operator: string) => void;
-  removeItem: (itemToRemove: string) => void;
+  removeItem: (itemToRemove: string, itemFromStore: string) => void;
 }
 
 export interface ICartInfo {
@@ -32,6 +32,7 @@ export interface IErrorDisplay {
   error: IErrorStates;
   setError: React.Dispatch<React.SetStateAction<IErrorStates>>;
   newItem: string;
+  setNewItem: React.Dispatch<React.SetStateAction<string>>;
   addToBasket: (nextItem: string) => void;
 }
 

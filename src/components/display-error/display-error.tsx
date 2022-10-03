@@ -38,6 +38,7 @@ export const DisplayError: React.FC<IErrorDisplay> = (props) => {
               className="confirm"
               onClick={() => {
                 props.addToBasket(props.newItem);
+                props.setNewItem('');
                 props.setError({
                   duplicate: false,
                   noItem: false,

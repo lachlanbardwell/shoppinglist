@@ -81,7 +81,9 @@ export const BasketOutput: React.FC<IBasketOutput> = (props) => {
               <Tooltip title="Remove item">
                 <span
                   className="remove-single-item"
-                  onClick={() => props.removeItem(next.id)}
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  onClick={() => props.removeItem(next.id, next.store)}
                 >
                   <CloseIcon className="close" />
                 </span>
