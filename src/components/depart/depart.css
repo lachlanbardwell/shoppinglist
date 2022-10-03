@@ -14,6 +14,7 @@
 .depart-filters-headings > h3:hover {
   cursor: pointer;
   opacity: 0.8;
+  transition: 250ms;
 }
 
 .depart-headings {

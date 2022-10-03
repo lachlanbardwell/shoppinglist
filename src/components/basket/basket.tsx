@@ -131,14 +131,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
     const newCartArray: IProduct[] = [...cartItems];
     const itemIndex = cartItems.findIndex((match) => item.id === match.id);
     newCartArray[itemIndex] = {
-      id: item.id,
-      tag: item.tag,
-      weight: item.weight,
-      color: item.color,
-      price: item.price,
-      perkg: item.perkg,
-      store: item.store,
-      type: item.type,
+      ...item,
       quantity: operator === 'add' ? item.quantity + 1 : item.quantity - 1,
     };
     if (newCartArray.find((match) => match.quantity == 0)) return;
@@ -171,10 +164,10 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       {props.clicked && (
         <>
           <Department
+            categories={categories}
+            filter={filterItems}
             depart={depart}
             setDepart={setDepart}
-            filter={filterItems}
-            categories={categories}
             currentCategory={currentCategory}
           />
           <Autocomplete
@@ -197,12 +190,12 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                 <TextField
                   {...params}
                   disabled={isLoading}
+                  label={isLoading ? 'Loading...' : 'What do you want to buy?'}
                   InputProps={{
                     ...params.InputProps,
                     endAdornment: isLoading ? (
                       <CircularProgress
                         style={{
-                          marginTop: -20,
                           marginRight: -40,
                           color: 'black',
                         }}
@@ -212,8 +205,7 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
                       params.InputProps.endAdornment
                     ),
                   }}
-                  variant="filled"
-                  label={isLoading ? 'Loading...' : 'What do you want to buy?'}
+                  variant="outlined"
                   value={cartItems}
                 ></TextField>
               );
