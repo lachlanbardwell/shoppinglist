@@ -132,7 +132,9 @@ export const AddToBasket = (props: IHeaderCheck): JSX.Element => {
       item.quantity = 0;
     }
     const newCartArray: IProduct[] = [...cartItems];
-    const itemIndex = cartItems.findIndex((match) => item.id === match.id);
+    const itemIndex = cartItems.findIndex(
+      (match) => item.id === match.id && item.store === match.store,
+    );
     newCartArray[itemIndex] = {
       ...item,
       quantity: operator === 'add' ? item.quantity + 1 : item.quantity - 1,

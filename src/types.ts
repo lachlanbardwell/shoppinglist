@@ -35,10 +35,24 @@ export interface IErrorDisplay {
   setNewItem: React.Dispatch<React.SetStateAction<string>>;
   addToBasket: (nextItem: string) => void;
 }
+export interface IFlickrData {
+  itemId: string;
+  tag: string;
+  store: string;
+  serverId: number;
+  id: number;
+  secret: string;
+}
 
 export interface IHeaderCheck {
   clicked: boolean;
   setCheckClicked: (clicked: boolean) => void;
+}
+
+export interface IImageData {
+  id: string;
+  tag: string;
+  store: string;
 }
 export interface IProduct {
   id: string;
@@ -65,12 +79,6 @@ export interface IStoreData {
 
 export interface ITypePrice {
   productPayload: IProduct[];
-}
-export interface IFlickrData {
-  tag: string;
-  serverId: number;
-  id: number;
-  secret: string;
 }
 
 export interface IInfoModal {

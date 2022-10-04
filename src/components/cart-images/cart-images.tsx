@@ -8,6 +8,7 @@ import { CircularProgress, Tooltip } from '@material-ui/core';
 import { itemCostTotal } from '../../transformers/item-cost';
 import { IFlickrData, IProduct } from '../../types';
 import { CartContext } from '../../context/context';
+import { IImageData } from '../../types';
 import './cart-images.css';
 
 const FLICKR_API_KEY = process.env.REACT_APP_FLICKR_API_KEY;
@@ -21,30 +22,42 @@ export const CartImages: React.FC = () => {
     getImages();
   }, []);
 
-  const removeCartItem = (itemToRemove: string) => {
+  const removeCartItem = (itemToRemove: string, itemFromStore: string) => {
+    const selection = cartItems.find(
+      (next) => next.id === itemToRemove && next.store === itemFromStore,
+    );
     setCartItems((prevState: IProduct[]) => {
-      return prevState.filter((prevItem) => prevItem.id !== itemToRemove);
+      return prevState.filter((prevItem) => prevItem !== selection);
     });
+    const imageSelection = imageData.find(
+      (next) => next.itemId === itemToRemove && next.store === itemFromStore,
+    );
     setImageData((prevState: IFlickrData[]) => {
-      return prevState.filter((prevItem) => prevItem.tag !== itemToRemove);
+      return prevState.filter((prevItem) => prevItem !== imageSelection);
     });
   };
 
   let arrayIndex = 0;
-  const imageURLS: string[] = cartItems
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const imageSearchData: IImageData[] = cartItems
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     .sort((a, b) => (a.store > b.store ? 1 : b.store > a.store ? -1 : 0))
-    .map((next) => next.tag);
+    .map((next) => {
+      return { id: next.id, tag: next.tag, store: next.store };
+    });
   const getImages = () => {
     setLoading(true);
-    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${FLICKR_API_KEY}&tags=${imageURLS[arrayIndex]}&format=json&nojsoncallback=1`;
+    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${FLICKR_API_KEY}&tags=${imageSearchData[arrayIndex].tag}&format=json&nojsoncallback=1`;
     axios
       .get(url)
       .then((res) => {
         const photoArray = res.data.photos.photo;
         const newEntry: IFlickrData = {
-          tag: imageURLS[arrayIndex],
+          itemId: imageSearchData[arrayIndex].id,
+          tag: imageSearchData[arrayIndex].tag,
+          store: imageSearchData[arrayIndex].store,
           serverId: photoArray[3].server,
           id: photoArray[3].id,
           secret: photoArray[3].secret,
@@ -59,7 +72,9 @@ export const CartImages: React.FC = () => {
       .catch((e) => {
         console.error(e);
         const newEntry = {
-          tag: imageURLS[arrayIndex],
+          itemId: imageSearchData[arrayIndex].id,
+          tag: imageSearchData[arrayIndex].tag,
+          store: imageSearchData[arrayIndex].store,
           serverId: 0,
           id: 0,
           secret: '',
@@ -96,7 +111,7 @@ export const CartImages: React.FC = () => {
                 <div className="basket-title">
                   <img
                     className="basket-item-image"
-                    src={`https://logo.clearbit.com/${cartItems[index].store}.com.au`}
+                    src={`https://logo.clearbit.com/${data.store}.com.au`}
                   />
                   {cartItems[index].id}
                 </div>
@@ -111,7 +126,14 @@ export const CartImages: React.FC = () => {
                 <Tooltip title="Remove item">
                   <span
                     className="remove-span"
-                    onClick={() => removeCartItem(cartItems[index].id)}
+                    onClick={() =>
+                      removeCartItem(
+                        cartItems[index].id,
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        cartItems[index].store,
+                      )
+                    }
                   >
                     <CloseIcon style={{ color: 'white', fontSize: '30px' }} />
                   </span>
