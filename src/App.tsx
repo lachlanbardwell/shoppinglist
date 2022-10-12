@@ -9,6 +9,7 @@ import { IProduct } from './types';
 import { CartContext } from './context/context';
 import { initialUserState } from './context/initial-state';
 import './App.css';
+import { retrieveStores } from './api/server/api-retrieve';
 
 const App: React.FC = () => {
   // document.cookie = 'sessionId' + '=' + 'value';
@@ -22,6 +23,10 @@ const App: React.FC = () => {
   useEffect(() => {
     sessionStorage.setItem('User State', JSON.stringify(cartItems));
   }, [cartItems]);
+
+  useEffect(() => {
+    retrieveStores();
+  }, []);
 
   const calcTotal = (items: IProduct[]) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

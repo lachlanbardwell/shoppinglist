@@ -15,7 +15,5 @@ export const transformProductResponse: (
     (obj) => obj[storeId],
   )?.[storeId];
 
-  //non-null assertion operator !
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  return storeArray![departID];
+  return (storeArray as unknown as IStoreData)[departID];
 };

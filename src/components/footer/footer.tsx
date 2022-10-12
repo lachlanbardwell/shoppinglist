@@ -34,7 +34,6 @@ export const Footer: React.FC = () => {
             &nbsp;Contact
           </a>
         </span>
-
         <a className="logo" href="https://clearbit.com">
           Logos provided by Clearbit
         </a>

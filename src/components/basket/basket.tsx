@@ -9,11 +9,13 @@ import { IErrorStates, IHeaderCheck, IProduct } from '../../types';
 import { Box, Button, CircularProgress, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import AddIcon from '@material-ui/icons/Add';
-import * as storeApi from '../../api/store-api';
+import { retrieveItems } from '../../api/store-api';
 import * as mockStoreApi from '../../api/mocks/mock-store-api';
 import './basket.css';
 
 const initialStoreState: string[] = ['Woolworths', 'Coles', 'Aldi', 'IGA'];
+
+const storeApi = { retrieveItems };
 
 //Alternate typing of functional component - Using ReactFC means it Must accept a children prop of some kind
 export const AddToBasket = (props: IHeaderCheck): JSX.Element => {

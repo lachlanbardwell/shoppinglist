@@ -1295,7 +1295,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'White',
               price: 6,
-              type: 'yogurt',
+              type: 'yoghurt',
             },
             {
               id: 'Chobani 200g',
@@ -1303,7 +1303,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 2.2,
-              type: 'yogurt',
+              type: 'yoghurt',
             },
             {
               id: 'Chobani Fit',
@@ -1311,7 +1311,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 2.2,
-              type: 'yogurt',
+              type: 'yoghurt',
             },
             {
               id: 'Cottage Cheese',
@@ -3030,7 +3030,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'White',
               price: 6,
-              type: 'yogurt',
+              type: 'yoghurt',
             },
             {
               id: 'Chobani 200g',
@@ -3038,7 +3038,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 2.2,
-              type: 'yogurt',
+              type: 'yoghurt',
             },
             {
               id: 'Chobani Fit',
@@ -3046,7 +3046,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 2.2,
-              type: 'yogurt',
+              type: 'yoghurt',
             },
             {
               id: 'Cottage Cheese',
@@ -3939,7 +3939,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'White',
               price: 6,
-              type: 'yogurt',
+              type: 'yoghurt',
             },
             {
               id: 'Chobani 200g',
@@ -3947,7 +3947,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 2.2,
-              type: 'yogurt',
+              type: 'yoghurt',
             },
             {
               id: 'Chobani Fit',
@@ -3955,7 +3955,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 2.2,
-              type: 'yogurt',
+              type: 'yoghurt',
             },
             {
               id: 'Cottage Cheese',
@@ -5674,7 +5674,7 @@ export const retrieveItems: (
               weight: 1000,
               color: 'White',
               price: 6,
-              type: 'yogurt',
+              type: 'yoghurt',
             },
             {
               id: 'Chobani 200g',
@@ -5682,7 +5682,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 2.2,
-              type: 'yogurt',
+              type: 'yoghurt',
             },
             {
               id: 'Chobani Fit',
@@ -5690,7 +5690,7 @@ export const retrieveItems: (
               weight: 200,
               color: 'White',
               price: 2.2,
-              type: 'yogurt',
+              type: 'yoghurt',
             },
             {
               id: 'Cottage Cheese',
