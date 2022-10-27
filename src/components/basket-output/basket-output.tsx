@@ -22,9 +22,11 @@ export const BasketOutput: React.FC<IBasketOutput> = (props) => {
                   src={`https://logo.clearbit.com/${next.store}.com.au`}
                 />
                 <p className="basket-item-id">{next.id}</p>
-                <p className="basket-item-price">{`$${next.price.toFixed(2)} ${
-                  next.perkg ? 'per kg' : 'ea'
-                }`}</p>
+                <p className="basket-item-price">
+                  <b>{`$${next.price.toFixed(2)} ${
+                    next.perkg ? 'per kg' : 'ea'
+                  }`}</b>
+                </p>
               </span>
               <div className="basket-quantity">
                 <span className="basket-numbers">
@@ -76,7 +78,9 @@ export const BasketOutput: React.FC<IBasketOutput> = (props) => {
                     width: '100%',
                   }}
                 />
-                <p className="item-total">{itemCostTotal(next)}</p>
+                <p className="item-total">
+                  <b>{itemCostTotal(next)}</b>
+                </p>
               </div>
               <Tooltip title="Remove item">
                 <span

@@ -6,7 +6,6 @@ import {
   getDoc,
   getDocs,
 } from 'firebase/firestore';
-// import { IProduct } from '../../types';
 
 export const retrieveStores = async (): Promise<void> => {
   const storeCollection = collection(db, 'stores');
@@ -38,7 +37,7 @@ export const retrieveStores = async (): Promise<void> => {
             const categoryData = categoryDoc.data() as { name: string };
             return { ...product, category: categoryData.name };
           } catch (e) {
-            console.log('errstgrsgvsrg', e);
+            console.error('Could not retrieve data', e);
             return product;
           }
         }),
@@ -47,10 +46,5 @@ export const retrieveStores = async (): Promise<void> => {
       return { ...store, products: productsWithCategory };
     }),
   );
-  console.log('stores', result);
+  console.log('Stores', result);
 };
-
-// export const retrieveItems = async (
-//   storeId: string,
-//   departID: string,
-// ): Promise<IProduct[]> => [];
