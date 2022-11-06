@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
                 href={
                   next === linkedin
                     ? 'https://www.linkedin.com/in/lachlan-bardwell'
-                    : 'https://github.com/KnowsJudo/'
+                    : 'https://github.com/lachlanbardwell/'
                 }
               >
                 <img src={next} alt={`Find us on ${next}`} />
