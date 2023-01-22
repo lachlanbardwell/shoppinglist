@@ -50,7 +50,9 @@ export const TopBar: React.FC = () => {
           }}
         >
           <div style={{ display: 'flex', flexBasis: '0' }}>
-            <h3 style={{ color: '##2b2b2b' }}>Lachieb.dev</h3>
+            <a href="https://lachieb.dev">
+              <h3 style={{ color: '##2b2b2b' }}>Lachieb.dev</h3>
+            </a>
             <IconButton
               id="anchor"
               aria-controls="basic-menu"
@@ -64,19 +66,24 @@ export const TopBar: React.FC = () => {
                 onClose={() => setVisible(false)}
                 style={{ padding: 20 }}
               >
-                <MenuItem>Shopping List</MenuItem>
-                <MenuItem
-                  onClick={() => window.open('https://xando.lachieb.dev')}
+                <a
+                  href="https://shoppinglist.lachieb.dev"
+                  style={{ textDecoration: 'none', color: 'black' }}
                 >
-                  Naughts and Crosses
-                </MenuItem>
-                <MenuItem
-                  onClick={() =>
-                    window.open('https://infinite-depths-41827.herokuapp.com/')
-                  }
+                  <MenuItem>Shopping List</MenuItem>
+                </a>
+                <a
+                  href="https://xando.lachieb.dev"
+                  style={{ textDecoration: 'none', color: 'black' }}
                 >
-                  Kitchen Daydreams
-                </MenuItem>
+                  <MenuItem>Naughts and Crosses</MenuItem>
+                </a>
+                <a
+                  href="https://kitchen.lachieb.dev"
+                  style={{ textDecoration: 'none', color: 'black' }}
+                >
+                  <MenuItem>Kitchen Daydreams</MenuItem>
+                </a>
               </Menu>
               <DoubleArrowIcon />
             </IconButton>
