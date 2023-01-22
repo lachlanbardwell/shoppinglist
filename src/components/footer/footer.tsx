@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
         </ul>
       </nav>
       <div className="footer-contact">
-        <p>&copy; Lachlan Bardwell 2022</p>
+        <p>&copy; Lachlan Bardwell 2023</p>
         <span className="footer-a">
           <MailOutlineIcon />
           <a href="mailto:Lachbardwell@gmail.com?subject=Enquiry from website">
