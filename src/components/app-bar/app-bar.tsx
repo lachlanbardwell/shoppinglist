@@ -51,7 +51,7 @@ export const TopBar: React.FC = () => {
         >
           <div style={{ display: 'flex', flexBasis: '0' }}>
             <a href="https://lachieb.dev">
-              <h3 style={{ color: '##2b2b2b' }}>Lachieb.dev</h3>
+              <h3 style={{ color: '##2b2b2b' }}>LachieB.dev</h3>
             </a>
             <IconButton
               id="anchor"
@@ -88,12 +88,12 @@ export const TopBar: React.FC = () => {
               <DoubleArrowIcon />
             </IconButton>
           </div>
-          <Link to={'/'}>
+          <Link to="/">
             <h3>Shopping List</h3>
           </Link>
           <div className="view-cart">
             <Link
-              to={'/cart'}
+              to="/cart"
               style={{
                 color: 'black',
                 display: 'flex',
